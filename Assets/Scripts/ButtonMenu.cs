@@ -14,6 +14,10 @@ public class ButtonMenu : MonoBehaviour
     {
         SceneManager.LoadScene("SceneMenu");
     }
+    public void OnButtonGameOne()
+    {
+        SceneManager.LoadScene("SceneGameOne");
+    }
     public void ExitButton()
     {
         Application.Quit();
