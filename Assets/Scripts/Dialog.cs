@@ -13,12 +13,16 @@ public class Dialog : MonoBehaviour
     public string[] lines;
     public string[] names;
     public float textSpeed;
+    private bool _isTyping = false;
+    SoundManager soundmanager;
 
     private int index;
     private void Start()
     {
         textComponent.text = string.Empty;
         textNames.text = string.Empty;
+
+        soundmanager = SoundManager.instance;
         StartDialog();
     }
     private void Update()
@@ -34,6 +38,7 @@ public class Dialog : MonoBehaviour
                 StopAllCoroutines();
                 textComponent.text = lines[index];
                 textNames.text = names[index];
+                _isTyping = false;
             }
         }
         if(textComponent.text == lines[index])
@@ -56,6 +61,12 @@ public class Dialog : MonoBehaviour
     {
         textComponent.text = string.Empty;
         textNames.text = string.Empty;
+
+        _isTyping = true;
+
+        soundmanager.dialogueSource.Stop();
+        soundmanager.PlayDialogue(soundmanager.dialogue);
+
         int maxLength = Mathf.Max(names[index].Length, lines[index].Length);
 
         for(int i = 0; i < maxLength; i++) 
@@ -70,17 +81,8 @@ public class Dialog : MonoBehaviour
             }
             yield return new WaitForSeconds(textSpeed);
         }
-        //foreach (char c in names[index].ToCharArray())
-        //{
-        //    textNames.text += c;
-        //    yield return new WaitForSeconds(textSpeed);
-        //}
-        //foreach (char c in lines[index].ToCharArray()) 
-        //{
-        //    textComponent.text += c;
-        //    yield return new WaitForSeconds(textSpeed);
-        //}
-        
+        _isTyping = false;
+        soundmanager.dialogueSource.Stop();
     }
     void NextLine()
     {

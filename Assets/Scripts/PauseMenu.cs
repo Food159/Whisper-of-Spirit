@@ -5,7 +5,7 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject panel;
-    public bool _isMenu;
+    public bool _isPanel;
 
     private PlayerController playercontroller;
     private PlayerShooting playershooting;
@@ -18,8 +18,7 @@ public class PauseMenu : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape)) 
         {
-            Debug.Log("esc");
-            if(_isMenu)
+            if(_isPanel)
             {
                 closePanel();
             }
@@ -28,13 +27,13 @@ public class PauseMenu : MonoBehaviour
                 togglePanel();
             }
         }
-        if(!_isMenu)
+        if(_isPanel)
         {
-            EnablePlayercontrol();
+            DisablePlayercontrol();
         }
         else
         {
-            DisablePlayercontrol();
+            EnablePlayercontrol();
         }
     }
     public void togglePanel()
@@ -42,7 +41,7 @@ public class PauseMenu : MonoBehaviour
         {
             panel.SetActive(true);
             Time.timeScale = 0f;
-            _isMenu = true;
+            _isPanel = true;
         }
     }
     public void closePanel()
@@ -50,7 +49,7 @@ public class PauseMenu : MonoBehaviour
         {
             panel.SetActive(false);
             Time.timeScale = 1f;
-            _isMenu = false;
+            _isPanel = false;
         }
     }
     private void DisablePlayercontrol()

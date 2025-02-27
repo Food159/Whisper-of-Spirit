@@ -1,7 +1,8 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerShooting : MonoBehaviour
 {
@@ -11,9 +12,10 @@ public class PlayerShooting : MonoBehaviour
 
     private bool _isFacingRight = true;
     SoundManager soundmanager;
+    PauseMenu pausemenu;
     private void Awake()
     {
-        soundmanager = GameObject.FindGameObjectWithTag("Audio").GetComponent<SoundManager>();
+        //soundmanager = GameObject.FindGameObjectWithTag("Audio").GetComponent<SoundManager>(); เอาเเพิ่มด้วยยยยยยยยยยยยยยยยย
     }
     void Update()
     {
@@ -27,12 +29,19 @@ public class PlayerShooting : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
-            shooting();
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
+            else
+            {
+                shooting();
+            }
         }
     }
     private void shooting()
     {
-        soundmanager.PlaySfx(soundmanager.Shoot);
+        //soundmanager.PlaySfx(soundmanager.Shoot); เอาเเพิ่มด้วยยยยยยยยยยยยยยยยย
         float rotationZ;
         if (_isFacingRight)
         {
