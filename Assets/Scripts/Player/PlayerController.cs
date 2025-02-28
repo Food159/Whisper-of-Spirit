@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public float playerInputX { get; set; }
     private float jumpForce = 8f;
     public Vector2 jump;
+    public float jumpSpeed;
 
     public bool _isGround = true;
     public bool _isFacingRight = true;
@@ -49,6 +50,10 @@ public class PlayerController : MonoBehaviour
     }
     public void Update()
     {
+        if (!_isGround && Input.GetKey(KeyCode.LeftShift) && Mathf.Abs(playerInputX) > 0.1f)
+        {
+            rb2d.velocity = new Vector2(sprintSpeed * Mathf.Sign(playerInputX), rb2d.velocity.y);
+        }
         Movement();
         JumpInput();
         Sprint();
@@ -57,20 +62,30 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == ("Ground"))
+        if (collision.gameObject.tag == ("Ground") || collision.gameObject.tag == ("Platfrom"))
         {
-            _isGround = true;
-            //soundmanager.PlaySfx(soundmanager.Landing);
+            foreach(ContactPoint2D contact in collision.contacts)
+            {
+                if(contact.normal.y > 0.5f)
+                {
+                    _isGround = true;
+                    //soundmanager.PlaySfx(soundmanager.Landing);
+                    return;
+                }
+            }
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == ("Ground"))
-       {
-           _isGround = false;
-           //soundmanager.PlaySfx(soundmanager.Landing);
-       }
+        if (collision.gameObject.tag == ("Platfrom"))
+        {
+            {
+                _isGround = false;
+                //soundmanager.PlaySfx(soundmanager.Landing);
+            }
+        }
     }
+
     public void Movement()
     {
         playerInputX = Input.GetAxis("Horizontal") * currentSpeed * Time.deltaTime;
@@ -89,9 +104,14 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && _isGround)
         {
             //soundmanager.PlaySfx(soundmanager.Jump); เอาเเพิ่มด้วยยยยยยยยยยยยยยยยย
-            //rb2d.AddForce(jump * jumpForce, ForceMode2D.Impulse);
-            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
+            jumpSpeed = speed;
 
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                jumpSpeed = sprintSpeed;
+            }
+            //rb2d.velocity = new Vector2(rb2d.velocity.x * jumpSpeed, jumpForce);
+            rb2d.velocity = new Vector2(jumpSpeed * Mathf.Sign(playerInputX), jumpForce);
             _isGround = false;
         }
     }

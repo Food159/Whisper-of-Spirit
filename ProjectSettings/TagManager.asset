@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - Bullet
   - Ground
+  - OneWayPlatfrom
+  - Platfrom
   layers:
   - Default
   - TransparentFX

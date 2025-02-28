@@ -7,7 +7,7 @@ public class PlayerJumpState : State
     public AnimationClip jumpclip;
     public AnimationClip floatclip;
     public AnimationClip fallclip;
-    public float jumpSpeed = 8f;
+    //public float jumpSpeed = 8f;
     public override void Enter()
     {
 

@@ -41,17 +41,18 @@ public class PlayerShooting : MonoBehaviour
     }
     private void shooting()
     {
-        //soundmanager.PlaySfx(soundmanager.Shoot); เอาเเพิ่มด้วยยยยยยยยยยยยยยยยย
-        float rotationZ;
-        if (_isFacingRight)
-        {
-            rotationZ = -90f;
-        }
-        else
-        {
-            rotationZ = 90f;
-        }
-        GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position, Quaternion.Euler(0, 0, rotationZ));
+        //soundmanager.PlaySfx(soundmanager.Shoot); เพื่มด้วยยย
+        //float rotationZ;
+        //if (_isFacingRight)
+        //{
+        //    rotationZ = -90f;
+        //}
+        //else
+        //{
+        //    rotationZ = 90f;
+        //}
+        //GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position, Quaternion.Euler(0, 0, rotationZ));
+        GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position, Quaternion.identity);
         Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
         float direction;
         {
