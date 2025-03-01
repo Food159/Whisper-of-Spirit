@@ -9,7 +9,13 @@ public class Bullet : MonoBehaviour
         Debug.Log("Collided with: " + collision.gameObject.name);
         if (collision.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject);
+            EnemyHealth enemyhealth = collision.GetComponent<EnemyHealth>();
+            if (enemyhealth != null)
+            {
+                enemyhealth.TakeDamage(20);
+                //Destroy(collision.gameObject);
+                //
+            }
             Destroy(gameObject);
         }
     }

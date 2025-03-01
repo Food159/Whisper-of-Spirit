@@ -5,10 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class ButtonMenu : MonoBehaviour
 {
+    TawanTitle tawanRun;
 
+    private void Start()
+    {
+        tawanRun = FindObjectOfType<TawanTitle>();
+    }
     public void OnButtonPlay()
     {
-        SceneManager.LoadScene("SceneOne");
+        //SceneManager.LoadScene("SceneOne");
+        tawanRun.StartMoving();
     }
     public void OnButtonMenu()
     {

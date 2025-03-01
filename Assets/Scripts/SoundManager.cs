@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    #region Variable
     [Header("---------Audio Source---------")]
     [SerializeField] AudioSource bgSource;
     [SerializeField] AudioSource SfxSource;
@@ -20,6 +21,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip dialogue;
 
     public static SoundManager instance;
+    #endregion
 
     private void Start()
     {

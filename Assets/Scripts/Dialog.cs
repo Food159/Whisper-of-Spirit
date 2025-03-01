@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Dialog : MonoBehaviour
 {
+    #region Variable
+    [Header("Variable")]
     public TextMeshProUGUI textComponent;
     public TextMeshProUGUI textNames;
     public TextMeshProUGUI textContinue;
@@ -15,6 +17,7 @@ public class Dialog : MonoBehaviour
     public float textSpeed;
     private bool _isTyping = false;
     SoundManager soundmanager;
+    #endregion
 
     private int index;
     private void Start()

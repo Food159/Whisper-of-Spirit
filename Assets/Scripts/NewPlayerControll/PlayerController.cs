@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    #region Variable
+    [Header("FSM")]
     public PlayerIdleState pidleState;
     public PlayerWalkState pwalkState;
     public PlayerRunState prunState;
@@ -13,6 +15,10 @@ public class PlayerController : MonoBehaviour
     public PlayerFaintState pfaintState;
     State state;
 
+    [Header("GameObject")]
+    [SerializeField] GameObject shadow;
+
+    [Header("Variable")]
     public int speed = 2;
     public int sprintSpeed = 5;
     public int currentSpeed = 0;
@@ -20,15 +26,21 @@ public class PlayerController : MonoBehaviour
     private float jumpForce = 8f;
     public Vector2 jump;
     public float jumpSpeed;
-
+    
     public bool _isGround = true;
-    public bool _isFacingRight = true;
+    private bool _isFacingRight = true;
     Rigidbody2D rb2d;
     [SerializeField]SpriteRenderer spriteRenderer;
     public int playerAct;
     public Animator anim;
     SoundManager soundmanager;
 
+    [Header("KnockbackForce")]
+    [SerializeField] float knockbackX;
+    [SerializeField] float knockbackY;
+    #endregion
+
+    #region Code
     public void Start()
     {
         //rb2d = GetComponent<Rigidbody2D>();
@@ -62,13 +74,14 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == ("Ground") || collision.gameObject.tag == ("Platfrom"))
+        if (collision.gameObject.tag == ("Ground") || (collision.gameObject.tag == ("Platfrom")))
         {
-            foreach(ContactPoint2D contact in collision.contacts)
+            foreach (ContactPoint2D contact in collision.contacts)
             {
-                if(contact.normal.y > 0.5f)
+                if (contact.normal.y > 0.5f)
                 {
                     _isGround = true;
+                    shadow.SetActive(true);
                     //soundmanager.PlaySfx(soundmanager.Landing);
                     return;
                 }
@@ -81,7 +94,14 @@ public class PlayerController : MonoBehaviour
         {
             {
                 _isGround = false;
+                shadow.SetActive(false);
                 //soundmanager.PlaySfx(soundmanager.Landing);
+            }
+        }
+        if (collision.gameObject.tag == ("Ground"))
+        {
+            {
+                shadow.SetActive(false);
             }
         }
     }
@@ -126,12 +146,18 @@ public class PlayerController : MonoBehaviour
             currentSpeed = speed;
         }
     }
-    public void Direction(int direction)
+    private void Direction(int direction)
     {
         _isFacingRight = direction > 0;
         Vector2 tranScale = transform.localScale;
         tranScale.x = Mathf.Abs(tranScale.x) * direction;
         transform.localScale = tranScale;
+    }
+    public void knockback(Transform enemy)
+    {
+        Vector2 direction = (transform.position - enemy.position).normalized;
+        rb2d.AddForce(direction * knockbackX, ForceMode2D.Impulse);
+        rb2d.AddForce(Vector2.up * knockbackY, ForceMode2D.Impulse);
     }
     void SelectState()
     {
@@ -165,3 +191,4 @@ public class PlayerController : MonoBehaviour
         
     }
 }
+#endregion
