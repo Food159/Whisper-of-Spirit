@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     public int playerAct;
     public Animator anim;
     SoundManager soundmanager;
+    PlayerHealth status;
 
     [Header("KnockbackForce")]
     [SerializeField] float knockbackX;
@@ -47,6 +48,7 @@ public class PlayerController : MonoBehaviour
         //jump = new Vector2(0f, 2f);
         //currentSpeed = speed;
 
+        Time.timeScale = 1;
         pidleState.Setup(rb2d, anim, this);
         pwalkState.Setup(rb2d, anim, this);
         prunState.Setup(rb2d, anim, this);
@@ -58,6 +60,7 @@ public class PlayerController : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        status = GetComponent<PlayerHealth>();
         //soundmanager = GameObject.FindGameObjectWithTag("Audio").GetComponent<SoundManager>(); เอาเเพิ่มด้วยยยยยยยยยยยยยยยยย
     }
     public void Update()
@@ -66,6 +69,12 @@ public class PlayerController : MonoBehaviour
         {
             rb2d.velocity = new Vector2(sprintSpeed * Mathf.Sign(playerInputX), rb2d.velocity.y);
         }
+        if(status._isPlayerDead)
+        {
+            ChangeToFaint();
+            return;
+        }
+        Check();
         Movement();
         JumpInput();
         Sprint();
@@ -105,7 +114,16 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
+    void ChangeToFaint()
+    {
+        if (state != pfaintState)
+        {
+            state.Exit();
+            state = pfaintState;
+            state.initialise();
+            state.Enter();
+        }
+    }
     public void Movement()
     {
         playerInputX = Input.GetAxis("Horizontal") * currentSpeed * Time.deltaTime;
@@ -148,6 +166,8 @@ public class PlayerController : MonoBehaviour
     }
     private void Direction(int direction)
     {
+        if (status._isPlayerDead)
+            return;
         _isFacingRight = direction > 0;
         Vector2 tranScale = transform.localScale;
         tranScale.x = Mathf.Abs(tranScale.x) * direction;
@@ -155,12 +175,24 @@ public class PlayerController : MonoBehaviour
     }
     public void knockback(Transform enemy)
     {
+        if(status._isPlayerDead) 
+            return;
         Vector2 direction = (transform.position - enemy.position).normalized;
         rb2d.AddForce(direction * knockbackX, ForceMode2D.Impulse);
         rb2d.AddForce(Vector2.up * knockbackY, ForceMode2D.Impulse);
     }
+    void Check()
+    {
+        if (status._isPlayerDead)
+        {
+            state = pfaintState;
+            state.Enter();
+        }
+    }
     void SelectState()
     {
+        if (status._isPlayerDead)
+            return;
         State oldstate = state;
         if (_isGround)
         {

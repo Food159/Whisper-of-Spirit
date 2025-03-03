@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -43,9 +43,14 @@ public class SoundManager : MonoBehaviour
     }
     public void PlayDialogue(AudioClip clip)
     {
+        if (dialogueSource.isPlaying)
+        {
+            dialogueSource.Stop();
+            Debug.Log("Stopped old dialogue before playing new one");
+        }
         dialogueSource.clip = clip;
         dialogueSource.Play();
-        dialogueSource.PlayOneShot(clip);
+        Debug.Log("Now playing: " + clip.name);
     }
     public void PlaySfx(AudioClip clip)
     {

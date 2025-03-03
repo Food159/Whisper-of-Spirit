@@ -5,7 +5,7 @@ using UnityEngine;
 public class LungWalkState : LungState
 {
     public AnimationClip animclip;
-    private float walkspeed = 2f;
+    private float walkspeed = 3.5f;
     public override void Enter()
     {
         anim.Play(animclip.name);

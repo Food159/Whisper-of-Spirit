@@ -52,12 +52,12 @@ public class PauseMenu : MonoBehaviour
             _isPanel = false;
         }
     }
-    private void DisablePlayercontrol()
+    public void DisablePlayercontrol()
     {
         if (playercontroller != null) playercontroller.enabled = false;
         if (playershooting != null) playershooting.enabled = false;
     }
-    private void EnablePlayercontrol()
+    public void EnablePlayercontrol()
     {
         if (playercontroller != null) playercontroller.enabled = true;
         if (playershooting != null) playershooting.enabled = true;

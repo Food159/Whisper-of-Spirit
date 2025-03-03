@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 018bf8a0be42fdb44aeffb1d17250055
+guid: 4bafb5358cfcc4b4a95c53cbdec43145
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Enemy_LUNGangry_Attack_V1_0
+      name: Enemy_LUNGangry_Attack_V1 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9cbe8879e9130b94a9586acc1b74699f
-      internalID: 1512529280
+      spriteID: d6eca76cebee5db4f896eef95ac4f745
+      internalID: -472208687
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy_LUNGangry_Attack_V1_1
+      name: Enemy_LUNGangry_Attack_V1 1_1
       rect:
         serializedVersion: 2
         x: 288
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4833abf9ae3a3cb4494e644bc0e0b233
-      internalID: 234536486
+      spriteID: 27e3f62bfba34e5428f11cb0b436cca5
+      internalID: -451203684
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy_LUNGangry_Attack_V1_2
+      name: Enemy_LUNGangry_Attack_V1 1_2
       rect:
         serializedVersion: 2
         x: 576
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f35322d87955e0a47a0acc711ceac6dc
-      internalID: -1876438378
+      spriteID: 1b25bbe494e330e4689a5aed36a19060
+      internalID: 706314713
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy_LUNGangry_Attack_V1_3
+      name: Enemy_LUNGangry_Attack_V1 1_3
       rect:
         serializedVersion: 2
         x: 864
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17f68386dfba3e145a64f6c3e8e56d16
-      internalID: 1507711535
+      spriteID: bd4579cbc0eecca45aca3500c23f4358
+      internalID: 846045190
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy_LUNGangry_Attack_V1_4
+      name: Enemy_LUNGangry_Attack_V1 1_4
       rect:
         serializedVersion: 2
         x: 1152
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42aa7255da1e2024fb7057441d8d3d7a
-      internalID: 231502979
+      spriteID: d8619a653549f8245b4f4527a0be73a5
+      internalID: -1302138159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy_LUNGangry_Attack_V1_5
+      name: Enemy_LUNGangry_Attack_V1 1_5
       rect:
         serializedVersion: 2
         x: 1440
@@ -242,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb02954ad6c93ba40aab43bd07841b17
-      internalID: -953490861
+      spriteID: 46d711459c8613d4ba3c3c48b9c836fa
+      internalID: -1163058063
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy_LUNGangry_Attack_V1_6
+      name: Enemy_LUNGangry_Attack_V1 1_6
       rect:
         serializedVersion: 2
         x: 1728
@@ -263,8 +263,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49e75435696b7894bb75caf34563e5b0
-      internalID: 1165161161
+      spriteID: 8b334bf8f7acaee42afec719ae5ba456
+      internalID: -1150186385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_LUNGangry_Attack_V1 1_7
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 0
+        width: 288
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8871c758fda5f94fa4798a4ecc171cd
+      internalID: -798745423
       vertices: []
       indices: 
       edges: []
@@ -280,13 +301,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Enemy_LUNGangry_Attack_V1_0: 1512529280
-      Enemy_LUNGangry_Attack_V1_1: 234536486
-      Enemy_LUNGangry_Attack_V1_2: -1876438378
-      Enemy_LUNGangry_Attack_V1_3: 1507711535
-      Enemy_LUNGangry_Attack_V1_4: 231502979
-      Enemy_LUNGangry_Attack_V1_5: -953490861
-      Enemy_LUNGangry_Attack_V1_6: 1165161161
+      Enemy_LUNGangry_Attack_V1 1_0: -472208687
+      Enemy_LUNGangry_Attack_V1 1_1: -451203684
+      Enemy_LUNGangry_Attack_V1 1_2: 706314713
+      Enemy_LUNGangry_Attack_V1 1_3: 846045190
+      Enemy_LUNGangry_Attack_V1 1_4: -1302138159
+      Enemy_LUNGangry_Attack_V1 1_5: -1163058063
+      Enemy_LUNGangry_Attack_V1 1_6: -1150186385
+      Enemy_LUNGangry_Attack_V1 1_7: -798745423
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

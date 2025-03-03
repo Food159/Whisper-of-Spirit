@@ -9,7 +9,7 @@ public class EnemyHealth : MonoBehaviour
     public int currentHealth;
     public bool _isDead;
     public HealthBar healthbar;
-    public Transform healthbarpos;
+    //public Transform healthbarpos;
     private void Start()
     {
         currentHealth = maxHealth;
@@ -17,10 +17,9 @@ public class EnemyHealth : MonoBehaviour
     }
     private void Update()
     {
-        healthbar.transform.position = healthbarpos.position;
-        //if(Input.GetKeyDown(KeyCode.H))
+        //if (healthbar != null && healthbarpos != null)
         //{
-        //    TakeDamage(30);
+        //    healthbar.transform.position = healthbarpos.position;
         //}
     }
     public void TakeDamage(int damage)
