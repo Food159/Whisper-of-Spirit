@@ -13,10 +13,6 @@ public class PlayerRunState : State
     {
 
     }
-    public override void FixedDo()
-    {
-
-    }
     public override void Exit()
     {
 

@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class WinCheck : MonoBehaviour
 {
-    [SerializeField] GameObject winpanel;
-    [SerializeField] GameObject losepanel;
+    public bool wintestCheck = false;
+    [SerializeField] public GameObject winpanel;
+    [SerializeField] public GameObject losepanel;
     PauseMenu pauseMenu;
     private void Awake()
     {
@@ -32,20 +33,13 @@ public class WinCheck : MonoBehaviour
             Win();
         }
     }
-    void Win()
+    public void Win()
     {
         if(winpanel != null) 
         {
             winpanel.SetActive(true);
         }
+        wintestCheck = true;
         Time.timeScale = 0f;
-        if(pauseMenu != null)
-        {
-            //pauseMenu.DisablePlayercontrol();
-        }
-        else
-        {
-            Debug.Log("NoPause menu");
-        }
     }
 }

@@ -20,10 +20,6 @@ public abstract class LungState : MonoBehaviour
     {
 
     }
-    public virtual void FixedDo()
-    {
-
-    }
     public virtual void Exit()
     {
 

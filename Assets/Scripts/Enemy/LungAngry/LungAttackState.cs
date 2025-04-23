@@ -68,10 +68,6 @@ public class LungAttackState : LungState
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(attackpoint.position, attackrange);
     }
-    public override void FixedDo()
-    {
-
-    }
     public override void Exit()
     {
 

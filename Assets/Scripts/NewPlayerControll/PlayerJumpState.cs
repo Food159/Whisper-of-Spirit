@@ -7,7 +7,6 @@ public class PlayerJumpState : State
     public AnimationClip jumpclip;
     public AnimationClip floatclip;
     public AnimationClip fallclip;
-    //public float jumpSpeed = 8f;
     public override void Enter()
     {
 
@@ -30,10 +29,6 @@ public class PlayerJumpState : State
         {
             isComplete = true;
         }
-    }
-    public override void FixedDo()
-    {
-
     }
     public override void Exit()
     {

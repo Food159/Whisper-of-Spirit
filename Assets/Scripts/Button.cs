@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Button : MonoBehaviour
 {
+    WinCheck wincheck;
+    private void Start()
+    {
+        wincheck = GetComponent<WinCheck>();
+    }
     public void OnButtonRestart()
     {
         Time.timeScale = 1;
@@ -12,7 +17,11 @@ public class Button : MonoBehaviour
     }
     public void OnButtonMenu()
     {
-        Time.timeScale = 1;
         SceneManager.LoadScene("SceneMenu");
+        //wincheck.wintestCheck = false;
+        Time.timeScale = 1;
+        wincheck.winpanel.SetActive(false);
+        wincheck.wintestCheck = false;
+        Time.timeScale = 1;
     }
 }

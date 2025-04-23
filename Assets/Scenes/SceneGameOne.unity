@@ -4585,6 +4585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b881d47978314297116a3e82aa4f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wintestCheck: 0
   winpanel: {fileID: 826570767}
   losepanel: {fileID: 150527732}
 --- !u!1 &494689130
@@ -5360,10 +5361,9 @@ MonoBehaviour:
   speed: 2
   sprintSpeed: 5
   currentSpeed: 3
-  jump: {x: 0, y: 1}
   jumpSpeed: 0
-  _isGround: 1
   spriteRenderer: {fileID: 555515631}
+  _isGround: 1
   playerAct: 0
   anim: {fileID: 555515633}
   knockbackX: 0
@@ -5455,7 +5455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6aa11b55b724be4d9abc3b854163bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxWater: 5
+  maxWater: 100
   currentWater: 0
   waterbar: {fileID: 2057603086}
 --- !u!1 &556807993

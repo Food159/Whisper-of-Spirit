@@ -24,13 +24,13 @@ public class PlayerController : MonoBehaviour
     public int currentSpeed = 0;
     public float playerInputX { get; set; }
     private float jumpForce = 8f;
-    public Vector2 jump;
+    //public Vector2 jump;
     public float jumpSpeed;
-    
+
+    [SerializeField] SpriteRenderer spriteRenderer;
     public bool _isGround = true;
     private bool _isFacingRight = true;
     Rigidbody2D rb2d;
-    [SerializeField]SpriteRenderer spriteRenderer;
     public int playerAct;
     public Animator anim;
     SoundManager soundmanager;
@@ -44,10 +44,6 @@ public class PlayerController : MonoBehaviour
     #region Code
     public void Start()
     {
-        //rb2d = GetComponent<Rigidbody2D>();
-        //jump = new Vector2(0f, 2f);
-        //currentSpeed = speed;
-
         Time.timeScale = 1;
         pidleState.Setup(rb2d, anim, this);
         pwalkState.Setup(rb2d, anim, this);
@@ -148,8 +144,8 @@ public class PlayerController : MonoBehaviour
             {
                 jumpSpeed = sprintSpeed;
             }
-            //rb2d.velocity = new Vector2(rb2d.velocity.x * jumpSpeed, jumpForce);
-            rb2d.velocity = new Vector2(jumpSpeed * Mathf.Sign(playerInputX), jumpForce);
+            rb2d.velocity = new Vector2(rb2d.velocity.x * jumpSpeed, jumpForce);
+            //rb2d.velocity = new Vector2(jumpSpeed * Mathf.Sign(playerInputX), jumpForce);
             _isGround = false;
         }
     }
@@ -220,7 +216,6 @@ public class PlayerController : MonoBehaviour
             state.initialise();
             state.Enter();
         }
-        
     }
 }
 #endregion

@@ -14,10 +14,6 @@ public class PlayerFaintState : State
         rb2d.constraints = RigidbodyConstraints2D.FreezePosition;
         anim.Play(animclip.name, 0, 1f);
     }
-    public override void FixedDo()
-    {
-
-    }
     public override void Exit()
     {
 

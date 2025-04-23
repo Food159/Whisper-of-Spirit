@@ -16,10 +16,6 @@ public class PlayerWalkState : State
             isComplete = true;
         }
     }
-    public override void FixedDo()
-    {
-
-    }
     public override void Exit()
     {
 

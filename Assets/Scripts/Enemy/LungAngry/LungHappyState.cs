@@ -21,10 +21,6 @@ public class LungHappyState : LungState
         hpbar.SetActive(false);
         guman.SetActive(false);
     }
-    public override void FixedDo()
-    {
-
-    }
     public override void Exit()
     {
 
