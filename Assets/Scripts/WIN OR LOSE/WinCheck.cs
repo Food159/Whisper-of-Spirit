@@ -7,10 +7,18 @@ public class WinCheck : MonoBehaviour
     public bool wintestCheck = false;
     [SerializeField] public GameObject winpanel;
     [SerializeField] public GameObject losepanel;
+    private PlayerController playercontroller;
+    private PlayerShooting playershooting;
     PauseMenu pauseMenu;
     private void Awake()
     {
         pauseMenu = FindObjectOfType<PauseMenu>();
+        playercontroller = FindObjectOfType<PlayerController>();
+        playershooting = FindObjectOfType<PlayerShooting>();
+    }
+    private void Start()
+    {
+        EnablePlayercontrol();
     }
     private void Update()
     {
@@ -40,6 +48,17 @@ public class WinCheck : MonoBehaviour
             winpanel.SetActive(true);
         }
         wintestCheck = true;
-        Time.timeScale = 0f;
+        DisablePlayercontrol();
+        playercontroller.CanMove();
+    }
+    public void DisablePlayercontrol()
+    {
+        if (playercontroller != null) playercontroller.enabled = false;
+        if (playershooting != null) playershooting.enabled = false;
+    }
+    public void EnablePlayercontrol()
+    {
+        if (playercontroller != null) playercontroller.enabled = true;
+        if (playershooting != null) playershooting.enabled = true;
     }
 }

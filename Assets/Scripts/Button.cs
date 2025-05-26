@@ -20,8 +20,5 @@ public class Button : MonoBehaviour
         SceneManager.LoadScene("SceneMenu");
         //wincheck.wintestCheck = false;
         Time.timeScale = 1;
-        wincheck.winpanel.SetActive(false);
-        wincheck.wintestCheck = false;
-        Time.timeScale = 1;
     }
 }

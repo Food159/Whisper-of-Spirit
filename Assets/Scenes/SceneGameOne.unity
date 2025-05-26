@@ -5361,8 +5361,10 @@ MonoBehaviour:
   speed: 2
   sprintSpeed: 5
   currentSpeed: 3
+  jump: {x: 0, y: 2}
   jumpSpeed: 0
   spriteRenderer: {fileID: 555515631}
+  _CanMove: 1
   _isGround: 1
   playerAct: 0
   anim: {fileID: 555515633}
@@ -5455,7 +5457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6aa11b55b724be4d9abc3b854163bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxWater: 100
+  maxWater: 5
   currentWater: 0
   waterbar: {fileID: 2057603086}
 --- !u!1 &556807993

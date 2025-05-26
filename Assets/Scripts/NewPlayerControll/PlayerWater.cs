@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerWater : MonoBehaviour
+public class PlayerWater : Subject
 {
     public int maxWater = 5;
     public int currentWater;

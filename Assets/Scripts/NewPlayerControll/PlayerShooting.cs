@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PlayerShooting : MonoBehaviour
+public class PlayerShooting : Subject
 {
     public Transform shootingPoint;
     public GameObject bulletPrefab;
@@ -46,6 +46,7 @@ public class PlayerShooting : MonoBehaviour
             }
             else
             {
+                //NotifyObservers(PlayerAction.Attack);
                 shooting();
             }
         }
@@ -93,6 +94,17 @@ public class PlayerShooting : MonoBehaviour
             Destroy(bullet, 2f);
         }
 
+    }
+    public void OnNotify(PlayerAction action)
+    {
+        switch (action)
+        {
+            case (PlayerAction.Attack):
+                shooting();
+                return;
+            default:
+                return;
+        }
     }
 
 }

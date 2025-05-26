@@ -4,7 +4,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Subject, IOserver
 {
     #region Variable
     [Header("FSM")]
@@ -22,12 +22,14 @@ public class PlayerController : MonoBehaviour
     public int speed = 2;
     public int sprintSpeed = 5;
     public int currentSpeed = 0;
+    public Vector2 jump = new Vector2(0, 2);
     public float playerInputX { get; set; }
-    private float jumpForce = 8f;
+    private int jumpForce = 8;
     //public Vector2 jump;
-    public float jumpSpeed;
+    public int jumpSpeed;
 
     [SerializeField] SpriteRenderer spriteRenderer;
+    public bool _CanMove = true;
     public bool _isGround = true;
     private bool _isFacingRight = true;
     Rigidbody2D rb2d;
@@ -61,6 +63,8 @@ public class PlayerController : MonoBehaviour
     }
     public void Update()
     {
+        if (_CanMove == false)
+            return;
         if (!_isGround && Input.GetKey(KeyCode.LeftShift) && Mathf.Abs(playerInputX) > 0.1f)
         {
             rb2d.velocity = new Vector2(sprintSpeed * Mathf.Sign(playerInputX), rb2d.velocity.y);
@@ -110,6 +114,13 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    public void CanMove()
+    {
+        _CanMove = false;
+        state = pidleState;
+        state.Enter();
+
+    }    
     void ChangeToFaint()
     {
         if (state != pfaintState)
@@ -139,13 +150,15 @@ public class PlayerController : MonoBehaviour
         {
             //soundmanager.PlaySfx(soundmanager.Jump); เอาเเพิ่มด้วยยยยยยยยยยยยยยยยย
             jumpSpeed = speed;
-
-            if (Input.GetKey(KeyCode.LeftShift))
+            if(Input.GetKey(KeyCode.LeftShift))
             {
                 jumpSpeed = sprintSpeed;
             }
-            rb2d.velocity = new Vector2(rb2d.velocity.x * jumpSpeed, jumpForce);
-            //rb2d.velocity = new Vector2(jumpSpeed * Mathf.Sign(playerInputX), jumpForce);
+
+            //rb2d.velocity = new Vector2(rb2d.velocity.x * jumpSpeed, jumpForce);
+            rb2d.velocity = new Vector2(jumpSpeed * playerInputX, jumpForce);
+            //rb2d.AddForce(new Vector2(jumpSpeed * playerInputX, jumpForce), ForceMode2D.Impulse);
+            //rb2d.AddForce(jump * jumpForce * Time.deltaTime, ForceMode2D.Impulse);
             _isGround = false;
         }
     }
@@ -154,10 +167,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && _isGround)
         {
             currentSpeed = sprintSpeed;
+            jumpSpeed = sprintSpeed;
         }
         else
         {
             currentSpeed = speed;
+            //jumpSpeed = speed;
         }
     }
     private void Direction(int direction)
@@ -215,6 +230,15 @@ public class PlayerController : MonoBehaviour
             oldstate.Exit();
             state.initialise();
             state.Enter();
+        }
+    }
+    public void OnNotify(PlayerAction action)
+    {
+        switch (action) 
+        {
+            case (PlayerAction.Pause):
+                return;
+
         }
     }
 }

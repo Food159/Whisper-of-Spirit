@@ -9,6 +9,10 @@ public class TawanTitle : MonoBehaviour
     public float moveSpeed = 5f;
     private bool _isMoving = false;
     public ButtonMenu bttnscript;
+    private void Awake()
+    {
+        Time.timeScale = 1f;
+    }
     private void Update()
     {
         if(_isMoving)
