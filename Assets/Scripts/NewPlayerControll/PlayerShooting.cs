@@ -6,8 +6,10 @@ using UnityEngine.EventSystems;
 
 public class PlayerShooting : Subject
 {
+    public ObjectPool bulletpool;
+
     public Transform shootingPoint;
-    public GameObject bulletPrefab;
+    //public GameObject bulletPrefab;
     private float bulletSpeed = 10f;
     public int waterammo;
 
@@ -69,7 +71,11 @@ public class PlayerShooting : Subject
         if(playerwater.currentWater > 0)
         {
             playerwater.shoot(1);
-            GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position, Quaternion.identity);
+            GameObject bullet = bulletpool.GetObject();
+            if(bullet != null ) 
+            {
+                bullet.transform.position = shootingPoint.position;
+            }
             Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
 
             float direction;
@@ -91,7 +97,6 @@ public class PlayerShooting : Subject
             {
                 bulletRb.velocity = new Vector2(direction * bulletSpeed, 0f);
             }
-            Destroy(bullet, 2f);
         }
 
     }
@@ -101,10 +106,14 @@ public class PlayerShooting : Subject
         {
             case (PlayerAction.Attack):
                 shooting();
+                Debug.Log("Shoot Observer");
                 return;
             default:
                 return;
         }
     }
-
+    private void OnEnable()
+    {
+        
+    }
 }
