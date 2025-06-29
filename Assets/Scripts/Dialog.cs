@@ -31,6 +31,7 @@ public class Dialog : MonoBehaviour
     public string[] names;
     public float textSpeed;
     public bool _isTyping = false;
+    private bool _isChoice1Finished = false;
     SoundManager soundmanager;
     #endregion
 
@@ -70,11 +71,11 @@ public class Dialog : MonoBehaviour
             //textContinue.gameObject.SetActive(false);
             imageContinue.gameObject.SetActive(false);
         }
-        while (index == 14)
+        if(index == 14 && !_isChoice1Finished)
         {
             _isChoice = true;
             Choice_1.SetActive(true);
-            break;
+            _isChoice1Finished = true;
         }
     }
 
