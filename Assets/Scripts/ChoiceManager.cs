@@ -26,6 +26,7 @@ public class ChoiceManager : MonoBehaviour
     }
     public void OnButtonYes() 
     {
-        SceneManager.LoadScene("SceneGameOne");
+        //SceneManager.LoadScene("SceneGameOne");
+        SceneController.instance.NextLevel();
     }
 }

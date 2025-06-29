@@ -131,10 +131,6 @@ public class Dialog : MonoBehaviour
             }
 
         }
-        else
-        {
-            SceneManager.LoadScene("SceneGameOne");
-        }
     }
     void UpdateName()
     {
