@@ -20,18 +20,15 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collided with: " + collision.gameObject.name);
         if (collision.CompareTag("Enemy"))
         {
+            Debug.Log("Collided with: " + collision.gameObject.name);
             EnemyHealth enemyhealth = collision.GetComponent<EnemyHealth>();
             if (enemyhealth != null)
             {
                 enemyhealth.TakeDamage(20);
-                //Destroy(collision.gameObject);
-                //
             }
             gameObject.SetActive(false);
-            //Destroy(gameObject);
         }
     }
 }

@@ -14,11 +14,17 @@ public class Dialog : MonoBehaviour
     public TextMeshProUGUI textNames;
     public TextMeshProUGUI textContinue;
     public Image imageContinue;
+    public bool _isChoice = false;
 
     [Header("Image")]
     public GameObject oldBG;
     public GameObject newBG;
     public GameObject daraIMG;
+
+    [Header("Choice")]
+    public GameObject Choice_1;
+    public GameObject Choice_2;
+    public GameObject Choice_3;
 
     [TextArea(3,10)]
     public string[] lines;
@@ -33,6 +39,7 @@ public class Dialog : MonoBehaviour
     {
         textComponent.text = string.Empty;
         textNames.text = string.Empty;
+        _isChoice = false;
 
         soundmanager = SoundManager.instance;
         StartDialog();
@@ -41,7 +48,7 @@ public class Dialog : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if(textComponent.text == lines[index] && textNames.text == names[index]) 
+            if(textComponent.text == lines[index] && textNames.text == names[index] && _isChoice == false) 
             {
                 NextLine();
             }
@@ -62,6 +69,12 @@ public class Dialog : MonoBehaviour
         {
             //textContinue.gameObject.SetActive(false);
             imageContinue.gameObject.SetActive(false);
+        }
+        while (index == 14)
+        {
+            _isChoice = true;
+            Choice_1.SetActive(true);
+            break;
         }
     }
 
@@ -115,6 +128,7 @@ public class Dialog : MonoBehaviour
             {
                 daraIMG.SetActive(true);
             }
+
         }
         else
         {
