@@ -50,6 +50,7 @@ public class PlayerHealth : Subject
     }
     IEnumerator LoseAfterDelay()
     {
+        SoundManager.instance.PlaySfx(SoundManager.instance.loseClip);
         yield return new WaitForSeconds(3f);
         Losepanel.SetActive(true);
     }

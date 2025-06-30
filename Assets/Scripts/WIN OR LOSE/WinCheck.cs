@@ -66,7 +66,8 @@ public class WinCheck : MonoBehaviour
     }
     public void Win()
     {
-        if(winpanel != null) 
+        //SoundManager.instance.PlaySfx(SoundManager.instance.winClip);
+        if (winpanel != null) 
         {
             winpanel.SetActive(true);
         }

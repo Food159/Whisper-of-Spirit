@@ -1036,14 +1036,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgSource: {fileID: 964792924}
   SfxSource: {fileID: 1202783361}
-  bgClip: {fileID: 8300000, guid: c4adac20a73533046b90b7b6a27b9b10, type: 3}
-  Death: {fileID: 0}
-  Shoot: {fileID: 8300000, guid: 2876c94d6e467fa4dbebf151fe7ee8c1, type: 3}
-  Jump: {fileID: 8300000, guid: 7ac701e3c3c44cc45bd0529bf2764277, type: 3}
-  Run: {fileID: 0}
-  Walk: {fileID: 8300000, guid: 5161192ffe57ac740a0e7b906b9690e7, type: 3}
-  Landing: {fileID: 8300000, guid: 99b64f625d0dc424d88c2f354d30ffe7, type: 3}
-  dialogue: {fileID: 8300000, guid: 080192b74ffccd544bbc7d44c0d098ea, type: 3}
+  bgClip: {fileID: 8300000, guid: 8732e7b7e3e79e94bbafdc83cfeefc75, type: 3}
+  choiceSelectedClip: {fileID: 8300000, guid: 7f251efcfba3b5943b9a078348e6eec3, type: 3}
+  dialogClip: {fileID: 8300000, guid: 594a15418baa9a84dab05356eeb5c2e8, type: 3}
+  loseClip: {fileID: 8300000, guid: 8addc96560ada5046ae2103c1965745e, type: 3}
+  winClip: {fileID: 8300000, guid: 0457a6b907965c94e8cf5899ca051517, type: 3}
+  enemyPurifyClip: {fileID: 8300000, guid: 4aa198491a77f8a4695caeb5d066b282, type: 3}
+  tawanWalkClip: {fileID: 8300000, guid: 04e0ef16b57d2fa48a844347f0b299aa, type: 3}
+  tawanRunClip: {fileID: 8300000, guid: 37163a57dc9c71c4d94591b390f86514, type: 3}
+  tawanJumpClip: {fileID: 8300000, guid: 401fce2b726a7ba41bd5300f5ec36ab9, type: 3}
+  tawanShootWaterClip: {fileID: 8300000, guid: d28bde77b03567f49b8e23b9c5e37e39, type: 3}
+  lungAttackClip: {fileID: 8300000, guid: a398f12c0049753498325cd457fe2580, type: 3}
+  lungHit: {fileID: 8300000, guid: c66a76b5169d3b54da7210e35a7d735c, type: 3}
 --- !u!4 &389196104
 Transform:
   m_ObjectHideFlags: 0

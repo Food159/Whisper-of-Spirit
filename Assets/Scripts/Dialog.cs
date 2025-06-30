@@ -38,6 +38,7 @@ public class Dialog : MonoBehaviour
     private int index;
     private void Start()
     {
+        SoundManager.instance.PlaySfx(SoundManager.instance.dialogClip);
         textComponent.text = string.Empty;
         textNames.text = string.Empty;
         _isChoice = false;
@@ -114,6 +115,7 @@ public class Dialog : MonoBehaviour
     }
     void NextLine()
     {
+        SoundManager.instance.PlaySfx(SoundManager.instance.dialogClip);
         if(index < lines.Length - 1)
         {
             index++;

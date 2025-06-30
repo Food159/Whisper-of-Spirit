@@ -6,19 +6,29 @@ public class SoundManager : MonoBehaviour
 {
     #region Variable
     [Header("---------Audio Source---------")]
-    [SerializeField] AudioSource bgSource;
-    [SerializeField] AudioSource SfxSource;
+    [SerializeField] public AudioSource bgSource;
+    [SerializeField] public AudioSource SfxSource;
     //[SerializeField] public AudioSource dialogueSource;
 
     [Header("---------Audio Clip---------")]
-    public AudioClip bgClip;
-    public AudioClip Death;
-    public AudioClip Shoot;
-    public AudioClip Jump;
-    public AudioClip Run;
-    public AudioClip Walk;
-    public AudioClip Landing;
-    public AudioClip dialogue;
+    [Header("---------Audio Clip Game---------")]
+    [SerializeField] public AudioClip bgClip;
+
+    [SerializeField] public AudioClip choiceSelectedClip;
+    [SerializeField] public AudioClip dialogClip;
+    [SerializeField] public AudioClip loseClip;
+    [SerializeField] public AudioClip winClip;
+    [SerializeField] public AudioClip enemyPurifyClip;
+
+    [Header("---------Audio Clip Tawan---------")]
+    [SerializeField] public AudioClip tawanWalkClip;
+    [SerializeField] public AudioClip tawanRunClip;
+    [SerializeField] public AudioClip tawanJumpClip;
+    [SerializeField] public AudioClip tawanShootWaterClip;
+
+    [Header("---------Audio Clip Lung---------")]
+    [SerializeField] public AudioClip lungAttackClip;
+    [SerializeField] public AudioClip lungHit;
 
     public static SoundManager instance;
     #endregion

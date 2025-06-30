@@ -104,7 +104,6 @@ public class PlayerController : Subject, IOserver
             {
                 _isGround = false;
                 shadow.SetActive(false);
-                //soundmanager.PlaySfx(soundmanager.Landing);
             }
         }
         if (collision.gameObject.tag == ("Ground"))
@@ -133,6 +132,7 @@ public class PlayerController : Subject, IOserver
     }
     public void Movement()
     {
+        SoundManager.instance.PlaySfx(SoundManager.instance.tawanWalkClip);
         playerInputX = Input.GetAxis("Horizontal") * currentSpeed * Time.deltaTime;
         transform.Translate(playerInputX, 0, 0);
         if (playerInputX > 0f)
@@ -148,7 +148,7 @@ public class PlayerController : Subject, IOserver
     {
         if (Input.GetButtonDown("Jump") && _isGround)
         {
-            //soundmanager.PlaySfx(soundmanager.Jump); เอาเเพิ่มด้วยยยยยยยยยยยยยยยยย
+            SoundManager.instance.PlaySfx(SoundManager.instance.tawanJumpClip);
             jumpSpeed = speed;
             if(Input.GetKey(KeyCode.LeftShift))
             {
@@ -166,6 +166,7 @@ public class PlayerController : Subject, IOserver
     {
         if (Input.GetKey(KeyCode.LeftShift) && _isGround)
         {
+            SoundManager.instance.PlaySfx(SoundManager.instance.tawanRunClip);
             currentSpeed = sprintSpeed;
             jumpSpeed = sprintSpeed;
         }

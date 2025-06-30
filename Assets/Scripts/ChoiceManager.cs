@@ -8,7 +8,8 @@ public class ChoiceManager : MonoBehaviour
     public Dialog dialog;
     public void OnButtonNo()
     {
-        if(dialog.Choice_1.activeSelf)
+        SoundManager.instance.PlaySfx(SoundManager.instance.choiceSelectedClip);
+        if (dialog.Choice_1.activeSelf)
         {
             dialog.Choice_1.SetActive(false);
             dialog.Choice_2.SetActive(true);
@@ -21,13 +22,12 @@ public class ChoiceManager : MonoBehaviour
         else
         {
             dialog.Choice_3.SetActive(false);
-            //SceneManager.LoadScene("SceneMenu");
             SceneController.instance.LoadSceneName("SceneMenu");
         }
     }
     public void OnButtonYes() 
     {
-        //SceneManager.LoadScene("SceneGameOne");
+        SoundManager.instance.PlaySfx(SoundManager.instance.choiceSelectedClip);
         SceneController.instance.LoadSceneName("SceneGameOne");
     }
 }

@@ -17,7 +17,7 @@ public class Button : MonoBehaviour
     }
     public void OnButtonMenu()
     {
-        SceneManager.LoadScene("SceneMenu");
+        SceneController.instance.LoadSceneName("SceneMenu");
         //wincheck.wintestCheck = false;
         Time.timeScale = 1;
     }

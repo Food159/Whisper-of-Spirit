@@ -62,7 +62,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void OnButtonMenu()
     {
-        SceneManager.LoadScene("SceneMenu");
+        SceneController.instance.LoadSceneName("SceneMenu");
         Time.timeScale = 1;
     }
     public void DisablePlayercontrol()
