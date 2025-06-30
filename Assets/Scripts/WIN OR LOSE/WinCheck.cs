@@ -7,9 +7,14 @@ public class WinCheck : MonoBehaviour
     public bool wintestCheck = false;
     [SerializeField] public GameObject winpanel;
     [SerializeField] public GameObject losepanel;
+
     private PlayerController playercontroller;
     private PlayerShooting playershooting;
     PauseMenu pauseMenu;
+
+    private EnemyHealth[] allEnemies;
+    public int TotalEnemies => allEnemies.Length;
+    public int DeadEnemiesCount { get; private set; }
     private void Awake()
     {
         pauseMenu = FindObjectOfType<PauseMenu>();
@@ -18,28 +23,46 @@ public class WinCheck : MonoBehaviour
     }
     private void Start()
     {
+        allEnemies = FindObjectsOfType<EnemyHealth>();
         EnablePlayercontrol();
     }
     private void Update()
     {
         CheckWin();
+        UpdateDeadEnemies();
+    }
+    void UpdateDeadEnemies()
+    {
+        int count = 0;
+        foreach(EnemyHealth enemy in allEnemies) 
+        {
+            if(enemy._isDead)
+            {
+                count++;
+            }
+        }
+        DeadEnemiesCount = count;
     }
     void CheckWin()
     {
-        EnemyHealth[] enemies = FindObjectsOfType<EnemyHealth>();
-        bool allDead = true;
-        foreach(EnemyHealth enemy in enemies) 
-        {
-            if(!enemy._isDead)
-            {
-                allDead = false;
-                break;
-            }
-        }
-        if(allDead)
+        if(DeadEnemiesCount >= TotalEnemies)
         {
             Win();
         }
+        //EnemyHealth[] enemies = FindObjectsOfType<EnemyHealth>();
+        //bool allDead = true;
+        //foreach(EnemyHealth enemy in enemies) 
+        //{
+        //    if(!enemy._isDead)
+        //    {
+        //        allDead = false;
+        //        break;
+        //    }
+        //}
+        //if(allDead)
+        //{
+        //    Win();
+        //}
     }
     public void Win()
     {
