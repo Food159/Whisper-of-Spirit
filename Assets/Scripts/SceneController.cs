@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,16 +20,16 @@ public class SceneController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void NextLevel()
+    public void LoadSceneName(string sceneName)
     {
-        StartCoroutine(LoadLevel());
+        StartCoroutine(LoadLevel(sceneName));
     }
-    IEnumerator LoadLevel()
+    IEnumerator LoadLevel(string sceneName)
     {
         scentransition.SetActive(true);
         transitionanim.SetTrigger("Start");
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(sceneName); // ใช้ SceneController.instance.LoadSceneByName("sceneName"); เพื่อ loadscene ที่ต้องการ
         transitionanim.SetTrigger("End");
         yield return new WaitForSeconds(1);
         scentransition.SetActive(false);

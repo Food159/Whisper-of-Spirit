@@ -21,12 +21,13 @@ public class ChoiceManager : MonoBehaviour
         else
         {
             dialog.Choice_3.SetActive(false);
-            SceneManager.LoadScene("SceneMenu");
+            //SceneManager.LoadScene("SceneMenu");
+            SceneController.instance.LoadSceneName("SceneMenu");
         }
     }
     public void OnButtonYes() 
     {
         //SceneManager.LoadScene("SceneGameOne");
-        SceneController.instance.NextLevel();
+        SceneController.instance.LoadSceneName("SceneGameOne");
     }
 }
