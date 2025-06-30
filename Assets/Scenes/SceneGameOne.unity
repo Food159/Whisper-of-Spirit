@@ -1253,7 +1253,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &156340527
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1316,7 +1316,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 156340529}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1902828037}
+        m_TargetAssemblyTypeName: VideoController, Assembly-CSharp
+        m_MethodName: OnButtonClose
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &156340529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3090,6 +3102,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1902828036}
+  - {fileID: 1464366360}
   - {fileID: 156340527}
   - {fileID: 1641853207}
   - {fileID: 165644005}
@@ -13123,11 +13136,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1902828036}
+  m_Father: {fileID: 309611688}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 258}
+  m_AnchoredPosition: {x: 0, y: 277}
   m_SizeDelta: {x: 384, y: 96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1464366361
@@ -16924,7 +16937,6 @@ RectTransform:
   m_Children:
   - {fileID: 789474069}
   - {fileID: 1076239796}
-  - {fileID: 1464366360}
   m_Father: {fileID: 309611688}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -16944,12 +16956,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5350833cc1ade2d4d9d05fdf2f5174aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutorialPanel: {fileID: 1308540286}
+  closeButton: {fileID: 156340526}
   videoPlayer: {fileID: 1076239795}
   videoFiles:
   - tut_walk.mp4
   - tut_jump.mp4
   - tut_shoot.mp4
   - tut_beware.mp4
+  tutorialImage: {fileID: 1464366361}
+  controllSprite: {fileID: 21300000, guid: 78a31f300db5d364bb120c46e58e8a1c, type: 3}
+  combatSprite: {fileID: 21300000, guid: 496e8d23dc9963f48b45092e1a9cb23c, type: 3}
+  indicator1: {fileID: 1832832460}
+  indicator2: {fileID: 1250513131}
+  indicator3: {fileID: 738164652}
+  indicator4: {fileID: 2109286364}
+  indicatorSelected: {fileID: 21300000, guid: f85a3961b3070e44cbdc6115d82aa768, type: 3}
+  indicatorNotSelected: {fileID: 21300000, guid: 2ec62ae66ae59304885edcf43f02b786, type: 3}
 --- !u!1 &1913516584
 GameObject:
   m_ObjectHideFlags: 0
