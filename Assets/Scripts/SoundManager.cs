@@ -8,7 +8,7 @@ public class SoundManager : MonoBehaviour
     [Header("---------Audio Source---------")]
     [SerializeField] AudioSource bgSource;
     [SerializeField] AudioSource SfxSource;
-    [SerializeField] public AudioSource dialogueSource;
+    //[SerializeField] public AudioSource dialogueSource;
 
     [Header("---------Audio Clip---------")]
     public AudioClip bgClip;
@@ -41,21 +41,8 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void PlayDialogue(AudioClip clip)
-    {
-        if (dialogueSource.isPlaying)
-        {
-            dialogueSource.Stop();
-            Debug.Log("Stopped old dialogue before playing new one");
-        }
-        dialogueSource.clip = clip;
-        dialogueSource.Play();
-        Debug.Log("Now playing: " + clip.name);
-    }
     public void PlaySfx(AudioClip clip)
     {
-        //SfxSource.clip = clip;
-        //SfxSource.Play();
         SfxSource.PlayOneShot(clip);
     }
 }
