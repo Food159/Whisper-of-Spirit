@@ -24,8 +24,7 @@ public class VideoController : MonoBehaviour
     private int videoIndex = 0;
     private void Start()
     {
-        //Time.timeScale = 0;
-        PlayCurrentVideo(videoIndex);
+        StartCoroutine(WaitAfterTransition());
     }
     public void OnButtonNext()
     {
@@ -101,5 +100,12 @@ public class VideoController : MonoBehaviour
         {
             closeButton.SetActive(true);
         }
+    }
+    IEnumerator WaitAfterTransition()
+    {
+        yield return new WaitForSeconds(1);
+        tutorialPanel.SetActive(true);
+        Time.timeScale = 0;
+        PlayCurrentVideo(videoIndex);
     }
 }
