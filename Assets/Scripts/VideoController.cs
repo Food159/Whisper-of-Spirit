@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
+using TMPro;
 
 public class VideoController : MonoBehaviour
 {
@@ -22,6 +23,9 @@ public class VideoController : MonoBehaviour
     [SerializeField] Sprite indicatorSelected;
     [SerializeField] Sprite indicatorNotSelected;
     private int videoIndex = 0;
+    
+    [SerializeField] TMP_Text textTutorial;
+    public string[] text;
     private void Start()
     {
         StartCoroutine(WaitAfterTransition());
@@ -66,6 +70,7 @@ public class VideoController : MonoBehaviour
         }
         if(index == 0)
         {
+            textTutorial.text = text[0];
             indicator1.sprite = indicatorSelected;
         }
         else
@@ -74,6 +79,7 @@ public class VideoController : MonoBehaviour
         }
         if (index == 1)
         {
+            textTutorial.text = text[1];
             indicator2.sprite = indicatorSelected;
         }
         else
@@ -82,6 +88,7 @@ public class VideoController : MonoBehaviour
         }
         if (index == 2)
         {
+            textTutorial.text = text[2];
             indicator3.sprite = indicatorSelected;
         }
         else
@@ -90,6 +97,7 @@ public class VideoController : MonoBehaviour
         }
         if (index == 3)
         {
+            textTutorial.text = text[3];
             indicator4.sprite = indicatorSelected;
         }
         else
