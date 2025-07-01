@@ -20,6 +20,7 @@ public class VideoController : MonoBehaviour
     [SerializeField] Image indicator2;
     [SerializeField] Image indicator3;
     [SerializeField] Image indicator4;
+    [SerializeField] Image indicator5;
     [SerializeField] Sprite indicatorSelected;
     [SerializeField] Sprite indicatorNotSelected;
     private int videoIndex = 0;
@@ -59,7 +60,7 @@ public class VideoController : MonoBehaviour
     {
         if(tutorialImage != null)
         {
-            if(index >= 2)
+            if(index >= 3)
             {
                 tutorialImage.sprite = combatSprite;
             }
@@ -104,7 +105,16 @@ public class VideoController : MonoBehaviour
         {
             indicator4.sprite = indicatorNotSelected;
         }
-        if(index >= 3)
+        if (index == 4)
+        {
+            textTutorial.text = text[4];
+            indicator5.sprite = indicatorSelected;
+        }
+        else
+        {
+            indicator5.sprite = indicatorNotSelected;
+        }
+        if (index >= 4)
         {
             closeButton.SetActive(true);
         }

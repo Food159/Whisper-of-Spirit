@@ -12,12 +12,20 @@ public class ChoiceManager : MonoBehaviour
         if (dialog.Choice_1.activeSelf)
         {
             dialog.Choice_1.SetActive(false);
-            dialog.Choice_2.SetActive(true);
+            dialog._isChoice = false;
+            dialog._isChoiceFinished = false;
+
+            dialog.NextLine();
+            dialog._showNextChoice = true;
         }
         else if(dialog.Choice_2.activeSelf) 
         {
             dialog.Choice_2.SetActive(false);
-            dialog.Choice_3.SetActive(true);
+            dialog._isChoice = false;
+            dialog._isChoiceFinished = false;
+
+            dialog.NextLine();
+            dialog._showNextChoice = true;
         }
         else
         {

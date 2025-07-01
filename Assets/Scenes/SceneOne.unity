@@ -2207,6 +2207,8 @@ MonoBehaviour:
   - "There\u2019s no time to explain! I\u2019ll tell you everything later, but right
     now, follow my lead!"
   - So..... what do you do
+  - "Huh!? You\u2019re really not gonna help?!"
+  - "You\u2019re so mean! Please, help me! Pleeease!"
   names:
   - 
   - Tawan
@@ -2222,7 +2224,9 @@ MonoBehaviour:
   - Dara
   - 
   - Dara
-  - Tawan
+  - 
+  - Dara
+  - Dara
   textSpeed: 0.05
   _isTyping: 0
 --- !u!1 &1696081130

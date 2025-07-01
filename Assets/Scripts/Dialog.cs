@@ -31,7 +31,8 @@ public class Dialog : MonoBehaviour
     public string[] names;
     public float textSpeed;
     public bool _isTyping = false;
-    private bool _isChoice1Finished = false;
+    public bool _isChoiceFinished = false;
+    public bool _showNextChoice = false;
     SoundManager soundmanager;
     #endregion
 
@@ -52,7 +53,26 @@ public class Dialog : MonoBehaviour
         {
             if(textComponent.text == lines[index] && textNames.text == names[index] && _isChoice == false) 
             {
-                NextLine();
+                if (_showNextChoice)
+                {
+                    if (index == 15)
+                    {
+                        _isChoice = true;
+                        Choice_2.SetActive(true);
+                        _isChoiceFinished = true;
+                    }
+                    else if (index == 16)
+                    {
+                        _isChoice = true;
+                        Choice_3.SetActive(true);
+                        _isChoiceFinished = true;
+                    }
+                    _showNextChoice = false;
+                }
+                else
+                {
+                    NextLine();
+                }
             }
             else
             {
@@ -72,11 +92,11 @@ public class Dialog : MonoBehaviour
             //textContinue.gameObject.SetActive(false);
             imageContinue.gameObject.SetActive(false);
         }
-        if(index == 14 && !_isChoice1Finished)
+        if(index == 14 && !_isChoiceFinished)
         {
             _isChoice = true;
             Choice_1.SetActive(true);
-            _isChoice1Finished = true;
+            _isChoiceFinished = true;
         }
     }
 
@@ -113,7 +133,7 @@ public class Dialog : MonoBehaviour
         _isTyping = false;
         //soundmanager.dialogueSource.Stop();
     }
-    void NextLine()
+    public void NextLine()
     {
         SoundManager.instance.PlaySfx(SoundManager.instance.dialogClip);
         if(index < lines.Length - 1)

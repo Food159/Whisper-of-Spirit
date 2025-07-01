@@ -13,19 +13,31 @@ public class ButtonMenu : MonoBehaviour
     }
     public void OnButtonPlay()
     {
-        //SceneManager.LoadScene("SceneOne");
+        SoundManager.instance.PlaySfx(SoundManager.instance.choiceSelectedClip);
         tawanRun.StartMoving();
+    }
+    public void OnButtonContinue()
+    {
+        SoundManager.instance.PlaySfx(SoundManager.instance.choiceSelectedClip);
+        SceneController.instance.LoadSceneName("SceneGameOne");
     }
     public void OnButtonMenu()
     {
+        SoundManager.instance.PlaySfx(SoundManager.instance.choiceSelectedClip);
         SceneManager.LoadScene("SceneMenu");
     }
     public void OnButtonGameOne()
     {
+        SoundManager.instance.PlaySfx(SoundManager.instance.choiceSelectedClip);
         SceneManager.LoadScene("SceneGameOne");
+    }
+    public void OnButtonA()
+    {
+        SoundManager.instance.PlaySfx(SoundManager.instance.choiceSelectedClip);
     }
     public void ExitButton()
     {
+        SoundManager.instance.PlaySfx(SoundManager.instance.choiceSelectedClip);
         Application.Quit();
         print("Quit");
     }

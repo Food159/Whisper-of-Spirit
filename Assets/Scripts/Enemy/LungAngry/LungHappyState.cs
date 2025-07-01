@@ -19,7 +19,7 @@ public class LungHappyState : LungState
         {
             GameObject prefab = Instantiate(purifyPrefab);
             prefab.transform.position = this.transform.position;
-            Destroy(prefab, 0.5f);
+            Destroy(prefab, 1f);
             _isPurify = true;
         }
         anim.Play(animclip.name);
