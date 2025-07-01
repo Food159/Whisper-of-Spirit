@@ -67,9 +67,9 @@ public class PlayerShooting : Subject
     }
     private void shooting()
     {
-        SoundManager.instance.PlaySfx(SoundManager.instance.tawanShootWaterClip);
         if (playerwater.currentWater > 0)
         {
+            SoundManager.instance.PlaySfx(SoundManager.instance.tawanShootWaterClip);
             playerwater.shoot(1);
             GameObject bullet = bulletpool.GetObject();
             if(bullet != null ) 

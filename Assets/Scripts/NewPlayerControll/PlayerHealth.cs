@@ -8,6 +8,7 @@ public class PlayerHealth : Subject
     public int maxHealth = 100;
     public int currentHealth;
     public bool _isPlayerDead = false;
+    public bool _hasLoseStart = false;
     public HealthBar healthbar;
     [SerializeField] GameObject Losepanel;
 
@@ -30,9 +31,10 @@ public class PlayerHealth : Subject
     }
     private void Update()
     {
-        if (_isPlayerDead)
+        if (_isPlayerDead && !_hasLoseStart)
         {
             StartCoroutine(LoseAfterDelay());
+            _hasLoseStart = true;
         }
     }
     public void TakeDamage(int damage)
@@ -50,8 +52,8 @@ public class PlayerHealth : Subject
     }
     IEnumerator LoseAfterDelay()
     {
-        SoundManager.instance.PlaySfx(SoundManager.instance.loseClip);
         yield return new WaitForSeconds(3f);
+        SoundManager.instance.PlaySfx(SoundManager.instance.loseClip);
         Losepanel.SetActive(true);
     }
     void UpdateSprite()

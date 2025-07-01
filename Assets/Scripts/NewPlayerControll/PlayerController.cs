@@ -25,8 +25,9 @@ public class PlayerController : Subject, IOserver
     public Vector2 jump = new Vector2(0, 2);
     public float playerInputX { get; set; }
     private int jumpForce = 8;
-    //public Vector2 jump;
     public int jumpSpeed;
+    private bool _isWalkSfxPlaying = false;
+    private bool _isRunSfxPlaying = false;
 
     [SerializeField] SpriteRenderer spriteRenderer;
     public bool _CanMove = true;
@@ -59,7 +60,6 @@ public class PlayerController : Subject, IOserver
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         status = GetComponent<PlayerHealth>();
-        //soundmanager = GameObject.FindGameObjectWithTag("Audio").GetComponent<SoundManager>(); เอาเเพิ่มด้วยยยยยยยยยยยยยยยยย
     }
     public void Update()
     {
@@ -132,9 +132,20 @@ public class PlayerController : Subject, IOserver
     }
     public void Movement()
     {
-        SoundManager.instance.PlaySfx(SoundManager.instance.tawanWalkClip);
         playerInputX = Input.GetAxis("Horizontal") * currentSpeed * Time.deltaTime;
         transform.Translate(playerInputX, 0, 0);
+
+        bool _isWalking = Mathf.Abs(playerInputX) > 0.01f && _isGround;
+        //if(_isWalking && !_isWalkSfxPlaying && !Input.GetKey(KeyCode.LeftShift)) // เสียงเดิน
+        //{
+        //    SoundManager.instance.PlaySfx(SoundManager.instance.tawanWalkClip);
+        //    Debug.Log("WalkSound");
+        //    _isWalkSfxPlaying = true;
+        //}
+        if(_isWalking || Input.GetKey(KeyCode.LeftShift))
+        {
+            _isWalkSfxPlaying = false;
+        }
         if (playerInputX > 0f)
         {
             Direction(1);
@@ -155,18 +166,25 @@ public class PlayerController : Subject, IOserver
                 jumpSpeed = sprintSpeed;
             }
 
-            //rb2d.velocity = new Vector2(rb2d.velocity.x * jumpSpeed, jumpForce);
             rb2d.velocity = new Vector2(jumpSpeed * playerInputX, jumpForce);
-            //rb2d.AddForce(new Vector2(jumpSpeed * playerInputX, jumpForce), ForceMode2D.Impulse);
-            //rb2d.AddForce(jump * jumpForce * Time.deltaTime, ForceMode2D.Impulse);
             _isGround = false;
         }
     }
     private void Sprint()
     {
-        if (Input.GetKey(KeyCode.LeftShift) && _isGround)
+        bool _isRunning = Input.GetKey(KeyCode.LeftShift) && _isGround;
+        //if(_isRunning && !_isRunSfxPlaying) // เสียงวิ่ง
+        //{
+        //    SoundManager.instance.PlaySfx(SoundManager.instance.tawanRunClip);
+        //    Debug.Log("RunSound");
+        //    _isRunSfxPlaying = true;
+        //}
+        if(!_isRunning)
         {
-            SoundManager.instance.PlaySfx(SoundManager.instance.tawanRunClip);
+            _isRunSfxPlaying = false;
+        }
+        if (_isRunning)
+        {
             currentSpeed = sprintSpeed;
             jumpSpeed = sprintSpeed;
         }

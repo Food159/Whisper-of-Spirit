@@ -28,6 +28,7 @@ public class EnemyHealth : MonoBehaviour
             return;
 
         currentHealth -= damage;
+        SoundManager.instance.PlaySfx(SoundManager.instance.lungHit);
         healthbar.SetHealth(currentHealth);
         if(currentHealth <= 0)
         {

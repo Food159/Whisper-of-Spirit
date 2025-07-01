@@ -45,28 +45,15 @@ public class WinCheck : MonoBehaviour
     }
     void CheckWin()
     {
-        if(DeadEnemiesCount >= TotalEnemies)
+        if(!wintestCheck && DeadEnemiesCount >= TotalEnemies)
         {
             Win();
         }
-        //EnemyHealth[] enemies = FindObjectsOfType<EnemyHealth>();
-        //bool allDead = true;
-        //foreach(EnemyHealth enemy in enemies) 
-        //{
-        //    if(!enemy._isDead)
-        //    {
-        //        allDead = false;
-        //        break;
-        //    }
-        //}
-        //if(allDead)
-        //{
-        //    Win();
-        //}
     }
     public void Win()
     {
-        //SoundManager.instance.PlaySfx(SoundManager.instance.winClip);
+        wintestCheck = true;
+        SoundManager.instance.PlaySfx(SoundManager.instance.winClip);
         if (winpanel != null) 
         {
             winpanel.SetActive(true);
