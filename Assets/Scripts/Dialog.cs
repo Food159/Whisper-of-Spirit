@@ -19,7 +19,9 @@ public class Dialog : MonoBehaviour
     [Header("Image")]
     public GameObject oldBG;
     public GameObject newBG;
-    public GameObject daraIMG;
+    public GameObject daraIMG1;
+    public GameObject daraIMG2;
+    public GameObject daraIMG3;
 
     [Header("Choice")]
     public GameObject Choice_1;
@@ -60,6 +62,8 @@ public class Dialog : MonoBehaviour
                         _isChoice = true;
                         Choice_2.SetActive(true);
                         _isChoiceFinished = true;
+                        daraIMG2.SetActive(false);
+                        daraIMG3.SetActive(true);
                     }
                     else if (index == 16)
                     {
@@ -97,6 +101,8 @@ public class Dialog : MonoBehaviour
             _isChoice = true;
             Choice_1.SetActive(true);
             _isChoiceFinished = true;
+            daraIMG1.SetActive(false);
+            daraIMG2.SetActive(true);
         }
     }
 
@@ -147,9 +153,9 @@ public class Dialog : MonoBehaviour
                 if(oldBG != null) oldBG.SetActive(false);
                 if (newBG!= null) newBG.SetActive(true);
             }
-            if(index == 8 && daraIMG != null)
+            if(index == 8 && daraIMG1 != null)
             {
-                daraIMG.SetActive(true);
+                daraIMG1.SetActive(true);
             }
 
         }
