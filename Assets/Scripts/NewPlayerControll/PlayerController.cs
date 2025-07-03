@@ -28,6 +28,7 @@ public class PlayerController : Subject, IOserver
     public int jumpSpeed;
     private bool _isWalkSfxPlaying = false;
     private bool _isRunSfxPlaying = false;
+    private int groundContacts = 0;
 
     [SerializeField] SpriteRenderer spriteRenderer;
     public bool _CanMove = true;
@@ -83,32 +84,22 @@ public class PlayerController : Subject, IOserver
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == ("Ground") || (collision.gameObject.tag == ("Platfrom")))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platfrom"))
         {
-            foreach (ContactPoint2D contact in collision.contacts)
-            {
-                if (contact.normal.y > 0.5f)
-                {
-                    _isGround = true;
-                    shadow.SetActive(true);
-                    //soundmanager.PlaySfx(soundmanager.Landing);
-                    return;
-                }
-            }
+            groundContacts++;
+            _isGround = true;
+            shadow.SetActive(true);
         }
     }
+
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == ("Platfrom"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platfrom"))
         {
+            groundContacts--;
+            if (groundContacts <= 0)
             {
                 _isGround = false;
-                shadow.SetActive(false);
-            }
-        }
-        if (collision.gameObject.tag == ("Ground"))
-        {
-            {
                 shadow.SetActive(false);
             }
         }
@@ -132,16 +123,10 @@ public class PlayerController : Subject, IOserver
     }
     public void Movement()
     {
-        playerInputX = Input.GetAxis("Horizontal") * currentSpeed * Time.deltaTime;
+        playerInputX = Input.GetAxisRaw("Horizontal") * currentSpeed * Time.deltaTime;
         transform.Translate(playerInputX, 0, 0);
 
         bool _isWalking = Mathf.Abs(playerInputX) > 0.01f && _isGround;
-        //if(_isWalking && !_isWalkSfxPlaying && !Input.GetKey(KeyCode.LeftShift)) // เสียงเดิน
-        //{
-        //    SoundManager.instance.PlaySfx(SoundManager.instance.tawanWalkClip);
-        //    Debug.Log("WalkSound");
-        //    _isWalkSfxPlaying = true;
-        //}
         if(_isWalking || Input.GetKey(KeyCode.LeftShift))
         {
             _isWalkSfxPlaying = false;
@@ -166,19 +151,14 @@ public class PlayerController : Subject, IOserver
                 jumpSpeed = sprintSpeed;
             }
 
-            rb2d.velocity = new Vector2(jumpSpeed * playerInputX, jumpForce);
+            //rb2d.velocity = new Vector2(jumpSpeed * playerInputX, jumpForce);
+            rb2d.AddForce(Vector2.up *jumpForce, ForceMode2D.Impulse);
             _isGround = false;
         }
     }
     private void Sprint()
     {
         bool _isRunning = Input.GetKey(KeyCode.LeftShift) && _isGround;
-        //if(_isRunning && !_isRunSfxPlaying) // เสียงวิ่ง
-        //{
-        //    SoundManager.instance.PlaySfx(SoundManager.instance.tawanRunClip);
-        //    Debug.Log("RunSound");
-        //    _isRunSfxPlaying = true;
-        //}
         if(!_isRunning)
         {
             _isRunSfxPlaying = false;
