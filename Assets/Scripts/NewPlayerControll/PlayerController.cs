@@ -21,7 +21,7 @@ public class PlayerController : Subject, IOserver
     [Header("Variable")]
     public int speed = 2;
     public int sprintSpeed = 5;
-    public int currentSpeed = 0;
+    public float currentSpeed = 0;
     public Vector2 jump = new Vector2(0, 2);
     public float playerInputX { get; set; }
     private int jumpForce = 8;
@@ -29,6 +29,7 @@ public class PlayerController : Subject, IOserver
     private bool _isWalkSfxPlaying = false;
     private bool _isRunSfxPlaying = false;
     private int groundContacts = 0;
+    public bool _isWalking;
 
     [SerializeField] SpriteRenderer spriteRenderer;
     public bool _CanMove = true;
@@ -66,10 +67,6 @@ public class PlayerController : Subject, IOserver
     {
         if (_CanMove == false)
             return;
-        if (!_isGround && Input.GetKey(KeyCode.LeftShift) && Mathf.Abs(playerInputX) > 0.1f)
-        {
-            rb2d.velocity = new Vector2(sprintSpeed * Mathf.Sign(playerInputX), rb2d.velocity.y);
-        }
         if(status._isPlayerDead)
         {
             ChangeToFaint();
@@ -123,14 +120,18 @@ public class PlayerController : Subject, IOserver
     }
     public void Movement()
     {
-        playerInputX = Input.GetAxisRaw("Horizontal") * currentSpeed * Time.deltaTime;
-        transform.Translate(playerInputX, 0, 0);
+        playerInputX = Input.GetAxisRaw("Horizontal");
 
-        bool _isWalking = Mathf.Abs(playerInputX) > 0.01f && _isGround;
-        if(_isWalking || Input.GetKey(KeyCode.LeftShift))
+        Vector2 currentVelocity = rb2d.velocity;
+        float targetHorizontalSpeed = playerInputX * currentSpeed;
+        rb2d.velocity = new Vector2(targetHorizontalSpeed, currentVelocity.y);
+
+        _isWalking = Mathf.Abs(playerInputX) > 0.01f && _isGround;
+        if (_isWalking || Input.GetKey(KeyCode.LeftShift))
         {
             _isWalkSfxPlaying = false;
         }
+
         if (playerInputX > 0f)
         {
             Direction(1);
@@ -142,36 +143,43 @@ public class PlayerController : Subject, IOserver
     }
     public void JumpInput()
     {
-        if (Input.GetButtonDown("Jump") && _isGround)
         {
-            SoundManager.instance.PlaySfx(SoundManager.instance.tawanJumpClip);
-            jumpSpeed = speed;
-            if(Input.GetKey(KeyCode.LeftShift))
+            if (Input.GetButtonDown("Jump") && _isGround)
             {
-                jumpSpeed = sprintSpeed;
-            }
+                SoundManager.instance.PlaySfx(SoundManager.instance.tawanJumpClip);
+                rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+                float horizontalJumpForce = playerInputX * speed;
 
-            //rb2d.velocity = new Vector2(jumpSpeed * playerInputX, jumpForce);
-            rb2d.AddForce(Vector2.up *jumpForce, ForceMode2D.Impulse);
-            _isGround = false;
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    horizontalJumpForce = playerInputX * sprintSpeed;
+                }
+                Vector2 finalJumpForce = new Vector2(horizontalJumpForce, jumpForce);
+                rb2d.AddForce(finalJumpForce, ForceMode2D.Impulse);
+
+                _isGround = false;
+            }
         }
     }
     private void Sprint()
     {
-        bool _isRunning = Input.GetKey(KeyCode.LeftShift) && _isGround;
-        if(!_isRunning)
+        bool _isRunning = Input.GetKey(KeyCode.LeftShift);
+
+        if (!_isRunning)
         {
             _isRunSfxPlaying = false;
         }
         if (_isRunning)
         {
             currentSpeed = sprintSpeed;
-            jumpSpeed = sprintSpeed;
         }
         else
         {
             currentSpeed = speed;
-            //jumpSpeed = speed;
+        }
+        if (!_isGround && _isRunning)
+        {
+            currentSpeed = 3.5f;
         }
     }
     private void Direction(int direction)
@@ -223,7 +231,6 @@ public class PlayerController : Subject, IOserver
         {
             state = pjumpState;
         }
-
         if (oldstate != state || oldstate.isComplete) 
         {
             oldstate.Exit();
