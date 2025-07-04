@@ -22,7 +22,7 @@ public class TawanTitle : MonoBehaviour
             if(transform.position.x == targetpos.x)
             {
                 //bttnscript.OnButtonPlay();
-                SceneManager.LoadScene("SceneOne");
+                SceneManager.LoadScene("SceneDialogueOne");
                 _isMoving = false;
             }
         }
