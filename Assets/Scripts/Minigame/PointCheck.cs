@@ -20,6 +20,7 @@ public class PointCheck : MonoBehaviour
 
     private bool rotating = false;
     private float currentAngle;
+    private float direction = 1f;
     private List<RectTransform> activeGreenZone = new List<RectTransform>();
     private void Start()
     {
@@ -30,13 +31,17 @@ public class PointCheck : MonoBehaviour
         if (!rotating)
             return;
 
-        float angleDiff = Mathf.DeltaAngle(minAngle, maxAngle);
-        float direction = Mathf.Sign(angleDiff);
         currentAngle += direction * moveSpeed * Time.deltaTime;
 
-        if((direction > 0 && currentAngle > maxAngle) || (direction < 0 && currentAngle < maxAngle))
+        if(currentAngle >= maxAngle)
+        {
+            currentAngle = maxAngle;
+            direction = -1f;
+        }
+        else if(currentAngle <= minAngle)
         {
             currentAngle = minAngle;
+            direction = 1f;
         }
         pointer.transform.eulerAngles = new Vector3(0, 0, currentAngle);
 
@@ -49,6 +54,7 @@ public class PointCheck : MonoBehaviour
     {
         rotating = true;
         currentAngle = minAngle;
+        direction = 1f;
         pointer.transform.eulerAngles = new Vector3(0, 0, minAngle);
         gameObject.SetActive(true);
 
@@ -57,20 +63,17 @@ public class PointCheck : MonoBehaviour
             Destroy(zone.gameObject);
         }
         activeGreenZone.Clear();
-        for (int i = 0; i < greenZoneCount; i++)
-        {
-            float randomAngle = Random.Range(minAngle, maxAngle);
-            RectTransform randomPrefab = greenZonePrefabs[Random.Range(0, greenZonePrefabs.Count)];
-            RectTransform newZone = Instantiate(randomPrefab, greenZoneParent);
-            newZone.localEulerAngles = new Vector3(greenZoneWidth, newZone.sizeDelta.y);
-            activeGreenZone.Add(newZone);
-        }
+
+        RectTransform randomPrefab = greenZonePrefabs[Random.Range(0, greenZonePrefabs.Count)];
+        RectTransform newZone = Instantiate(randomPrefab, greenZoneParent);
+
+        activeGreenZone.Add(newZone);
     }
     void CheckResult()
     {
         rotating = false;
 
-        float angle = pointer.localEulerAngles.z;
+        float angle = pointer.eulerAngles.z;
         if (angle > 180f)
         {
             angle -= 360f;
@@ -79,7 +82,7 @@ public class PointCheck : MonoBehaviour
         bool success = false;
         foreach (var zone in activeGreenZone)
         {
-            float zoneAngle = zone.localEulerAngles.z;
+            float zoneAngle = zone.eulerAngles.z;
 
             if (zoneAngle > 180f)
             {
@@ -103,6 +106,7 @@ public class PointCheck : MonoBehaviour
         {
             Debug.Log("Fail");
         }
+
         gameObject.SetActive(false);
     }
 }
