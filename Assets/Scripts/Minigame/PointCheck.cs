@@ -8,6 +8,7 @@ public class PointCheck : MonoBehaviour
     public RectTransform pointer;
     public List<RectTransform> greenZonesInScene;
     private RectTransform currentGreenZone;
+    [SerializeField] GameObject checkPanel;
 
     [Header("Config")]
     public float moveSpeed = 100f; // ความเร็ว pointer
@@ -26,9 +27,12 @@ public class PointCheck : MonoBehaviour
         { "Green4", new Vector2(80f, 90f) },
         { "Green5", new Vector2(-45f, -30f) },
     };
+
+    [SerializeField] private BossCheck bosscheck;
+    public bool isSuccess = false;
     private void Start()
     {
-        StartCheck(); //test
+        //StartCheck(); //test
     }
     private void Update()
     {
@@ -56,11 +60,12 @@ public class PointCheck : MonoBehaviour
     }
     public void StartCheck()
     {
+        checkPanel.SetActive(true);
         rotating = true; // ให้ bool rotating ทำงาน
         currentAngle = minAngle; // ให้ pointer เริ่มที่ minAngle
         direction = 1f; // เริ่มหมุนตามเข็มนาฬิกา
         pointer.transform.eulerAngles = new Vector3(0, 0, maxAngle);
-        gameObject.SetActive(true);
+        //gameObject.SetActive(true);
 
         foreach (var zone in greenZonesInScene) // ปิด greenzone ทุกอัน
         {
@@ -101,10 +106,12 @@ public class PointCheck : MonoBehaviour
 
         if (success)
         {
+            isSuccess = true;
             Debug.Log("Success!");
         }
         else
         {
+            isSuccess = false;
             Debug.Log("Fail!");
         }
 

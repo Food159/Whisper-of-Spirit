@@ -13,6 +13,7 @@ public class WinCheck : MonoBehaviour
     PauseMenu pauseMenu;
 
     private EnemyHealth[] allEnemies;
+    [SerializeField] PointCheck pointcheck;
     public int TotalEnemies => allEnemies.Length;
     public int DeadEnemiesCount { get; private set; }
     private void Awake()
@@ -52,15 +53,18 @@ public class WinCheck : MonoBehaviour
     }
     public void Win()
     {
-        wintestCheck = true;
-        SoundManager.instance.PlaySfx(SoundManager.instance.winClip);
-        if (winpanel != null) 
+        if(pointcheck.isSuccess == true)
         {
-            winpanel.SetActive(true);
+            wintestCheck = true;
+            SoundManager.instance.PlaySfx(SoundManager.instance.winClip);
+            if (winpanel != null)
+            {
+                winpanel.SetActive(true);
+            }
+            wintestCheck = true;
+            DisablePlayercontrol();
+            playercontroller.CanMove();
         }
-        wintestCheck = true;
-        DisablePlayercontrol();
-        playercontroller.CanMove();
     }
     public void DisablePlayercontrol()
     {
