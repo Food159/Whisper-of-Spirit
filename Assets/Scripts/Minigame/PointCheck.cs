@@ -7,8 +7,9 @@ public class PointCheck : MonoBehaviour
 {
     [Header("UI")]
     public RectTransform pointer;
-    public List<RectTransform> greenZonePrefabs;
+    public List<RectTransform> greenZonesInScene;
     public RectTransform greenZoneParent;
+    private RectTransform currentGreenZone;
 
     [Header("Config")]
     public float moveSpeed = 100f;
@@ -22,6 +23,14 @@ public class PointCheck : MonoBehaviour
     private float currentAngle;
     private float direction = 1f;
     private List<RectTransform> activeGreenZone = new List<RectTransform>();
+    private Dictionary<string, Vector2> greenZoneSuccessAngles = new Dictionary<string, Vector2>()
+{
+    { "Green1", new Vector2(-10f, 10f) }, //
+    { "Green2", new Vector2(30f, 50f) }, //
+    { "Green3", new Vector2(-75f, -60f) }, //
+    { "Green4", new Vector2(80f, 90f) }, //
+    { "Green5", new Vector2(-45f, -30f) }, //
+};
     private void Start()
     {
         StartCheck(); //test
@@ -58,53 +67,59 @@ public class PointCheck : MonoBehaviour
         pointer.transform.eulerAngles = new Vector3(0, 0, minAngle);
         gameObject.SetActive(true);
 
-        foreach(var zone in activeGreenZone) 
+        // ปิดทุก GreenZone ก่อน
+        foreach (var zone in greenZonesInScene)
         {
-            Destroy(zone.gameObject);
+            zone.gameObject.SetActive(false);
         }
-        activeGreenZone.Clear();
 
-        RectTransform randomPrefab = greenZonePrefabs[Random.Range(0, greenZonePrefabs.Count)];
-        RectTransform newZone = Instantiate(randomPrefab, greenZoneParent);
-
-        activeGreenZone.Add(newZone);
+        // สุ่มเปิด 1 GreenZone จากที่วางไว้
+        int index = Random.Range(0, greenZonesInScene.Count);
+        currentGreenZone = greenZonesInScene[index];
+        currentGreenZone.gameObject.SetActive(true);
     }
     void CheckResult()
     {
         rotating = false;
 
         float angle = pointer.eulerAngles.z;
-        if (angle > 180f)
-        {
-            angle -= 360f;
-        }
+        if (angle > 180f) angle -= 360f;
 
         bool success = false;
-        foreach (var zone in activeGreenZone)
+
+        if (currentGreenZone != null)
         {
-            float zoneAngle = zone.eulerAngles.z;
+            string zoneName = currentGreenZone.name;
 
-            if (zoneAngle > 180f)
+            // เช็กว่า Dictionary มี zone นี้ไหม
+            if (greenZoneSuccessAngles.ContainsKey(zoneName))
             {
-                zoneAngle -= 360f;
+                Vector2 range = greenZoneSuccessAngles[zoneName];
+                float minRange = range.x;
+                float maxRange = range.y;
+
+                Debug.Log($"Pointer Angle: {angle} | {zoneName} | Range: {minRange} ถึง {maxRange}");
+                Debug.Log($"{zoneName} ใน Dictionary!");
+
+                if (angle >= minRange && angle <= maxRange)
+                {
+                    success = true;
+                }
             }
-            float halfRange = greenZoneWidth / 2;
-            float minRange = zoneAngle - halfRange;
-            float maxRange = zoneAngle + halfRange;
-
-            if (angle >= minRange && angle <= maxRange)
+            else
             {
-                success = true;
-                break;
+                Debug.LogWarning($"❗ ไม่พบชื่อ {zoneName} ใน Dictionary!");
             }
         }
+
+
         if (success)
         {
-            Debug.Log("Success");
+            Debug.Log("Success!");
         }
         else
         {
-            Debug.Log("Fail");
+            Debug.Log("Fail!");
         }
 
         gameObject.SetActive(false);
