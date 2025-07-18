@@ -1,80 +1,72 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PointCheck : MonoBehaviour
 {
     [Header("UI")]
     public RectTransform pointer;
     public List<RectTransform> greenZonesInScene;
-    public RectTransform greenZoneParent;
     private RectTransform currentGreenZone;
 
     [Header("Config")]
-    public float moveSpeed = 100f;
-    public float minAngle = -90f;
-    public float maxAngle = 90f;
-    public int greenZoneCount = 5;
-    public float greenZoneWidth = 20f;
+    public float moveSpeed = 100f; // ความเร็ว pointer
+    private float minAngle = 90f; // องศาสูงสุดที่ pointer ไปได้ทางด้านซ้าย
+    private float maxAngle = -90f; // องศาสูงสุดที่ pointer ไปได้ทางด้านขวา
     public KeyCode keyInput = KeyCode.Space;
 
-    private bool rotating = false;
-    private float currentAngle;
-    private float direction = 1f;
-    private List<RectTransform> activeGreenZone = new List<RectTransform>();
-    private Dictionary<string, Vector2> greenZoneSuccessAngles = new Dictionary<string, Vector2>()
-{
-    { "Green1", new Vector2(-10f, 10f) }, //
-    { "Green2", new Vector2(30f, 50f) }, //
-    { "Green3", new Vector2(-75f, -60f) }, //
-    { "Green4", new Vector2(80f, 90f) }, //
-    { "Green5", new Vector2(-45f, -30f) }, //
-};
+    private bool rotating = false; 
+    public float currentAngle; // องศาปัจจุบันที่ pointer ชึ้
+    private float direction = -1f; // กำหนดทิศทางของมุม -1f คือหมุนตามเข็มนาฬิกา 1f คือหมุนทวนเข็มนาฬิกา
+    private Dictionary<string, Vector2> greenZoneSuccessAngles = new Dictionary<string, Vector2>() // เก็บชื่อของ prefabs และ ตำแหน่ง angle(min, max) ที่ success เอาไว้
+    {
+        { "Green1", new Vector2(-10f, 10f) },
+        { "Green2", new Vector2(30f, 50f) },
+        { "Green3", new Vector2(-75f, -60f) },
+        { "Green4", new Vector2(80f, 90f) },
+        { "Green5", new Vector2(-45f, -30f) },
+    };
     private void Start()
     {
         StartCheck(); //test
     }
     private void Update()
     {
-        if (!rotating)
+        if (!rotating) // ถ้าไม่ได้ rotate ก็ return
             return;
 
-        currentAngle += direction * moveSpeed * Time.deltaTime;
+        currentAngle += direction * moveSpeed * Time.deltaTime; // คำนวณมุม โดยการใช้ direction * speed เช่น direction = -1f * 100 = -100(คือไปตามเข็มนาฬิกา) แล้วเอาไปคูณกับ Time.deltatime
 
-        if(currentAngle >= maxAngle)
-        {
-            currentAngle = maxAngle;
-            direction = -1f;
-        }
-        else if(currentAngle <= minAngle)
+        if(currentAngle >= minAngle) // ถ้า pointer ไปถึง minangle ให้หมุนไปที่ maxangle
         {
             currentAngle = minAngle;
+            direction = -1f;
+        }
+        else if(currentAngle <= maxAngle) // ถ้า pointer ไปถึง maxangle ให้หมุนไปที่ minangle
+        {
+            currentAngle = maxAngle;
             direction = 1f;
         }
-        pointer.transform.eulerAngles = new Vector3(0, 0, currentAngle);
+        pointer.transform.eulerAngles = new Vector3(0, 0, currentAngle); // หมุน pointer ตามค่า currentangle
 
-        if(Input.GetKeyDown(keyInput)) 
+        if(Input.GetKeyDown(keyInput))
         {
             CheckResult();
         }
     }
     public void StartCheck()
     {
-        rotating = true;
-        currentAngle = minAngle;
-        direction = 1f;
-        pointer.transform.eulerAngles = new Vector3(0, 0, minAngle);
+        rotating = true; // ให้ bool rotating ทำงาน
+        currentAngle = minAngle; // ให้ pointer เริ่มที่ minAngle
+        direction = 1f; // เริ่มหมุนตามเข็มนาฬิกา
+        pointer.transform.eulerAngles = new Vector3(0, 0, maxAngle);
         gameObject.SetActive(true);
 
-        // ปิดทุก GreenZone ก่อน
-        foreach (var zone in greenZonesInScene)
+        foreach (var zone in greenZonesInScene) // ปิด greenzone ทุกอัน
         {
             zone.gameObject.SetActive(false);
         }
-
-        // สุ่มเปิด 1 GreenZone จากที่วางไว้
-        int index = Random.Range(0, greenZonesInScene.Count);
+        int index = Random.Range(0, greenZonesInScene.Count); // สุ่มเปิด greenzone ใน List มา 1 อัน
         currentGreenZone = greenZonesInScene[index];
         currentGreenZone.gameObject.SetActive(true);
     }
@@ -91,7 +83,6 @@ public class PointCheck : MonoBehaviour
         {
             string zoneName = currentGreenZone.name;
 
-            // เช็กว่า Dictionary มี zone นี้ไหม
             if (greenZoneSuccessAngles.ContainsKey(zoneName))
             {
                 Vector2 range = greenZoneSuccessAngles[zoneName];
@@ -106,12 +97,7 @@ public class PointCheck : MonoBehaviour
                     success = true;
                 }
             }
-            else
-            {
-                Debug.LogWarning($"❗ ไม่พบชื่อ {zoneName} ใน Dictionary!");
-            }
         }
-
 
         if (success)
         {
