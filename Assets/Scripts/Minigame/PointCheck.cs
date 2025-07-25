@@ -9,6 +9,7 @@ public class PointCheck : MonoBehaviour
     public List<RectTransform> greenZonesInScene;
     private RectTransform currentGreenZone;
     [SerializeField] GameObject checkPanel;
+    [SerializeField] GameObject menu;
 
     [Header("Config")]
     public float moveSpeed = 100f; // ความเร็ว pointer
@@ -27,21 +28,30 @@ public class PointCheck : MonoBehaviour
         { "Green4", new Vector2(80f, 90f) },
         { "Green5", new Vector2(-45f, -30f) },
     };
+    private List<IPausable> pauseable = new List<IPausable>();
 
     [SerializeField] private BossCheck bosscheck;
     public bool isSuccess = false;
-    private void Start()
+    public bool pauseGame = true;
+    private void Awake()
     {
-        //StartCheck(); //test
+        MonoBehaviour[] behaviours = FindObjectsOfType<MonoBehaviour>(true);
+        foreach (var b in behaviours)
+        {
+            if (b is IPausable)
+            {
+                pauseable.Add((IPausable)b);
+            }
+        }
     }
     private void Update()
     {
         if (!rotating) // ถ้าไม่ได้ rotate ก็ return
             return;
 
-        currentAngle += direction * moveSpeed * Time.deltaTime; // คำนวณมุม โดยการใช้ direction * speed เช่น direction = -1f * 100 = -100(คือไปตามเข็มนาฬิกา) แล้วเอาไปคูณกับ Time.deltatime
+        currentAngle += direction * moveSpeed * Time.unscaledDeltaTime; // คำนวณมุม โดยการใช้ direction * speed เช่น direction = -1f * 100 = -100(คือไปตามเข็มนาฬิกา) แล้วเอาไปคูณกับ Time.deltatime
 
-        if(currentAngle >= minAngle) // ถ้า pointer ไปถึง minangle ให้หมุนไปที่ maxangle
+        if (currentAngle >= minAngle) // ถ้า pointer ไปถึง minangle ให้หมุนไปที่ maxangle
         {
             currentAngle = minAngle;
             direction = -1f;
@@ -60,6 +70,12 @@ public class PointCheck : MonoBehaviour
     }
     public void StartCheck()
     {
+        if (pauseGame)
+        {
+            Time.timeScale = 0f;
+            menu.SetActive(false);
+        }
+
         checkPanel.SetActive(true);
         rotating = true; // ให้ bool rotating ทำงาน
         currentAngle = minAngle; // ให้ pointer เริ่มที่ minAngle
@@ -74,9 +90,18 @@ public class PointCheck : MonoBehaviour
         int index = Random.Range(0, greenZonesInScene.Count); // สุ่มเปิด greenzone ใน List มา 1 อัน
         currentGreenZone = greenZonesInScene[index];
         currentGreenZone.gameObject.SetActive(true);
+        foreach (var p in pauseable)
+        {
+            p.Pause();
+        }    
     }
     void CheckResult()
     {
+        if (pauseGame)
+        {
+            Time.timeScale = 1f;
+            menu.SetActive(true);
+        }
         rotating = false;
 
         float angle = pointer.eulerAngles.z;
@@ -114,7 +139,10 @@ public class PointCheck : MonoBehaviour
             isSuccess = false;
             Debug.Log("Fail!");
         }
-
         gameObject.SetActive(false);
+        foreach(var p in pauseable) 
+        {
+            p.Resume();
+        }
     }
 }

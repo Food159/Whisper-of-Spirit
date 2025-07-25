@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEngine.GraphicsBuffer;
 
-public class LungController : MonoBehaviour
+public class LungController : MonoBehaviour, IPausable
 {
     [Header("FSM")]
     public LungIdleState lidestate;
@@ -16,7 +17,7 @@ public class LungController : MonoBehaviour
     public bool _isFacingRight = false;
     Rigidbody2D  rb2d;
     Animator anim;
-    public Transform player;
+    public Transform playerTarget;
     public LayerMask playerLayer;
     private float distance;
 
@@ -35,6 +36,16 @@ public class LungController : MonoBehaviour
     
     public void Awake()
     {
+        PlayerController player = FindObjectOfType<PlayerController>();
+        if (player != null)
+        {
+            playerTarget = player.transform;
+        }
+        else
+        {
+            Debug.Log("player not found");
+        }
+
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         status = GetComponent<EnemyHealth>();
@@ -55,11 +66,11 @@ public class LungController : MonoBehaviour
         SelectState();
         Check();
         state.Do();
-        if(player.position.x > transform.position.x && !_isFacingRight) 
+        if(playerTarget.position.x > transform.position.x && !_isFacingRight) 
         {
             Flip();
         }
-        else if (player.position.x < transform.position.x && _isFacingRight)
+        else if (playerTarget.position.x < transform.position.x && _isFacingRight)
         {
             Flip();
         }
@@ -89,7 +100,7 @@ public class LungController : MonoBehaviour
             }
             else
             {
-                if(player.position.x <= Area_posX.position.x && player.position.x >= Area_negX.position.x) // if player in area
+                if(playerTarget.position.x <= Area_posX.position.x && playerTarget.position.x >= Area_negX.position.x) // if player in area
                 {
                     isOutofArea = false;
                 }
@@ -126,17 +137,9 @@ public class LungController : MonoBehaviour
     {
         Vector2 rayDirectionLeft = Vector2.left;
         Vector2 rayDirectionRight = Vector2.right;
-        //if(_isFacingRight)
-        //{
-        //    rayDirection = Vector2.right;
-        //}
-        //else
-        //{
-        //    rayDirection = Vector2.left;
-        //}
+
         RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, rayDirectionLeft, patrolLenght, playerLayer);
         RaycastHit2D hitRight = Physics2D.Raycast(transform.position, rayDirectionRight, patrolLenght, playerLayer);
-
 
         Debug.DrawRay(transform.position, rayDirectionLeft * patrolLenght, Color.green);
         Debug.DrawRay(transform.position, rayDirectionRight * patrolLenght, Color.green);
@@ -145,10 +148,6 @@ public class LungController : MonoBehaviour
         {
             isAleart = true;
         }
-        //else
-        //{
-        //    isAleart = false;
-        //}
     }
     void Check()
     {
@@ -167,7 +166,16 @@ public class LungController : MonoBehaviour
     }
     public float DistanceCal()
     {
-        float distance = Mathf.Abs(player.position.x - transform.position.x);
+        float distance = Mathf.Abs(playerTarget.position.x - transform.position.x);
         return distance;
+    }
+    public void Pause()
+    {
+        enabled = false;
+    }
+
+    public void Resume()
+    {
+        enabled = true;
     }
 }

@@ -8,6 +8,18 @@ public class CameraFollow : MonoBehaviour
     //private float yOffset = 1.7f;
     private float xOffset = 5f;
     public Transform target;
+    private void Awake()
+    {
+        PlayerController player = FindObjectOfType<PlayerController>();
+        if(player != null)
+        {
+            target = player.transform;
+        }
+        else
+        {
+            Debug.Log("player not found");
+        }
+    }
     private void Update()
     {
         Vector3 newPos = new Vector3(target.position.x + xOffset, transform.position.y, -10f);

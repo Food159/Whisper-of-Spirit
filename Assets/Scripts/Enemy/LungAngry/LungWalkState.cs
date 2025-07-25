@@ -12,7 +12,7 @@ public class LungWalkState : LungState
     }
     public override void Do()
     {
-        float direction = Mathf.Sign(linput.player.position.x - linput.transform.position.x);
+        float direction = Mathf.Sign(linput.playerTarget.position.x - linput.transform.position.x);
         if(linput.transform.localScale.x > 0)
         {
             direction = -1;

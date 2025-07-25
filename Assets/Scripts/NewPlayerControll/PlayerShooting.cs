@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PlayerShooting : Subject
+public class PlayerShooting : Subject, IPausable
 {
     public ObjectPool bulletpool;
 
@@ -115,5 +115,14 @@ public class PlayerShooting : Subject
     private void OnEnable()
     {
         
+    }
+    public void Pause()
+    {
+        enabled = false;
+    }
+
+    public void Resume()
+    {
+        enabled = true;
     }
 }

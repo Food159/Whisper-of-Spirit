@@ -21,4 +21,8 @@ public class Button : MonoBehaviour
         //wincheck.wintestCheck = false;
         Time.timeScale = 1;
     }
+    public void NextLevel()
+    {
+        SceneController.instance.LoadSceneIndex(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }

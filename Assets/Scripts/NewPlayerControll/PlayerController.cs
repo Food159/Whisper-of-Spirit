@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PlayerController : Subject, IOserver
+public class PlayerController : Subject, IOserver, IPausable
 {
     #region Variable
     [Header("FSM")]
@@ -246,6 +247,15 @@ public class PlayerController : Subject, IOserver
                 return;
 
         }
+    }
+    public void Pause()
+    {
+        enabled = false;
+    }
+
+    public void Resume()
+    {
+        enabled = true;
     }
 }
 #endregion
