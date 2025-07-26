@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PlayerController : Subject, IOserver, IPausable
+public class PlayerController : Subject, IOserver, IPausable, IDataPersistence
 {
     #region Variable
     [Header("FSM")]
@@ -245,8 +245,15 @@ public class PlayerController : Subject, IOserver, IPausable
         {
             case (PlayerAction.Pause):
                 return;
-
         }
+    }
+    public void LoadData(GameData data)
+    {
+        this.transform.position = data.playerPosition;
+    }
+    public void SaveData(ref GameData data) 
+    {
+        data.playerPosition = this.transform.position;
     }
     public void Pause()
     {
