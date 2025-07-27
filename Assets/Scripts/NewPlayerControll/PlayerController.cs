@@ -126,6 +126,7 @@ public class PlayerController : Subject, IOserver, IPausable, IDataPersistence
         Vector2 currentVelocity = rb2d.velocity;
         float targetHorizontalSpeed = playerInputX * currentSpeed;
         rb2d.velocity = new Vector2(targetHorizontalSpeed, currentVelocity.y);
+        //SoundManager.instance.PlaySfx(SoundManager.instance.tawanWalkClip);
 
         _isWalking = Mathf.Abs(playerInputX) > 0.01f && _isGround;
         if (_isWalking || Input.GetKey(KeyCode.LeftShift))
@@ -173,6 +174,7 @@ public class PlayerController : Subject, IOserver, IPausable, IDataPersistence
         if (_isRunning)
         {
             currentSpeed = sprintSpeed;
+            //SoundManager.instance.PlaySfx(SoundManager.instance.tawanRunClip);
         }
         else
         {
@@ -249,11 +251,11 @@ public class PlayerController : Subject, IOserver, IPausable, IDataPersistence
     }
     public void LoadData(GameData data)
     {
-        this.transform.position = data.playerPosition;
+        transform.position = data.playerPosition;
     }
     public void SaveData(ref GameData data) 
     {
-        data.playerPosition = this.transform.position;
+        data.playerPosition = transform.position;
     }
     public void Pause()
     {
