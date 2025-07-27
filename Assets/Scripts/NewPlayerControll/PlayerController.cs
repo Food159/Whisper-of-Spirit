@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PlayerController : Subject, IOserver, IPausable, IDataPersistence
+public class PlayerController : Subject, IOserver, IPausable
 {
     #region Variable
     [Header("FSM")]
@@ -66,6 +66,14 @@ public class PlayerController : Subject, IOserver, IPausable, IDataPersistence
     }
     public void Update()
     {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            GameDataHandler.instance.SaveData();
+        }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            GameDataHandler.instance.ClearData();
+        }
         if (_CanMove == false)
             return;
         if(status._isPlayerDead)
@@ -109,7 +117,7 @@ public class PlayerController : Subject, IOserver, IPausable, IDataPersistence
         state.Enter();
 
     }    
-    void ChangeToFaint()
+    public void ChangeToFaint()
     {
         if (state != pfaintState)
         {
@@ -210,7 +218,7 @@ public class PlayerController : Subject, IOserver, IPausable, IDataPersistence
             state.Enter();
         }
     }
-    void SelectState()
+    public void SelectState()
     {
         if (status._isPlayerDead)
             return;
@@ -248,14 +256,6 @@ public class PlayerController : Subject, IOserver, IPausable, IDataPersistence
             case (PlayerAction.Pause):
                 return;
         }
-    }
-    public void LoadData(GameData data)
-    {
-        transform.position = data.playerPosition;
-    }
-    public void SaveData(ref GameData data) 
-    {
-        data.playerPosition = transform.position;
     }
     public void Pause()
     {

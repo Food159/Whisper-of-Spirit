@@ -81,7 +81,6 @@ public class PointCheck : MonoBehaviour
         currentAngle = minAngle; // ให้ pointer เริ่มที่ minAngle
         direction = 1f; // เริ่มหมุนตามเข็มนาฬิกา
         pointer.transform.eulerAngles = new Vector3(0, 0, maxAngle);
-        //gameObject.SetActive(true);
 
         foreach (var zone in greenZonesInScene) // ปิด greenzone ทุกอัน
         {

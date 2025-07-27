@@ -26,8 +26,16 @@ public class PlayerHealth : Subject
 
     private void Start()
     {
-        currentHealth = maxHealth;
+        //currentHealth = maxHealth;
+        //healthbar.SetMaxHealth(maxHealth);
+        if (_isPlayerDead == true)
+            return;
+        if (currentHealth <= 0 || currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
         healthbar.SetMaxHealth(maxHealth);
+        healthbar.SetHealth(currentHealth);
     }
     private void Update()
     {

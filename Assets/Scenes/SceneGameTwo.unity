@@ -1560,11 +1560,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 135654191}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18e2df3ab5cf0fc4aadac3f994f701f6, type: 3}
+  m_Script: {fileID: 11500000, guid: a01a9107481110d42b7e7fc8ae199809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playercontroller: {fileID: 555515634}
-  playerhealth: {fileID: 555515637}
+  fileName: data.json
 --- !u!1 &136537176
 GameObject:
   m_ObjectHideFlags: 0
@@ -9328,7 +9327,6 @@ Transform:
   - {fileID: 1118786993}
   - {fileID: 1140603542}
   - {fileID: 240499984}
-  - {fileID: 1601650914}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &902617932
@@ -18701,13 +18699,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1601650913}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 8.184683, y: 1.754538, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 555515629}
-  m_Father: {fileID: 902617931}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1606592544
 GameObject:
@@ -24455,5 +24453,6 @@ SceneRoots:
   - {fileID: 1529404149}
   - {fileID: 285228020}
   - {fileID: 902617931}
+  - {fileID: 1601650914}
   - {fileID: 101403934}
   - {fileID: 825356047}
