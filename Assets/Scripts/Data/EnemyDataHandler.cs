@@ -46,12 +46,10 @@ public class EnemyDataHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
         {
             SaveDataEnemy();
-            //CMDebug.TextPopup("save", 5, this.transform.position, 2);
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
             ClearDataEnemy();
-            //CMDebug.TextPopupMouse("Clear save data");
         }
     }
     public void SaveDataEnemy()

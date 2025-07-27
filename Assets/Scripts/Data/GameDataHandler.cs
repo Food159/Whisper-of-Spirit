@@ -48,12 +48,10 @@ public class GameDataHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
         {
             SaveData();
-            //CMDebug.TextPopup("save", 5, this.transform.position, 2);
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
             ClearData();
-            //CMDebug.TextPopupMouse("Clear save data");
         }
     }
     public void SaveData()
