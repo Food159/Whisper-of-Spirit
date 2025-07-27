@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class GameDataHandler : MonoBehaviour
 {
@@ -33,12 +34,26 @@ public class GameDataHandler : MonoBehaviour
             playerhealth._isPlayerDead = gamedata.playerDied;
             if(gamedata.playerDied)
             {
-                gamedata.playerHp = 100;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                //gamedata.playerHp = 100;
                 gamedata.playerDied = false;
-                playerhealth.currentHealth = gamedata.playerHp;
-                playerhealth._isPlayerDead = gamedata.playerDied;
-                playercontroller.transform.position = new Vector2(-5.63f, -1.888795f);
+                //playerhealth.currentHealth = gamedata.playerHp;
+                //playerhealth._isPlayerDead = gamedata.playerDied;
+                //playercontroller.transform.position = new Vector2(-5.63f, -1.888795f);
             }
+        }
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            SaveData();
+            //CMDebug.TextPopup("save", 5, this.transform.position, 2);
+        }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            ClearData();
+            //CMDebug.TextPopupMouse("Clear save data");
         }
     }
     public void SaveData()
@@ -79,8 +94,8 @@ public class GameDataHandler : MonoBehaviour
             Debug.Log("No data to delete");
         }
     }
-    public void OnApplicationQuit()
-    {
-        SaveData();
-    }
+    //public void OnApplicationQuit()
+    //{
+    //    SaveData();
+    //}
 }

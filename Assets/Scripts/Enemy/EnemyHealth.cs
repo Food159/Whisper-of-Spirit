@@ -12,8 +12,16 @@ public class EnemyHealth : MonoBehaviour
     //public Transform healthbarpos;
     private void Start()
     {
-        currentHealth = maxHealth;
+        //currentHealth = maxHealth;
+        //healthbar.SetMaxHealth(maxHealth);
+        if (_isDead == true)
+            return;
+        if (currentHealth <= 0 || currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
         healthbar.SetMaxHealth(maxHealth);
+        healthbar.SetHealth(currentHealth);
     }
     private void Update()
     {

@@ -12,8 +12,11 @@ public class Bullet : MonoBehaviour
     }
     private void Update()
     {
+        Vector2 bulletWorldToViewportPos = Camera.main.WorldToViewportPoint(transform.position);
+        bool _isOutOfScreen = bulletWorldToViewportPos.x < 0 || bulletWorldToViewportPos.x > 1 || bulletWorldToViewportPos.y < 0 || bulletWorldToViewportPos.y > 1;
+
         timer += Time.deltaTime;
-        if(timer >= lifeTime)
+        if(timer >= lifeTime || _isOutOfScreen)
         {
             gameObject.SetActive(false);
         }

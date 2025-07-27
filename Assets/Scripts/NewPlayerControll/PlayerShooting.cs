@@ -62,7 +62,7 @@ public class PlayerShooting : Subject, IPausable
                 playerwater.currentWater++;
                 playerwater.waterbar.SetWater(playerwater.currentWater);
             }
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1.25f);
         }
     }
     private void shooting()

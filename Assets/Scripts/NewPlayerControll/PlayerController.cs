@@ -4,6 +4,8 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using CodeMonkey.Utils;
+using CodeMonkey;
 
 public class PlayerController : Subject, IOserver, IPausable
 {
@@ -66,14 +68,6 @@ public class PlayerController : Subject, IOserver, IPausable
     }
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            GameDataHandler.instance.SaveData();
-        }
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            GameDataHandler.instance.ClearData();
-        }
         if (_CanMove == false)
             return;
         if(status._isPlayerDead)

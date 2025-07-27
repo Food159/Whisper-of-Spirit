@@ -1529,6 +1529,7 @@ GameObject:
   m_Component:
   - component: {fileID: 135654192}
   - component: {fileID: 135654193}
+  - component: {fileID: 135654194}
   m_Layer: 0
   m_Name: Data
   m_TagString: Untagged
@@ -1565,6 +1566,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playercontroller: {fileID: 555515634}
   playerhealth: {fileID: 555515637}
+--- !u!114 &135654194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135654191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0b915f59bf4505468f1a5389babd7b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lungcontroller: {fileID: 1140603544}
+  enemyhealth: {fileID: 1140603549}
 --- !u!1 &136537176
 GameObject:
   m_ObjectHideFlags: 0
@@ -22597,11 +22612,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6deaf6ee4d62ad046a315c92aaee3d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pidleState: {fileID: 1694491938}
-  pwalkState: {fileID: 185959003}
-  prunState: {fileID: 1857351011}
-  pjumpState: {fileID: 847986060}
-  pfaintState: {fileID: 983213036}
+  pidleState: {fileID: 0}
+  pwalkState: {fileID: 0}
+  prunState: {fileID: 0}
+  pjumpState: {fileID: 0}
+  pfaintState: {fileID: 0}
   shadow: {fileID: 1450604120}
   speed: 2
   sprintSpeed: 5
