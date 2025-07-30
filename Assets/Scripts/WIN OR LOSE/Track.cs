@@ -12,6 +12,19 @@ public class Track : MonoBehaviour
     [SerializeField] Sprite trackComplete;
     [SerializeField] Sprite trackIncomplete;
     [SerializeField] TMP_Text trackText;
+    public bool trackCompleted;
+    public static Track instance;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     private void Update()
     {
         if (winCheck == null) return;
@@ -21,10 +34,12 @@ public class Track : MonoBehaviour
         if(dead >= total)
         {
             trackCheck.sprite = trackComplete;
+            trackCompleted = true;
         }
         else
         {
             trackCheck.sprite = trackIncomplete;
+            trackCompleted = false;
         }
     }
 }

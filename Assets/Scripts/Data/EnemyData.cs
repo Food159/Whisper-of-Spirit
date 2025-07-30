@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class EnemyData
 {
-    public Vector2 enemyPos;
-    public int enemyHp;
-    public bool enemyDied;
+    public List<Vector2> enemyPos = new List<Vector2>();
+    public List<int> enemyHp = new List<int>();
+    public List<bool> enemyDied = new List<bool>();
 }

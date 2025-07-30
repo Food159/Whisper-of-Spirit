@@ -14,6 +14,7 @@ public class Button : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameDataHandler.instance.LoadData();
     }
     public void OnButtonMenu()
     {
@@ -24,5 +25,6 @@ public class Button : MonoBehaviour
     public void NextLevel()
     {
         SceneController.instance.LoadSceneIndex(SceneManager.GetActiveScene().buildIndex + 1);
+        GameDataHandler.instance.LoadData();
     }
 }

@@ -29,12 +29,17 @@ public class LungHappyState : LungState
         
         col2d.enabled = false;
         rb2d.constraints = RigidbodyConstraints2D.FreezePosition;
-        Destroy(enemy, 5f);
+        StartCoroutine(WaitForHappy());
         hpbar.SetActive(false);
         guman.SetActive(false);
     }
     public override void Exit()
     {
 
+    }
+    IEnumerator WaitForHappy()
+    {
+        yield return new WaitForSeconds(5f);
+        enemy.SetActive(false);
     }
 }

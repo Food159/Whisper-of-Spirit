@@ -58,6 +58,7 @@ public class PauseMenu : MonoBehaviour
         panel.SetActive(false);
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameDataHandler.instance.LoadData();
         _isPanel = false;
     }
     public void OnButtonMenu()

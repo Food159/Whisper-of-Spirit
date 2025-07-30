@@ -5,8 +5,8 @@ using System.IO;
 
 public class EnemyDataHandler : MonoBehaviour
 {
-    [SerializeField] LungController lungcontroller;
-    [SerializeField] EnemyHealth enemyhealth;
+    [SerializeField] LungController[] lungcontroller;
+    [SerializeField] EnemyHealth[] enemyhealth;
 
     public static EnemyDataHandler instance;
     private void Awake()
@@ -25,20 +25,39 @@ public class EnemyDataHandler : MonoBehaviour
         EnemyData enemydata = LoadDataEnemy();
         if (enemydata != null)
         {
-            if (lungcontroller != null)
+            for(int i = 0; i < lungcontroller.Length; i++) 
             {
-                lungcontroller.transform.position = enemydata.enemyPos;
+                if(i < enemydata.enemyPos.Count)
+                {
+                    lungcontroller[i].transform.position = enemydata.enemyPos[i];
+                }
             }
-            enemyhealth.currentHealth = enemydata.enemyHp;
-            enemyhealth._isDead = enemydata.enemyDied;
-            if (enemydata.enemyDied)
+            for(int i = 0; i < enemyhealth.Length; i++) 
             {
-                enemydata.enemyHp = 100;
-                enemydata.enemyDied = false;
-                enemyhealth.currentHealth = enemydata.enemyHp;
-                enemyhealth._isDead = enemydata.enemyDied;
-                lungcontroller.transform.position = new Vector2(-5.63f, -1.888795f);
+                if(i < enemydata.enemyHp.Count)
+                {
+                    enemyhealth[i].currentHealth = enemydata.enemyHp[i];
+                }
+                if(i < enemydata.enemyDied.Count)
+                {
+                    enemyhealth[i]._isDead = enemydata.enemyDied[i];
+                }
+                if (enemydata.enemyDied[i])
+                {
+                    lungcontroller[i].gameObject.SetActive(false);
+                }
             }
+            //if (lungcontroller != null)
+            //{
+            //    lungcontroller.transform.position = enemydata.enemyPos;
+            //}
+            //enemyhealth.currentHealth = enemydata.enemyHp;
+            //enemyhealth._isDead = enemydata.enemyDied;
+            //if (enemydata.enemyDied)
+            //{
+            //    enemyhealth._isDead = enemydata.enemyDied;
+            //    Destroy(lung);
+            //}
         }
     }
     private void Update()
@@ -59,13 +78,22 @@ public class EnemyDataHandler : MonoBehaviour
             Directory.CreateDirectory(Application.dataPath);
         }
         EnemyData enemydata = new EnemyData();
-        enemydata.enemyPos = lungcontroller.transform.position;
-        enemydata.enemyHp = enemyhealth.currentHealth;
-        enemydata.enemyDied = enemyhealth._isDead;
+        foreach(LungController lung in lungcontroller)
+        {
+            enemydata.enemyPos.Add(lung.transform.position);
+        }
+        foreach(EnemyHealth health in enemyhealth)
+        {
+            enemydata.enemyHp.Add(health.currentHealth);
+            enemydata.enemyDied.Add(health._isDead);
+        }
+        //enemydata.enemyPos = lungcontroller.transform.position;
+        //enemydata.enemyHp = enemyhealth.currentHealth;
+        //enemydata.enemyDied = enemyhealth._isDead;
 
         string enemyDataJson = JsonUtility.ToJson(enemydata);
         File.WriteAllText(Application.dataPath + "/enemyData.json", enemyDataJson);
-        Debug.Log(enemydata);
+        Debug.Log("Save enemy data");
     }
     public EnemyData LoadDataEnemy()
     {

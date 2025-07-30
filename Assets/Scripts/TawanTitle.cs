@@ -22,6 +22,7 @@ public class TawanTitle : MonoBehaviour
             if(transform.position.x == targetpos.x)
             {
                 //bttnscript.OnButtonPlay();
+                //GameDataHandler.instance.ClearData();
                 SceneManager.LoadScene("SceneDialogueOne");
                 _isMoving = false;
             }

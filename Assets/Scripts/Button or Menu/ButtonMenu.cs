@@ -19,7 +19,12 @@ public class ButtonMenu : MonoBehaviour
     public void OnButtonContinue()
     {
         SoundManager.instance.PlaySfx(SoundManager.instance.choiceSelectedClip);
-        SceneController.instance.LoadSceneName("SceneGameOne");
+        SceneData scenedata = SceneDataHandler.instance.LoadSceneData();
+        if (scenedata != null)
+        {
+            SceneController.instance.LoadSceneName(scenedata.sceneName);
+        }
+        
     }
     public void OnButtonMenu()
     {

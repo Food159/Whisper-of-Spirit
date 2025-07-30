@@ -8,6 +8,10 @@ public class SceneController : MonoBehaviour
     public static SceneController instance;
     [SerializeField] Animator transitionanim;
     [SerializeField] GameObject scentransition;
+    private void Start()
+    {
+        SceneDataHandler.instance.SaveSceneData();
+    }
     private void Awake()
     {
         if (instance == null)

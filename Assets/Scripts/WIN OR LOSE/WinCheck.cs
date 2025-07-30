@@ -53,10 +53,13 @@ public class WinCheck : MonoBehaviour
     }
     public void Win()
     {
-        if(pointcheck.isSuccess == true)
+        if(pointcheck.isSuccess == true && Track.instance.trackCompleted == true)
         {
+            GameDataHandler.instance.SaveData();
             wintestCheck = true;
             SoundManager.instance.PlaySfx(SoundManager.instance.winClip);
+            //GameDataHandler.instance.SaveData();
+            //EnemyDataHandler.instance.SaveDataEnemy();
             if (winpanel != null)
             {
                 winpanel.SetActive(true);

@@ -23,24 +23,25 @@ public class GameDataHandler : MonoBehaviour
     }
     private void Start()
     {
+        
         PlayerGameData gamedata = LoadData();
         if(gamedata != null)
         {
-            if(playercontroller != null) 
-            {
-                playercontroller.transform.position = gamedata.playerPos;
-            }
+            //if(playercontroller != null) 
+            //{
+            //    playercontroller.transform.position = gamedata.playerPos;
+            //}
             playerhealth.currentHealth = gamedata.playerHp;
-            playerhealth._isPlayerDead = gamedata.playerDied;
-            if(gamedata.playerDied)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-                //gamedata.playerHp = 100;
-                gamedata.playerDied = false;
-                //playerhealth.currentHealth = gamedata.playerHp;
-                //playerhealth._isPlayerDead = gamedata.playerDied;
-                //playercontroller.transform.position = new Vector2(-5.63f, -1.888795f);
-            }
+            //playerhealth._isPlayerDead = gamedata.playerDied;
+            //if(gamedata.playerDied)
+            //{
+            //    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //    //gamedata.playerHp = 100;
+            //    gamedata.playerDied = false;
+            //    //playerhealth.currentHealth = gamedata.playerHp;
+            //    //playerhealth._isPlayerDead = gamedata.playerDied;
+            //    //playercontroller.transform.position = new Vector2(-5.63f, -1.888795f);
+            //}
         }
     }
     private void Update()
@@ -61,22 +62,24 @@ public class GameDataHandler : MonoBehaviour
             Directory.CreateDirectory(Application.dataPath);
         }
         PlayerGameData gamedata = new PlayerGameData();
-        gamedata.playerPos = playercontroller.transform.position;
+        //gamedata.playerPos = playercontroller.transform.position;
         gamedata.playerHp = playerhealth.currentHealth;
-        gamedata.playerDied = playerhealth._isPlayerDead;
+        
+        //gamedata.playerDied = playerhealth._isPlayerDead;
 
         string gameDataJson = JsonUtility.ToJson(gamedata);
         File.WriteAllText(Application.dataPath + "/gameData.json", gameDataJson);
-        Debug.Log(gamedata);
+        Debug.Log("Save game data");
     }
     public PlayerGameData LoadData()
     {
-        if(File.Exists(Application.dataPath + "/gameData.json") == false) 
+        if (File.Exists(Application.dataPath + "/gameData.json") == false)
         {
             return null;
         }
         string loadedGameDataToJson = File.ReadAllText(Application.dataPath + "/gameData.json");
         PlayerGameData loadedGameData = JsonUtility.FromJson<PlayerGameData>(loadedGameDataToJson);
+        Debug.Log("LoadData");
         return loadedGameData;
     }
     public void ClearData()
