@@ -37,13 +37,15 @@ public class SceneDataHandler : MonoBehaviour
                 if (level != LevelType.Menu)
                 {
                     scene = SceneManager.GetActiveScene().name;
+                    SaveSceneData();
                 }
             }
             else
             {
                 if (level != LevelType.Menu)
                 {
-                    //scene = SceneManager.GetActiveScene().name;
+                    scene = SceneManager.GetActiveScene().name;
+                    SaveSceneData();
                 }
                 else if (level == LevelType.Menu)
                 {

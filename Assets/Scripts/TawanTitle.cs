@@ -23,6 +23,7 @@ public class TawanTitle : MonoBehaviour
             {
                 //bttnscript.OnButtonPlay();
                 //GameDataHandler.instance.ClearData();
+                SceneDataHandler.instance.ClearSceneData();
                 SceneManager.LoadScene("SceneDialogueOne");
                 _isMoving = false;
             }
