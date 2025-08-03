@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1f7f89ae66ca03b4fb9fd3f63a632f45
+guid: 5ad53ea155d0b6647939a4700596de12
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprite-0007_Enemy01_Idlet_0
+      name: Sprite-0007_Enemy01_Idle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 87
-        height: 183
+        width: 240
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5df056a93b2288749b23aff4745179bb
-      internalID: 1913786400
+      spriteID: 5e5c5ffa4e396e443a479e58246dc33c
+      internalID: 743541496
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0007_Enemy01_Idlet_1
+      name: Sprite-0007_Enemy01_Idle_1
       rect:
         serializedVersion: 2
-        x: 87
+        x: 240
         y: 0
-        width: 87
-        height: 183
+        width: 240
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72634a002a764d94bbf4ad3d21e54403
-      internalID: 451506228
+      spriteID: ef5e4ff8660dcea4dbd2fb15c5610aed
+      internalID: 1862318533
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0007_Enemy01_Idlet_2
+      name: Sprite-0007_Enemy01_Idle_2
       rect:
         serializedVersion: 2
-        x: 174
+        x: 480
         y: 0
-        width: 87
-        height: 183
+        width: 240
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c894d42271c19b4fafd13008479eb29
-      internalID: 444758441
+      spriteID: 41720f50609aa89479f5072e5829f654
+      internalID: 1081821484
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0007_Enemy01_Idlet_3
+      name: Sprite-0007_Enemy01_Idle_3
       rect:
         serializedVersion: 2
-        x: 261
+        x: 720
         y: 0
-        width: 87
-        height: 183
+        width: 240
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 842e9a3ae3f0da742831316b85937dee
-      internalID: -655272652
+      spriteID: 4762c763ae619214fb632c40b56753e3
+      internalID: -279470674
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0007_Enemy01_Idlet_4
+      name: Sprite-0007_Enemy01_Idle_4
       rect:
         serializedVersion: 2
-        x: 348
+        x: 960
         y: 0
-        width: 87
-        height: 183
+        width: 240
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76d20b97d874dae49a7a21e30e65e0fd
-      internalID: -2141366709
+      spriteID: 04af1e90a5a370745b0cad6c284a5717
+      internalID: -1128230471
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0007_Enemy01_Idlet_5
+      name: Sprite-0007_Enemy01_Idle_5
       rect:
         serializedVersion: 2
-        x: 435
+        x: 1200
         y: 0
-        width: 87
-        height: 183
+        width: 240
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,20 +242,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e7de60d45baa9f40a60793db670e33e
-      internalID: 1001308855
+      spriteID: 407db5f7e93760041bdcd7ccf58d1607
+      internalID: -1272135384
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0007_Enemy01_Idlet_6
+      name: Sprite-0007_Enemy01_Idle_6
       rect:
         serializedVersion: 2
-        x: 522
+        x: 1440
         y: 0
-        width: 87
-        height: 183
+        width: 240
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,20 +263,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44995abb5b1755744a9f0cd329bb2bb8
-      internalID: 335806407
+      spriteID: 329f7925b6af2bb44a20b227577504d7
+      internalID: 62166477
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0007_Enemy01_Idlet_7
+      name: Sprite-0007_Enemy01_Idle_7
       rect:
         serializedVersion: 2
-        x: 609
+        x: 1680
         y: 0
-        width: 87
-        height: 183
+        width: 240
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,20 +284,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4dfb53f04693bde4db399cc37099af10
-      internalID: -205530754
+      spriteID: 18bd355778d4ea945a585a07e31037a3
+      internalID: -697378107
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0007_Enemy01_Idlet_8
+      name: Sprite-0007_Enemy01_Idle_8
       rect:
         serializedVersion: 2
-        x: 696
+        x: 1920
         y: 0
-        width: 87
-        height: 183
+        width: 240
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,20 +305,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80d4747860957f94a9fda1818f26b9c0
-      internalID: -1286597276
+      spriteID: f18970f57777c42478a0429b32eb71cb
+      internalID: 702941652
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0007_Enemy01_Idlet_9
+      name: Sprite-0007_Enemy01_Idle_9
       rect:
         serializedVersion: 2
-        x: 783
+        x: 2160
         y: 0
-        width: 87
-        height: 183
+        width: 240
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,20 +326,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 783b0e35f5048794495fbab652d77fe6
-      internalID: -1641133563
+      spriteID: 172bc779c3f74f54fa2ac978b04b6e3f
+      internalID: 2086521265
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0007_Enemy01_Idlet_10
+      name: Sprite-0007_Enemy01_Idle_10
       rect:
         serializedVersion: 2
-        x: 870
+        x: 2400
         y: 0
-        width: 87
-        height: 183
+        width: 240
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,20 +347,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a93f01765cfd46f41bf65f828ef6fea4
-      internalID: -206367302
+      spriteID: be9e9ce5821a30a4bb5da0a798975bc6
+      internalID: 1639263913
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0007_Enemy01_Idlet_11
+      name: Sprite-0007_Enemy01_Idle_11
       rect:
         serializedVersion: 2
-        x: 957
+        x: 2640
         y: 0
-        width: 87
-        height: 183
+        width: 240
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -368,8 +368,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb5a506cf8aa32142afa06b03f5c3b7f
-      internalID: 1038821401
+      spriteID: a894c24ba0aaf584d8af5c95aa45982e
+      internalID: -683073909
       vertices: []
       indices: 
       edges: []
@@ -385,18 +385,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Sprite-0007_Enemy01_Idlet_0: 1913786400
-      Sprite-0007_Enemy01_Idlet_1: 451506228
-      Sprite-0007_Enemy01_Idlet_10: -206367302
-      Sprite-0007_Enemy01_Idlet_11: 1038821401
-      Sprite-0007_Enemy01_Idlet_2: 444758441
-      Sprite-0007_Enemy01_Idlet_3: -655272652
-      Sprite-0007_Enemy01_Idlet_4: -2141366709
-      Sprite-0007_Enemy01_Idlet_5: 1001308855
-      Sprite-0007_Enemy01_Idlet_6: 335806407
-      Sprite-0007_Enemy01_Idlet_7: -205530754
-      Sprite-0007_Enemy01_Idlet_8: -1286597276
-      Sprite-0007_Enemy01_Idlet_9: -1641133563
+      Sprite-0007_Enemy01_Idle_0: 743541496
+      Sprite-0007_Enemy01_Idle_1: 1862318533
+      Sprite-0007_Enemy01_Idle_10: 1639263913
+      Sprite-0007_Enemy01_Idle_11: -683073909
+      Sprite-0007_Enemy01_Idle_2: 1081821484
+      Sprite-0007_Enemy01_Idle_3: -279470674
+      Sprite-0007_Enemy01_Idle_4: -1128230471
+      Sprite-0007_Enemy01_Idle_5: -1272135384
+      Sprite-0007_Enemy01_Idle_6: 62166477
+      Sprite-0007_Enemy01_Idle_7: -697378107
+      Sprite-0007_Enemy01_Idle_8: 702941652
+      Sprite-0007_Enemy01_Idle_9: 2086521265
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

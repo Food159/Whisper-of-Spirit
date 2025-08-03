@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
+    [Header("PLayer")]
     public GameObject bulletPrefabs;
     public int poolSize = 5;
-
     private List<GameObject> pool;
+
+    [Space]
+    [Header("Enemy Kid")]
+    public GameObject kidBulletsPrefabs;
+    public int kidPoolSize = 5;
+    private List<GameObject> kidPool;
+
     private void Start()
     {
         pool = new List<GameObject>();
@@ -16,6 +23,14 @@ public class ObjectPool : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefabs);
             bullet.SetActive(false);
             pool.Add(bullet);
+        }
+
+        kidPool = new List<GameObject>(); //if have kid
+        for(int j = 0; j < kidPoolSize; j++)
+        {
+            GameObject kidBullet = Instantiate(kidBulletsPrefabs);
+            kidBullet.SetActive(false);
+            kidPool.Add(kidBullet);
         }
     }
     public GameObject GetObject()
@@ -26,6 +41,14 @@ public class ObjectPool : MonoBehaviour
             {
                 bullet.SetActive(true);
                 return bullet;
+            }
+        }
+        foreach(GameObject kidBullet in kidPool)
+        {
+            if(!kidBullet.activeInHierarchy)
+            {
+                kidBullet.SetActive(true);
+                return kidBullet;
             }
         }
         return null;

@@ -27,7 +27,7 @@ public class KidController : MonoBehaviour
     [SerializeField] Transform Area_negX;
     [SerializeField] Transform Area_posX;
     [SerializeField] bool isAleart;
-    [SerializeField] public float attackRange;
+    //[SerializeField] public float attackRange;
     public float sentDirection = 1;
     public bool isOutofArea;
     EnemyHealth status;

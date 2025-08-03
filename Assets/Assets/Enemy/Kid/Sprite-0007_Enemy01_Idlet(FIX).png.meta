@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 549fde5ecc6e75541bbd7cfb9d5d572c
+guid: 95543946ade746c4f9ff7794a84aa6c3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprite-0007_WalkAnimationFinal-Sheet_0
+      name: Sprite-0007_Enemy01_Idlet(FIX)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 29
-        height: 60
+        width: 240
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb3912811f39d7945a6dfb3757be638c
-      internalID: 30552451
+      spriteID: c71b0a90888d4494e93a6312c22854d9
+      internalID: -4458162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0007_WalkAnimationFinal-Sheet_1
+      name: Sprite-0007_Enemy01_Idlet(FIX)_1
       rect:
         serializedVersion: 2
-        x: 29
+        x: 240
         y: 0
-        width: 29
-        height: 60
+        width: 240
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f6f916187912634da384ac225d731e6
-      internalID: -1975894637
+      spriteID: 8958371e107026541866c61a780b7379
+      internalID: -1801487725
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0007_WalkAnimationFinal-Sheet_2
+      name: Sprite-0007_Enemy01_Idlet(FIX)_2
       rect:
         serializedVersion: 2
-        x: 58
+        x: 480
         y: 0
-        width: 29
-        height: 60
+        width: 240
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2744adfcbbec9841bd7ff73feb94cfc
-      internalID: -909434536
+      spriteID: 55fefdd84e38f8b47bc8d9692f9127f0
+      internalID: 121838396
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0007_WalkAnimationFinal-Sheet_3
+      name: Sprite-0007_Enemy01_Idlet(FIX)_3
       rect:
         serializedVersion: 2
-        x: 87
+        x: 720
         y: 0
-        width: 29
-        height: 60
+        width: 240
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73c5ddd556d0153468988c6a51d40128
-      internalID: -307697275
+      spriteID: 4844974eb329cf8438541cbb466d2b7a
+      internalID: -320083164
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0007_WalkAnimationFinal-Sheet_4
+      name: Sprite-0007_Enemy01_Idlet(FIX)_4
       rect:
         serializedVersion: 2
-        x: 116
+        x: 960
         y: 0
-        width: 29
-        height: 60
+        width: 240
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 992c7da590003864d8969f59c87233d5
-      internalID: 1366689041
+      spriteID: cf7b35125fd685448bc06983d2750b90
+      internalID: -1812608620
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0007_WalkAnimationFinal-Sheet_5
+      name: Sprite-0007_Enemy01_Idlet(FIX)_5
       rect:
         serializedVersion: 2
-        x: 145
+        x: 1200
         y: 0
-        width: 29
-        height: 60
+        width: 240
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,20 +242,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc3ec5b8e8274064d93475fbde5b740e
-      internalID: 965337597
+      spriteID: e0f2f2817a8e46c4bbc1f164a607791b
+      internalID: -1633316156
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0007_WalkAnimationFinal-Sheet_6
+      name: Sprite-0007_Enemy01_Idlet(FIX)_6
       rect:
         serializedVersion: 2
-        x: 174
+        x: 1440
         y: 0
-        width: 29
-        height: 60
+        width: 240
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,20 +263,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 807da07cc1f6940418a04cafceb1def5
-      internalID: 356880973
+      spriteID: a0e64a8bd3b5bd243b94754852a41ece
+      internalID: 2022484901
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0007_WalkAnimationFinal-Sheet_7
+      name: Sprite-0007_Enemy01_Idlet(FIX)_7
       rect:
         serializedVersion: 2
-        x: 203
+        x: 1680
         y: 0
-        width: 29
-        height: 60
+        width: 240
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,8 +284,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1973689cfea37da4ca6d7be1bb120afd
-      internalID: -772888747
+      spriteID: 13fae849376cb15498bdbe5e7dd32d0c
+      internalID: 862037732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-0007_Enemy01_Idlet(FIX)_8
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cedc885f8567427449366d7c69e89b5f
+      internalID: -394982314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-0007_Enemy01_Idlet(FIX)_9
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 0
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7097692eabf2b69438816f026e70d1e6
+      internalID: 2098143472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-0007_Enemy01_Idlet(FIX)_10
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c66c104f5f48dd645ba02b67fbaf5a4f
+      internalID: -1946537345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-0007_Enemy01_Idlet(FIX)_11
+      rect:
+        serializedVersion: 2
+        x: 2640
+        y: 0
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49efe041fc0d10a4ea32bca7514ce738
+      internalID: -1614427912
       vertices: []
       indices: 
       edges: []
@@ -301,14 +385,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Sprite-0007_WalkAnimationFinal-Sheet_0: 30552451
-      Sprite-0007_WalkAnimationFinal-Sheet_1: -1975894637
-      Sprite-0007_WalkAnimationFinal-Sheet_2: -909434536
-      Sprite-0007_WalkAnimationFinal-Sheet_3: -307697275
-      Sprite-0007_WalkAnimationFinal-Sheet_4: 1366689041
-      Sprite-0007_WalkAnimationFinal-Sheet_5: 965337597
-      Sprite-0007_WalkAnimationFinal-Sheet_6: 356880973
-      Sprite-0007_WalkAnimationFinal-Sheet_7: -772888747
+      Sprite-0007_Enemy01_Idlet(FIX)_0: -4458162
+      Sprite-0007_Enemy01_Idlet(FIX)_1: -1801487725
+      Sprite-0007_Enemy01_Idlet(FIX)_10: -1946537345
+      Sprite-0007_Enemy01_Idlet(FIX)_11: -1614427912
+      Sprite-0007_Enemy01_Idlet(FIX)_2: 121838396
+      Sprite-0007_Enemy01_Idlet(FIX)_3: -320083164
+      Sprite-0007_Enemy01_Idlet(FIX)_4: -1812608620
+      Sprite-0007_Enemy01_Idlet(FIX)_5: -1633316156
+      Sprite-0007_Enemy01_Idlet(FIX)_6: 2022484901
+      Sprite-0007_Enemy01_Idlet(FIX)_7: 862037732
+      Sprite-0007_Enemy01_Idlet(FIX)_8: -394982314
+      Sprite-0007_Enemy01_Idlet(FIX)_9: 2098143472
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
