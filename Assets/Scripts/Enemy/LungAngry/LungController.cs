@@ -20,6 +20,7 @@ public class LungController : MonoBehaviour, IPausable
     public Transform playerTarget;
     public LayerMask playerLayer;
     private float distance;
+    public float yPlayer = 2f;
 
     [Header("GameObject")]
     [SerializeField] GameObject shadow;
@@ -135,6 +136,9 @@ public class LungController : MonoBehaviour, IPausable
     }
     void LookForPlayer()
     {
+        float distance = DistanceCal();
+        float yOffset = Mathf.Abs(playerTarget.position.y - transform.position.y);
+
         Vector2 rayDirectionLeft = Vector2.left;
         Vector2 rayDirectionRight = Vector2.right;
 
@@ -144,10 +148,18 @@ public class LungController : MonoBehaviour, IPausable
         Debug.DrawRay(transform.position, rayDirectionLeft * patrolLenght, Color.green);
         Debug.DrawRay(transform.position, rayDirectionRight * patrolLenght, Color.green);
 
-        if (hitLeft.collider != null || hitRight.collider != null)
+        if(distance <= patrolLenght && yOffset <= yPlayer)
         {
             isAleart = true;
         }
+        else
+        {
+            isAleart = false;
+        }
+        //if (hitLeft.collider != null || hitRight.collider != null)
+        //{
+        //    isAleart = true;
+        //}
     }
     void Check()
     {
