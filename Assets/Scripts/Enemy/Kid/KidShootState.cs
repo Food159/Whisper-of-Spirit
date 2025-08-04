@@ -62,7 +62,14 @@ public class KidShootState : KidState
     }
     public override void Do()
     {
-
+        if(kidInput.playerTarget.position.x > kidInput.transform.position.x && !kidInput._isFacingRight)
+        {
+            kidInput.Flip();
+        }
+        else if(kidInput.playerTarget.position.x < kidInput.transform.position.x && kidInput._isFacingRight)
+        {
+            kidInput.Flip();
+        }
     }
     private void OnDrawGizmosSelected()
     {

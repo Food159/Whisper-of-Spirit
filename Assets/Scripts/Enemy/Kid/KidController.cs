@@ -20,16 +20,20 @@ public class KidController : MonoBehaviour
     private float distance;
     public float attackRange = 5f;
     public float yPlayer = 2f;
+    private bool waitPatrol = false;
+    private float idleTimer = 0f;
+    private float idleDuration = 4f;
 
     [Header("GameObject")]
     [SerializeField] GameObject shadow;
 
     [Header("Settings")]
     [SerializeField] private float patrolLenght;
-    [SerializeField] Transform Area_negX;
-    [SerializeField] Transform Area_posX;
+    [SerializeField] public Transform Area_negX;
+    [SerializeField] public Transform Area_posX;
+    public Vector3 currentTargetPos;
+    private bool reachedTarget;
     [SerializeField] bool isAleart;
-    //[SerializeField] public float attackRange;
     public float sentDirection = -1;
     public bool isOutofArea;
     EnemyHealth status;
@@ -51,6 +55,9 @@ public class KidController : MonoBehaviour
     }
     private void Start()
     {
+        currentTargetPos = Area_negX.position;
+        reachedTarget = false;
+
         kidIdestate.Setup(rb2d, anim, this);
         kidWalkstate.Setup(rb2d, anim, this);
         kidShootstate.Setup(rb2d, anim, this);
@@ -63,14 +70,6 @@ public class KidController : MonoBehaviour
         SelectState();
         Check();
         state.Do();
-        if (playerTarget.position.x > transform.position.x && !_isFacingRight)
-        {
-            Flip();
-        }
-        else if (playerTarget.position.x < transform.position.x && _isFacingRight)
-        {
-            Flip();
-        }
     }
     void SelectState()
     {
@@ -79,20 +78,32 @@ public class KidController : MonoBehaviour
             return;
         }
         float distance = DistanceCal();
-        if (isAleart)
+        if (isAleart && distance <= attackRange)
         {
-            if(distance <= attackRange)
-            {
-                state = kidShootstate;
-            }
-            else
-            {
-                state = kidWalkstate;
-            }
+            waitPatrol = false;
+            idleTimer = 0f;
+            state = kidShootstate;
+
         }
         else
         {
-            state = kidWalkstate;
+            if(!waitPatrol)
+            {
+                waitPatrol = true;
+                idleTimer = 0f;
+            }
+            if (waitPatrol)
+            {
+                idleTimer += Time.deltaTime;
+                if (idleTimer < idleDuration)
+                {
+                    state = kidIdestate;
+                }
+                else
+                {
+                    state = kidWalkstate;
+                }
+            }
         }
         state.Enter();
     }

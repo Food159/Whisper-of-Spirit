@@ -6,7 +6,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class CameraFollow : MonoBehaviour
 {
-    private float followSpeed = 1.5f;
+    private float followSpeed = 2.5f;
     private float yOffset = 0.3f; //0.3
     private float xOffset = 5f; //5
     private float initialY;

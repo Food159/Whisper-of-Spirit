@@ -6,25 +6,38 @@ using UnityEngine.Windows;
 public class KidWalkState : KidState
 {
     public AnimationClip animclip;
-    private float walkspeed = 1.5f;
+    private float walkspeed = 3.5f;
     public override void Enter()
     {
         anim.Play(animclip.name);
     }
     public override void Do()
     {
-        float direction = Mathf.Sign(kidInput.playerTarget.position.x - kidInput.transform.position.x);
-        if (kidInput.transform.localScale.x > 0)
+        Vector3 target = kidInput.currentTargetPos;
+        float direction = Mathf.Sign(target.x - kidInput.transform.position.x);
+
+        if(direction > 0 && !kidInput._isFacingRight)
         {
-            direction = -1;
+            kidInput.Flip();
         }
-        else
+        else if(direction < 0 && kidInput._isFacingRight)
         {
-            direction = 1;
+            kidInput.Flip();
         }
-        rb2d.velocity = new Vector2(walkspeed * kidInput.sentDirection, rb2d.velocity.y);
         rb2d.velocity = new Vector2(walkspeed * direction, rb2d.velocity.y);
-        if (kidInput.DistanceCal() <= 1.9f || kidInput.DistanceCal() > 10f || kidInput.isOutofArea)
+        
+        if(Mathf.Abs(kidInput.transform.position.x - target.x) <= 0.1f)
+        {
+            if(kidInput.currentTargetPos == kidInput.Area_posX.position)
+            {
+                kidInput.currentTargetPos = kidInput.Area_negX.position;
+            }
+            else
+            {
+                kidInput.currentTargetPos = kidInput.Area_posX.position;
+            }
+        }
+        if(kidInput.isOutofArea)
         {
             isComplete = true;
         }
