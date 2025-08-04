@@ -609,13 +609,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8100e825a115e2d41979df5a5fb138b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kidInput: {fileID: 0}
-  animclip: {fileID: 0}
-  col2d: {fileID: 0}
-  enemy: {fileID: 0}
-  hpbar: {fileID: 0}
-  guman: {fileID: 0}
-  purifyPrefab: {fileID: 0}
+  kidInput: {fileID: 54374240}
+  animclip: {fileID: 7400000, guid: 109a8e144049e2c40a2c88f61929f601, type: 2}
+  col2d: {fileID: 54374237}
+  enemy: {fileID: 54374232}
+  hpbar: {fileID: 892127289}
+  guman: {fileID: 868430261}
+  purifyPrefab: {fileID: 8664462331607313595, guid: c5bd7817dcc02b64ca19740d1a52a704, type: 3}
   _isPurify: 0
 --- !u!1 &53947371
 GameObject:
@@ -921,7 +921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kidInput: {fileID: 54374240}
-  animclip: {fileID: 0}
+  animclip: {fileID: 7400000, guid: e945a9e72276bd34ca4106125c95e35d, type: 2}
   _isAttacking: 0
   playerlayer:
     serializedVersion: 2
@@ -949,12 +949,14 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
+  attackRange: 10
+  yPlayer: 2
   shadow: {fileID: 412153996}
-  patrolLenght: 0
+  patrolLenght: 10
   Area_negX: {fileID: 1001751650}
   Area_posX: {fileID: 1326129825}
   isAleart: 0
-  sentDirection: 1
+  sentDirection: -1
   isOutofArea: 0
 --- !u!1 &60076389
 GameObject:
@@ -3451,8 +3453,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 191ea13308b686344997ff56eaacb4f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kidInput: {fileID: 0}
-  animclip: {fileID: 0}
+  kidInput: {fileID: 54374240}
+  animclip: {fileID: 7400000, guid: 612b6b2e3c65b034ebac98ecd6ee0673, type: 2}
 --- !u!1 &249045793
 GameObject:
   m_ObjectHideFlags: 0
@@ -5211,7 +5213,7 @@ Transform:
   m_GameObject: {fileID: 373690781}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 0.019, y: -1.1842569, z: 0}
+  m_LocalPosition: {x: 0, y: -1.2, z: 0}
   m_LocalScale: {x: 1, y: 0.1315, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5509,7 +5511,7 @@ Transform:
   m_GameObject: {fileID: 412153996}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -1.173, z: 0}
+  m_LocalPosition: {x: 0, y: -1.2, z: 0}
   m_LocalScale: {x: 1, y: 0.13149999, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7653,7 +7655,7 @@ Transform:
   m_GameObject: {fileID: 604791573}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -2.9407086, y: 0.25907755, z: 0}
+  m_LocalPosition: {x: 0, y: -0.349, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8291,7 +8293,7 @@ GameObject:
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &659546880
 Transform:
   m_ObjectHideFlags: 0
@@ -8301,7 +8303,7 @@ Transform:
   m_GameObject: {fileID: 659546879}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.48, y: -0.08, z: 0}
+  m_LocalPosition: {x: -0.929, y: -0.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12039,7 +12041,7 @@ Transform:
   m_GameObject: {fileID: 981999276}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.057, y: -1.21, z: 0}
+  m_LocalPosition: {x: 0, y: -1.2, z: 0}
   m_LocalScale: {x: 1, y: 0.1315, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19111,6 +19113,7 @@ MonoBehaviour:
   poolSize: 6
   kidBulletsPrefabs: {fileID: 6942593850677245434, guid: 391dca888f003b44ba254f663fa627b2, type: 3}
   kidPoolSize: 5
+  kidcontroller: {fileID: 0}
 --- !u!4 &1455335311
 Transform:
   m_ObjectHideFlags: 0
@@ -24691,8 +24694,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2612a9ef803b2248984adfe2900ce46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kidInput: {fileID: 0}
-  animclip: {fileID: 0}
+  kidInput: {fileID: 54374240}
+  animclip: {fileID: 7400000, guid: b0783340907c9064e968dac5c1dfca88, type: 2}
 --- !u!1 &1973801757
 GameObject:
   m_ObjectHideFlags: 0

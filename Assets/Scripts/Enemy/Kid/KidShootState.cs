@@ -12,6 +12,7 @@ public class KidShootState : KidState
     [SerializeField] LayerMask playerlayer;
     PlayerHealth playerstatus;
     private ObjectPool objectPool;
+    private KidController kidController;
 
     [Header("Variable")]
     [SerializeField] Transform firePoint;
@@ -20,61 +21,44 @@ public class KidShootState : KidState
     {
         playerstatus = FindAnyObjectByType<PlayerHealth>();
         objectPool = FindObjectOfType<ObjectPool>();
+        kidController = GetComponent<KidController>();
     }
     public override void Enter()
     {
         if (_canAttack && playerstatus._isPlayerDead == false)
         {
+            _isAttacking = true;
+            //_canAttack = false;
             anim.Play(animclip.name);
-            KShoot();
+            //KShoot();
+            
+            //StartCoroutine(AttackCooldown());
         }
     }
-    void attack()
+    public void KShoot()
     {
-        {
-        //Collider2D[] hits = Physics2D.OverlapCircleAll(attackpoint.position, attackrange, playerlayer);
-        //foreach (Collider2D hit in hits)
-        //{
-        //    SoundManager.instance.PlaySfx(SoundManager.instance.lungAttackClip);
-        //    PlayerHealth playerhealth = hit.GetComponent<PlayerHealth>();
-        //    PlayerController playercontroller = hit.GetComponent<PlayerController>();
-        //    if (playerhealth != null)
-        //    {
-        //        playerhealth.TakeDamage(damage);
-        //        Debug.Log("ยิงโดน Player! HP ที่เหลือ: " + playerhealth.currentHealth);
-        //    }
-            //if (playercontroller != null)
-            //{
-            //    playercontroller.knockback(transform);
-            //}
-        }
-    }
-    void KShoot()
-    {
-        if(objectPool == null && firePoint == null)
+        if(objectPool == null && firePoint == null && kidController == null)
             return;
 
-        GameObject bullet = objectPool.GetObject();
-        if(bullet != null)
+        GameObject bulletKid = objectPool.GetKidObject();
+        if(bulletKid != null)
         {
-            bullet.transform.position = firePoint.position;
-            bullet.transform.rotation = firePoint.rotation;
+            bulletKid.transform.position = firePoint.position;
+            bulletKid.transform.rotation = firePoint.rotation;
 
-            Rigidbody2D rb2d = bullet.GetComponent<Rigidbody2D>();
+            Rigidbody2D rb2d = bulletKid.GetComponent<Rigidbody2D>();
             if(rb2d != null)
             {
-                float direction;
-                if(transform.localScale.x > 0f)
-                {
-                    direction = 1f;
-                }
-                else
-                {
-                    direction = -1f;
-                }
+                float direction = kidController.sentDirection;
                 rb2d.velocity = new Vector2(direction * bulletSpeed, 0f);
             }
         }
+    }
+    IEnumerator AttackCooldown()
+    {
+        yield return new WaitForSeconds(animclip.length);
+        _canAttack = true;
+        _isAttacking = false;
     }
     public override void Do()
     {
@@ -83,7 +67,6 @@ public class KidShootState : KidState
     private void OnDrawGizmosSelected()
     {
         //Gizmos.color = Color.yellow;
-        //Gizmos.DrawWireSphere(attackpoint.position, attackrange);
     }
     public override void Exit()
     {

@@ -14,7 +14,11 @@ public class ObjectPool : MonoBehaviour
     public GameObject kidBulletsPrefabs;
     public int kidPoolSize = 5;
     private List<GameObject> kidPool;
-
+    [SerializeField] private KidController kidcontroller;
+    private void Awake()
+    {
+        kidcontroller = FindObjectOfType<KidController>();
+    }
     private void Start()
     {
         pool = new List<GameObject>();
@@ -24,14 +28,17 @@ public class ObjectPool : MonoBehaviour
             bullet.SetActive(false);
             pool.Add(bullet);
         }
-
-        kidPool = new List<GameObject>(); //if have kid
-        for(int j = 0; j < kidPoolSize; j++)
+        if(kidcontroller != null)
         {
-            GameObject kidBullet = Instantiate(kidBulletsPrefabs);
-            kidBullet.SetActive(false);
-            kidPool.Add(kidBullet);
+            kidPool = new List<GameObject>(); //if have kid
+            for (int j = 0; j < kidPoolSize; j++)
+            {
+                GameObject kidBullet = Instantiate(kidBulletsPrefabs);
+                kidBullet.SetActive(false);
+                kidPool.Add(kidBullet);
+            }
         }
+        
     }
     public GameObject GetObject()
     {
@@ -43,12 +50,16 @@ public class ObjectPool : MonoBehaviour
                 return bullet;
             }
         }
-        foreach(GameObject kidBullet in kidPool)
+        return null;
+    }
+    public GameObject GetKidObject()
+    {
+        foreach(GameObject bulletKid in kidPool)
         {
-            if(!kidBullet.activeInHierarchy)
+            if(!bulletKid.activeInHierarchy)
             {
-                kidBullet.SetActive(true);
-                return kidBullet;
+                bulletKid.SetActive(true);
+                return bulletKid;
             }
         }
         return null;
