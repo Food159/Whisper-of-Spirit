@@ -20,7 +20,7 @@ public class CameraFollow : MonoBehaviour
     
     private void Awake()
     {
-        PlayerController player = FindObjectOfType<PlayerController>();
+        PlayerController player = FindAnyObjectByType<PlayerController>();
         if(player != null)
         {
             target = player.transform;

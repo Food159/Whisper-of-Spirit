@@ -2141,6 +2141,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
+  yPlayer: 2
   shadow: {fileID: 712268473}
   patrolLenght: 10
   Area_negX: {fileID: 1001751650}
@@ -3932,6 +3933,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
+  yPlayer: 2
   shadow: {fileID: 1516761300}
   patrolLenght: 10
   Area_negX: {fileID: 1001751650}
@@ -6172,9 +6174,13 @@ MonoBehaviour:
   jump: {x: 0, y: 2}
   jumpSpeed: 0
   _isWalking: 0
+  coyoteTime: 0.2
+  jumpBufferTime: 0.2
   spriteRenderer: {fileID: 555515631}
   _CanMove: 1
   _isGround: 1
+  isOnPlatform: 0
+  _isFacingRight: 1
   playerAct: 0
   anim: {fileID: 555515633}
   knockbackX: 0
@@ -8724,6 +8730,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
+  yPlayer: 2
   shadow: {fileID: 137452757}
   patrolLenght: 10
   Area_negX: {fileID: 1001751650}
@@ -11818,6 +11825,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
+  yPlayer: 2
   shadow: {fileID: 934656059}
   patrolLenght: 10
   Area_negX: {fileID: 1001751650}
@@ -12640,6 +12648,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
+  yPlayer: 2
   shadow: {fileID: 373690781}
   patrolLenght: 10
   Area_negX: {fileID: 1001751650}
@@ -13450,6 +13459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 555515629}
+  player: {fileID: 555515634}
 --- !u!1 &1203323979
 GameObject:
   m_ObjectHideFlags: 0
@@ -17101,6 +17111,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefabs: {fileID: 5665920913636940584, guid: 0f93505e84ca62f408a43f480f208a7e, type: 3}
   poolSize: 6
+  kidBulletsPrefabs: {fileID: 0}
+  kidPoolSize: 5
+  kidcontroller: {fileID: 0}
 --- !u!4 &1455335311
 Transform:
   m_ObjectHideFlags: 0
@@ -22625,9 +22638,13 @@ MonoBehaviour:
   jump: {x: 0, y: 2}
   jumpSpeed: 0
   _isWalking: 0
+  coyoteTime: 0.2
+  jumpBufferTime: 0.2
   spriteRenderer: {fileID: 2047390213}
   _CanMove: 1
   _isGround: 1
+  isOnPlatform: 0
+  _isFacingRight: 1
   playerAct: 0
   anim: {fileID: 2047390212}
   knockbackX: 0

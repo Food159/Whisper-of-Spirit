@@ -37,6 +37,11 @@ public class ChoiceManager : MonoBehaviour
     {
         SoundManager.instance.PlaySfx(SoundManager.instance.choiceSelectedClip);
         GameDataHandler.instance.ClearData();
-        SceneController.instance.LoadSceneName("SceneGameOne");
+        SceneController.instance.LoadSceneIndex(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    public void OnButtonYesSecond()
+    {
+        SoundManager.instance.PlaySfx(SoundManager.instance.choiceSelectedClip);
+        SceneController.instance.LoadSceneIndex(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

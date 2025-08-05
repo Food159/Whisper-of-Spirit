@@ -27,21 +27,7 @@ public class GameDataHandler : MonoBehaviour
         PlayerGameData gamedata = LoadData();
         if(gamedata != null)
         {
-            //if(playercontroller != null) 
-            //{
-            //    playercontroller.transform.position = gamedata.playerPos;
-            //}
             playerhealth.currentHealth = gamedata.playerHp;
-            //playerhealth._isPlayerDead = gamedata.playerDied;
-            //if(gamedata.playerDied)
-            //{
-            //    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            //    //gamedata.playerHp = 100;
-            //    gamedata.playerDied = false;
-            //    //playerhealth.currentHealth = gamedata.playerHp;
-            //    //playerhealth._isPlayerDead = gamedata.playerDied;
-            //    //playercontroller.transform.position = new Vector2(-5.63f, -1.888795f);
-            //}
         }
     }
     private void Update()
