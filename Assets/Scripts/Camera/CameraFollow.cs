@@ -13,15 +13,14 @@ public class CameraFollow : MonoBehaviour
     private float initialY;
     private bool camLeft = false;
 
-
     public Transform target;
     public PlayerController player;
 
     
     private void Awake()
     {
-        PlayerController player = FindAnyObjectByType<PlayerController>();
-        if(player != null)
+        player = FindAnyObjectByType<PlayerController>();
+        if (player != null)
         {
             target = player.transform;
         }

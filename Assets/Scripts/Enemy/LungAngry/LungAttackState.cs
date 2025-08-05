@@ -9,14 +9,17 @@ public class LungAttackState : LungState
     //float attackCooldown = 2f;
     bool _isAnimationFinished = false;
     [SerializeField]  bool _isAttacking;
-    [SerializeField] int damage;
+    [SerializeField] private int damage = 20;
     [SerializeField] Transform attackpoint;
     [SerializeField] float attackrange;
     [SerializeField] LayerMask playerlayer;
     PlayerHealth playerstatus;
+    private CameraShake camerashake;
+
     private void Awake()
     {
         playerstatus = FindAnyObjectByType<PlayerHealth>();
+        camerashake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<CameraShake>();
     }
     public override void Enter()
     {
@@ -36,6 +39,7 @@ public class LungAttackState : LungState
             if (playerhealth != null) 
             {
                 playerhealth.TakeDamage(damage);
+                camerashake.CamShaking();
                 Debug.Log("โจมตี Player! HP ที่เหลือ: " + playerhealth.currentHealth);
             }
             if (playercontroller != null)

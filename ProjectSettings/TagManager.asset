@@ -12,6 +12,7 @@ TagManager:
   - OneWayPlatfrom
   - Platfrom
   - firstPlatform
+  - ScreenShake
   layers:
   - Default
   - TransparentFX

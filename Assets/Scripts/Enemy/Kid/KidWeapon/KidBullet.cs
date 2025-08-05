@@ -6,9 +6,15 @@ public class KidBullet : MonoBehaviour
 {
     public float lifeTime = 2f;
     private float timer;
+
+    private CameraShake camerashake;
     private void OnEnable()
     {
         timer = 0f;
+    }
+    private void Awake()
+    {
+        camerashake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<CameraShake>();
     }
     private void Update()
     {
@@ -27,6 +33,7 @@ public class KidBullet : MonoBehaviour
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(10);
+                camerashake.CamShaking();
             }
             gameObject.SetActive(false);
         }
