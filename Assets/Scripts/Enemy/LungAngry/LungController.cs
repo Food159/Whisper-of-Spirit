@@ -175,6 +175,18 @@ public class LungController : MonoBehaviour, IPausable
         {
             collision.gameObject.GetComponent<PlayerController>().knockback(transform);
         }
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platfrom") || collision.gameObject.CompareTag("firstPlatform"))
+        {
+            shadow.SetActive(true);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platfrom") || collision.gameObject.CompareTag("firstPlatform"))
+        {
+            shadow.SetActive(false);
+        }
     }
     public float DistanceCal()
     {

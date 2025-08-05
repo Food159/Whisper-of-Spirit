@@ -43,7 +43,7 @@ public class PlayerController : Subject, IOserver, IPausable
     public bool isOnPlatform = false;
     private float platformExitDelay = 0.5f;
     private float platformExitTimer = 0f;
-    private bool _isFacingRight = true;
+    public bool _isFacingRight = true;
     Rigidbody2D rb2d;
     public int playerAct;
     public Animator anim;

@@ -6,10 +6,12 @@ using static UnityEngine.GraphicsBuffer;
 
 public class CameraFollow : MonoBehaviour
 {
-    private float followSpeed = 2.5f;
+    [Header("Variable")]
+    private float followSpeed = 1.5f;
     private float yOffset = 0.3f; //0.3
-    private float xOffset = 5f; //5
+    private float xOffset = 3f; //5
     private float initialY;
+    private bool camLeft = false;
 
 
     public Transform target;
@@ -33,7 +35,16 @@ public class CameraFollow : MonoBehaviour
     {
         if (target == null && player == null)
             return;
-
+        if(!player._isFacingRight && !camLeft) 
+        {
+            xOffset = -3f;
+            camLeft = true;
+        }
+        else if (player._isFacingRight && camLeft)
+        {
+            xOffset = 3f;
+            camLeft = false;
+        }
         float targetY = transform.position.y;
         if (player.isOnPlatform)
         {

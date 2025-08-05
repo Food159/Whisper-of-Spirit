@@ -11,7 +11,7 @@ public class KidIdleState : KidState
     }
     public override void Do()
     {
-        rb2d.velocity = Vector2.zero;
+        //rb2d.velocity = Vector2.zero;
     }
     public override void Exit()
     {

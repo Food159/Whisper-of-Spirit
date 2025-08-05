@@ -149,6 +149,21 @@ public class KidController : MonoBehaviour
             state.Enter();
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platfrom") || collision.gameObject.CompareTag("firstPlatform"))
+        {
+            shadow.SetActive(true);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platfrom") || collision.gameObject.CompareTag("firstPlatform"))
+        {
+            shadow.SetActive(false);
+        }
+    }
     public float DistanceCal()
     {
         float distance = Mathf.Abs(playerTarget.position.x - transform.position.x);
