@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SceneGameTwo.unity
     guid: 2c1fd08f4062097459bdd24fec095f1c
+  - enabled: 1
+    path: Assets/Scenes/SceneGameThree.unity
+    guid: 99aef8e4ca161204bb7bdae88f633a49
   m_configObjects: {}
