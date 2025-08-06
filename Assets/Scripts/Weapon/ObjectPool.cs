@@ -15,9 +15,17 @@ public class ObjectPool : MonoBehaviour
     public int kidPoolSize = 5;
     private List<GameObject> kidPool;
     [SerializeField] private KidController kidcontroller;
+
+    [Space]
+    [Header("Enemy Teen")]
+    public GameObject teenBulletsPrefabs;
+    public int teenPoolSize = 3;
+    private List<GameObject> teenPool;
+    [SerializeField] private TeenController teencontroller;
     private void Awake()
     {
         kidcontroller = FindObjectOfType<KidController>();
+        teencontroller = FindObjectOfType<TeenController>();
     }
     private void Start()
     {
@@ -38,7 +46,16 @@ public class ObjectPool : MonoBehaviour
                 kidPool.Add(kidBullet);
             }
         }
-        
+        if (teencontroller != null)
+        {
+            teenPool = new List<GameObject>(); //if have teen
+            for (int k = 0; k < teenPoolSize; k++)
+            {
+                GameObject teenBullet = Instantiate(teenBulletsPrefabs);
+                teenBullet.SetActive(false);
+                teenPool.Add(teenBullet);
+            }
+        }
     }
     public GameObject GetObject()
     {
@@ -60,6 +77,18 @@ public class ObjectPool : MonoBehaviour
             {
                 bulletKid.SetActive(true);
                 return bulletKid;
+            }
+        }
+        return null;
+    }
+    public GameObject GetTeenObject()
+    {
+        foreach (GameObject bulletteen in teenPool)
+        {
+            if (!bulletteen.activeInHierarchy)
+            {
+                bulletteen.SetActive(true);
+                return bulletteen;
             }
         }
         return null;
