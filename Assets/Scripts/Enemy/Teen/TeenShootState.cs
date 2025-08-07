@@ -1,11 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TeenShootState : TeenState
 {
     public AnimationClip animclip;
-    bool _canAttack = true;
     bool _isAnimationFinished = false;
     [SerializeField] bool _isAttacking;
     [SerializeField] LayerMask playerlayer;
@@ -24,20 +23,27 @@ public class TeenShootState : TeenState
     }
     public override void Enter()
     {
-        if (_canAttack && playerstatus._isPlayerDead == false)
+        //if (playerstatus._isPlayerDead == false && teenInput.canShoot)
+        //{
+        //    Debug.Log("Shoot Enter");
+        //    teenInput.StartCoroutine(teenInput.WaitForTeenShoot());
+        //    _isAttacking = true;
+        //    anim.Play(animclip.name);
+        //}
+        //teenInput.StartCoroutine(teenInput.WaitForTeenShoot());
+        if (playerstatus._isPlayerDead == false && teenInput.canShoot)
         {
+            Debug.Log("Shoot Enter");
             _isAttacking = true;
-            //_canAttack = false;
             anim.Play(animclip.name);
-            //KShoot();
-
-            //StartCoroutine(AttackCooldown());
         }
     }
     public void TShoot()
     {
-        if (objectPool == null && firePoint == null && teenController == null)
+        if (objectPool == null || firePoint == null || teenController == null)
+        {
             return;
+        }
 
         GameObject bulletTeen = objectPool.GetTeenObject();
         if (bulletTeen != null)
@@ -50,14 +56,11 @@ public class TeenShootState : TeenState
             {
                 float direction = teenController.sentDirection;
                 rb2d.velocity = new Vector2(direction * bulletSpeed, 0f);
+
+                teenInput.canShoot = false;
+                Debug.Log("ShootFalse");
             }
         }
-    }
-    IEnumerator AttackCooldown()
-    {
-        yield return new WaitForSeconds(animclip.length);
-        _canAttack = true;
-        _isAttacking = false;
     }
     public override void Do()
     {

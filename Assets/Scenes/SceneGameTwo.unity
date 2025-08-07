@@ -1145,7 +1145,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 7
   m_Sprite: {fileID: 743541496, guid: 5ad53ea155d0b6647939a4700596de12, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1251,7 +1251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457c260986ab2ed43967e08426754906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 60
   currentHealth: 0
   _isDead: 0
   healthbar: {fileID: 892127292}
@@ -4327,7 +4327,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 7
   m_Sprite: {fileID: -1220310194, guid: dcb0a9d8996074e48aa3c6cc1c0453f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4351,7 +4351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457c260986ab2ed43967e08426754906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 160
   currentHealth: 0
   _isDead: 0
   healthbar: {fileID: 1285964105}
@@ -5354,7 +5354,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 7
   m_Sprite: {fileID: -1220310194, guid: dcb0a9d8996074e48aa3c6cc1c0453f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5491,7 +5491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457c260986ab2ed43967e08426754906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 160
   currentHealth: 0
   _isDead: 0
   healthbar: {fileID: 316724103}
@@ -6896,7 +6896,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457c260986ab2ed43967e08426754906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 60
   currentHealth: 0
   _isDead: 0
   healthbar: {fileID: 467897174}
@@ -6988,7 +6988,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 7
   m_Sprite: {fileID: 743541496, guid: 5ad53ea155d0b6647939a4700596de12, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -8339,7 +8339,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 7
   m_Sprite: {fileID: 1491832717, guid: bc7db3d4883fadf48b5a4918890fb3be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -12271,7 +12271,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 7
   m_Sprite: {fileID: -1220310194, guid: dcb0a9d8996074e48aa3c6cc1c0453f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -12295,7 +12295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457c260986ab2ed43967e08426754906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 160
   currentHealth: 0
   _isDead: 0
   healthbar: {fileID: 2111447068}
@@ -15291,7 +15291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457c260986ab2ed43967e08426754906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 60
   currentHealth: 0
   _isDead: 0
   healthbar: {fileID: 957745942}
@@ -15383,7 +15383,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 7
   m_Sprite: {fileID: 743541496, guid: 5ad53ea155d0b6647939a4700596de12, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -17577,7 +17577,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 7
   m_Sprite: {fileID: -1220310194, guid: dcb0a9d8996074e48aa3c6cc1c0453f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -17601,7 +17601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457c260986ab2ed43967e08426754906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 300
   currentHealth: 0
   _isDead: 0
   healthbar: {fileID: 1184750865}
@@ -19594,7 +19594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457c260986ab2ed43967e08426754906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 60
   currentHealth: 0
   _isDead: 0
   healthbar: {fileID: 1093018371}
@@ -19686,7 +19686,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 7
   m_Sprite: {fileID: 743541496, guid: 5ad53ea155d0b6647939a4700596de12, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -20529,7 +20529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457c260986ab2ed43967e08426754906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 60
   currentHealth: 0
   _isDead: 0
   healthbar: {fileID: 1750275866}
@@ -20621,7 +20621,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 7
   m_Sprite: {fileID: 743541496, guid: 5ad53ea155d0b6647939a4700596de12, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -23671,6 +23671,9 @@ MonoBehaviour:
   kidBulletsPrefabs: {fileID: 6942593850677245434, guid: 391dca888f003b44ba254f663fa627b2, type: 3}
   kidPoolSize: 5
   kidcontroller: {fileID: 0}
+  teenBulletsPrefabs: {fileID: 0}
+  teenPoolSize: 3
+  teencontroller: {fileID: 0}
 --- !u!4 &1455335311
 Transform:
   m_ObjectHideFlags: 0
@@ -27805,7 +27808,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 7
   m_Sprite: {fileID: -1220310194, guid: dcb0a9d8996074e48aa3c6cc1c0453f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -27829,7 +27832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457c260986ab2ed43967e08426754906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 160
   currentHealth: 0
   _isDead: 0
   healthbar: {fileID: 1192084993}
@@ -31343,7 +31346,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 7
   m_Sprite: {fileID: -1220310194, guid: dcb0a9d8996074e48aa3c6cc1c0453f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -31367,7 +31370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457c260986ab2ed43967e08426754906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 160
   currentHealth: 0
   _isDead: 0
   healthbar: {fileID: 933340265}

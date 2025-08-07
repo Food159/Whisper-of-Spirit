@@ -2227,7 +2227,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 7
   m_Sprite: {fileID: -1220310194, guid: dcb0a9d8996074e48aa3c6cc1c0453f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2251,7 +2251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457c260986ab2ed43967e08426754906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 160
   currentHealth: 0
   _isDead: 0
   healthbar: {fileID: 1102451601}
@@ -3703,7 +3703,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 7
   m_Sprite: {fileID: -1220310194, guid: dcb0a9d8996074e48aa3c6cc1c0453f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3840,7 +3840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457c260986ab2ed43967e08426754906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 160
   currentHealth: 0
   _isDead: 0
   healthbar: {fileID: 316724103}
@@ -6105,7 +6105,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 7
   m_Sprite: {fileID: 1491832717, guid: bc7db3d4883fadf48b5a4918890fb3be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -8974,7 +8974,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 7
   m_Sprite: {fileID: -1220310194, guid: dcb0a9d8996074e48aa3c6cc1c0453f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -8998,7 +8998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457c260986ab2ed43967e08426754906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 160
   currentHealth: 0
   _isDead: 0
   healthbar: {fileID: 2043624356}
@@ -11850,7 +11850,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 7
   m_Sprite: {fileID: -1220310194, guid: dcb0a9d8996074e48aa3c6cc1c0453f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -11874,7 +11874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457c260986ab2ed43967e08426754906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 160
   currentHealth: 0
   _isDead: 0
   healthbar: {fileID: 1866201325}
@@ -12474,7 +12474,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 7
   m_Sprite: {fileID: -1220310194, guid: dcb0a9d8996074e48aa3c6cc1c0453f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -12498,7 +12498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457c260986ab2ed43967e08426754906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 160
   currentHealth: 0
   _isDead: 0
   healthbar: {fileID: 1819899208}
@@ -13297,7 +13297,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 7
   m_Sprite: {fileID: -1220310194, guid: dcb0a9d8996074e48aa3c6cc1c0453f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -13321,7 +13321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457c260986ab2ed43967e08426754906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 160
   currentHealth: 0
   _isDead: 0
   healthbar: {fileID: 1184750865}
@@ -17636,6 +17636,9 @@ MonoBehaviour:
   kidBulletsPrefabs: {fileID: 0}
   kidPoolSize: 5
   kidcontroller: {fileID: 0}
+  teenBulletsPrefabs: {fileID: 0}
+  teenPoolSize: 3
+  teencontroller: {fileID: 0}
 --- !u!4 &1455335311
 Transform:
   m_ObjectHideFlags: 0

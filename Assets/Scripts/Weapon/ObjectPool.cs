@@ -18,10 +18,16 @@ public class ObjectPool : MonoBehaviour
 
     [Space]
     [Header("Enemy Teen")]
-    public GameObject teenBulletsPrefabs;
-    public int teenPoolSize = 3;
+    public GameObject[] teenBulletsPrefabs;
+    public int teenPoolSize = 1;
     private List<GameObject> teenPool;
     [SerializeField] private TeenController teencontroller;
+
+    [Space]
+    [Header("Teen Colour")]
+    public GameObject[] teenColourPrefabs;
+    public int colourPoolSize = 1;
+    private List<GameObject> colourPool;
     private void Awake()
     {
         kidcontroller = FindObjectOfType<KidController>();
@@ -46,14 +52,27 @@ public class ObjectPool : MonoBehaviour
                 kidPool.Add(kidBullet);
             }
         }
-        if (teencontroller != null)
+        if (teencontroller != null && teenBulletsPrefabs.Length > 0)
         {
             teenPool = new List<GameObject>(); //if have teen
             for (int k = 0; k < teenPoolSize; k++)
             {
-                GameObject teenBullet = Instantiate(teenBulletsPrefabs);
-                teenBullet.SetActive(false);
-                teenPool.Add(teenBullet);
+                for(int u = 0; u < teenBulletsPrefabs.Length; u++)
+                {
+                    GameObject teenBullet = Instantiate(teenBulletsPrefabs[u]);
+                    teenBullet.SetActive(false);
+                    teenPool.Add(teenBullet);
+                }
+            }
+            colourPool = new List<GameObject>(); //if have teen
+            for (int p = 0; p < colourPoolSize; p++)
+            {
+                for (int r = 0; r < teenColourPrefabs.Length; r++)
+                {
+                    GameObject teenColour = Instantiate(teenColourPrefabs[r]);
+                    teenColour.SetActive(false);
+                    colourPool.Add(teenColour);
+                }
             }
         }
     }
@@ -83,12 +102,27 @@ public class ObjectPool : MonoBehaviour
     }
     public GameObject GetTeenObject()
     {
+        int randomIndex = Random.Range(0, teenBulletsPrefabs.Length);
+        GameObject prefabUse = teenBulletsPrefabs[randomIndex];
+
         foreach (GameObject bulletteen in teenPool)
         {
-            if (!bulletteen.activeInHierarchy)
+            if (!bulletteen.activeInHierarchy && bulletteen.name.Contains(prefabUse.name))
             {
                 bulletteen.SetActive(true);
                 return bulletteen;
+            }
+        }
+
+        int randomColourIndex = Random.Range(0, teenColourPrefabs.Length);
+        GameObject prefabColourUse = teenColourPrefabs[randomColourIndex];
+
+        foreach (GameObject colourteen in colourPool)
+        {
+            if (!colourteen.activeInHierarchy && colourteen.name.Contains(prefabColourUse.name))
+            {
+                colourteen.SetActive(true);
+                return colourteen;
             }
         }
         return null;

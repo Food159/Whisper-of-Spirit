@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 60587cfb33c23184dab96d7d9738f7c5
+guid: 27491018c281ec54a9484115c63d7f2d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,12 +123,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprite-0001_ENEMY_WAIRUN_IDLE_0
+      name: Sprite-0001_ENEMY_WAIRUN4_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 240
+        width: 243
         height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -137,19 +137,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fad7da9940ecc9144aa30e911fb6f587
-      internalID: -1867083550
+      spriteID: e3cfe989f4b2df44290f2f675a4c8b5a
+      internalID: 849925054
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0001_ENEMY_WAIRUN_IDLE_1
+      name: Sprite-0001_ENEMY_WAIRUN4_1
       rect:
         serializedVersion: 2
-        x: 240
+        x: 243
         y: 0
-        width: 240
+        width: 243
         height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -158,19 +158,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3e3d7c5c68f0884abef594e35007aa4
-      internalID: -109860789
+      spriteID: c601b013f8393ed4cae577267cd05658
+      internalID: -1109006984
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0001_ENEMY_WAIRUN_IDLE_2
+      name: Sprite-0001_ENEMY_WAIRUN4_2
       rect:
         serializedVersion: 2
-        x: 480
+        x: 486
         y: 0
-        width: 240
+        width: 243
         height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -179,19 +179,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02515bfc4a91bb547a9d1332c1a59c75
-      internalID: 582776299
+      spriteID: 611cbe2cf70d7e14198fe639df8e2a0f
+      internalID: -1227723983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0001_ENEMY_WAIRUN_IDLE_3
+      name: Sprite-0001_ENEMY_WAIRUN4_3
       rect:
         serializedVersion: 2
-        x: 720
+        x: 729
         y: 0
-        width: 240
+        width: 243
         height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -200,19 +200,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b6ebdbd842716c4d802dad839226c20
-      internalID: 931621802
+      spriteID: ac17910f3921fa84a9076066b045cdf3
+      internalID: -1810199216
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0001_ENEMY_WAIRUN_IDLE_4
+      name: Sprite-0001_ENEMY_WAIRUN4_4
       rect:
         serializedVersion: 2
-        x: 960
+        x: 972
         y: 0
-        width: 240
+        width: 243
         height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -221,19 +221,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 751530dd0eb946d48a4f12d18732b54c
-      internalID: -1399302013
+      spriteID: c74ee834e204aed4db58e20123abc609
+      internalID: -173715927
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0001_ENEMY_WAIRUN_IDLE_5
+      name: Sprite-0001_ENEMY_WAIRUN4_5
       rect:
         serializedVersion: 2
-        x: 1200
+        x: 1215
         y: 0
-        width: 240
+        width: 243
         height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -242,19 +242,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60be13876c4b73244af795ee40dd5ef3
-      internalID: -738865192
+      spriteID: debc86a86973d6d4fa4b527b95dd5e15
+      internalID: 865459669
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0001_ENEMY_WAIRUN_IDLE_6
+      name: Sprite-0001_ENEMY_WAIRUN4_6
       rect:
         serializedVersion: 2
-        x: 1440
+        x: 1458
         y: 0
-        width: 240
+        width: 243
         height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -263,19 +263,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 573700466b47dc44e8cfc347e86af67a
-      internalID: -379210209
+      spriteID: 352438eca7427a8499a3d9866c83cf3f
+      internalID: 1852525174
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0001_ENEMY_WAIRUN_IDLE_7
+      name: Sprite-0001_ENEMY_WAIRUN4_7
       rect:
         serializedVersion: 2
-        x: 1680
+        x: 1701
         y: 0
-        width: 240
+        width: 243
         height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -284,19 +284,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9743351fc598c344f8dba5afc72c647e
-      internalID: 1220543198
+      spriteID: be6f41ee3c2910f419cf92c1ca622094
+      internalID: -249189019
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0001_ENEMY_WAIRUN_IDLE_8
+      name: Sprite-0001_ENEMY_WAIRUN4_8
       rect:
         serializedVersion: 2
-        x: 1920
+        x: 1944
         y: 0
-        width: 240
+        width: 243
         height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -305,19 +305,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ad4e26bda660d444ab2b2cca43f404f
-      internalID: 100341894
+      spriteID: 50a93af78af488345bc98279dd85e67d
+      internalID: -1566992323
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0001_ENEMY_WAIRUN_IDLE_9
+      name: Sprite-0001_ENEMY_WAIRUN4_9
       rect:
         serializedVersion: 2
-        x: 2160
+        x: 2187
         y: 0
-        width: 240
+        width: 243
         height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -326,19 +326,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9970889e51bbaf43872f0d2e8bac22f
-      internalID: -617392874
+      spriteID: 4eb3119368e94a346a849b2804b09eca
+      internalID: -1425006180
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0001_ENEMY_WAIRUN_IDLE_10
+      name: Sprite-0001_ENEMY_WAIRUN4_10
       rect:
         serializedVersion: 2
-        x: 2400
+        x: 2430
         y: 0
-        width: 240
+        width: 243
         height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -347,19 +347,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fef1e4cfbf807324c9ea8a643fd00f61
-      internalID: 426703207
+      spriteID: 309e2ac7e742df44fa0d729a98edc51c
+      internalID: -1425753941
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-0001_ENEMY_WAIRUN_IDLE_11
+      name: Sprite-0001_ENEMY_WAIRUN4_11
       rect:
         serializedVersion: 2
-        x: 2640
+        x: 2673
         y: 0
-        width: 240
+        width: 243
         height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -368,8 +368,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e861dd5daa1d814cacc78aba4f38f98
-      internalID: 517699653
+      spriteID: 458bfeb725c90824790b01df9767c1b0
+      internalID: 848339468
       vertices: []
       indices: 
       edges: []
@@ -385,18 +385,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Sprite-0001_ENEMY_WAIRUN_IDLE_0: -1867083550
-      Sprite-0001_ENEMY_WAIRUN_IDLE_1: -109860789
-      Sprite-0001_ENEMY_WAIRUN_IDLE_10: 426703207
-      Sprite-0001_ENEMY_WAIRUN_IDLE_11: 517699653
-      Sprite-0001_ENEMY_WAIRUN_IDLE_2: 582776299
-      Sprite-0001_ENEMY_WAIRUN_IDLE_3: 931621802
-      Sprite-0001_ENEMY_WAIRUN_IDLE_4: -1399302013
-      Sprite-0001_ENEMY_WAIRUN_IDLE_5: -738865192
-      Sprite-0001_ENEMY_WAIRUN_IDLE_6: -379210209
-      Sprite-0001_ENEMY_WAIRUN_IDLE_7: 1220543198
-      Sprite-0001_ENEMY_WAIRUN_IDLE_8: 100341894
-      Sprite-0001_ENEMY_WAIRUN_IDLE_9: -617392874
+      Sprite-0001_ENEMY_WAIRUN4_0: 849925054
+      Sprite-0001_ENEMY_WAIRUN4_1: -1109006984
+      Sprite-0001_ENEMY_WAIRUN4_10: -1425753941
+      Sprite-0001_ENEMY_WAIRUN4_11: 848339468
+      Sprite-0001_ENEMY_WAIRUN4_2: -1227723983
+      Sprite-0001_ENEMY_WAIRUN4_3: -1810199216
+      Sprite-0001_ENEMY_WAIRUN4_4: -173715927
+      Sprite-0001_ENEMY_WAIRUN4_5: 865459669
+      Sprite-0001_ENEMY_WAIRUN4_6: 1852525174
+      Sprite-0001_ENEMY_WAIRUN4_7: -249189019
+      Sprite-0001_ENEMY_WAIRUN4_8: -1566992323
+      Sprite-0001_ENEMY_WAIRUN4_9: -1425006180
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

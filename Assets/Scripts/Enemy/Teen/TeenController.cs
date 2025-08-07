@@ -20,9 +20,14 @@ public class TeenController : MonoBehaviour
     private float distance;
     public float attackRange = 5f;
     public float yPlayer = 2f;
+    [SerializeField] private Transform shootingPoint;
     private bool waitPatrol = false;
     private float idleTimer = 0f;
     private float idleDuration = 4f;
+
+    public bool canShoot = true;
+    public float shootTimer = 0f;
+    private float shootDuration = 4f;
 
     [Header("GameObject")]
     [SerializeField] GameObject shadow;
@@ -55,8 +60,8 @@ public class TeenController : MonoBehaviour
     }
     private void Start()
     {
-        //currentTargetPos = Area_negX.position;
-        //reachedTarget = false;
+        currentTargetPos = Area_negX.position;
+        reachedTarget = false;
 
         teenIdestate.Setup(rb2d, anim, this);
         teenWalkstate.Setup(rb2d, anim, this);
@@ -80,10 +85,21 @@ public class TeenController : MonoBehaviour
         float distance = DistanceCal();
         if (isAleart && distance <= attackRange)
         {
-            waitPatrol = false;
-            idleTimer = 0f;
-            state = teenShootstate;
-
+            if(canShoot)
+            {
+                waitPatrol = false;
+                shootTimer = 0f;
+                state = teenShootstate;
+            }
+            if(!canShoot)
+            {
+                state = teenIdestate;
+                shootTimer += Time.deltaTime;
+                if(shootTimer >= shootDuration)
+                {
+                    canShoot = true;
+                }
+            }
         }
         else
         {
@@ -116,6 +132,7 @@ public class TeenController : MonoBehaviour
         direction.x *= -1;
         transform.localScale = direction;
         sentDirection *= -1;
+        ShootingPointRotation();
     }
     void LookForPlayer()
     {
@@ -168,6 +185,24 @@ public class TeenController : MonoBehaviour
     {
         float distance = Mathf.Abs(playerTarget.position.x - transform.position.x);
         return distance;
+    }
+    void ShootingPointRotation()
+    {
+        if (shootingPoint != null)
+        {
+            Vector3 rot = shootingPoint.localEulerAngles;
+
+            if (sentDirection == -1f)
+            {
+                rot.y = 0;
+            }
+            else if(sentDirection == 1f)
+            {
+                rot.y = 180;
+            }
+
+            shootingPoint.localEulerAngles = rot;
+        }
     }
     public void Pause()
     {
