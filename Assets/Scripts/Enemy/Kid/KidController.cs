@@ -131,8 +131,11 @@ public class KidController : MonoBehaviour
         Debug.DrawRay(transform.position, rayDirectionLeft * patrolLenght, Color.red);
         Debug.DrawRay(transform.position, rayDirectionRight * patrolLenght, Color.red);
 
+        Debug.DrawRay(transform.position, rayDirectionLeft * attackRange, Color.green);
+        Debug.DrawRay(transform.position, rayDirectionRight * attackRange, Color.green);
+
         //if ((hitLeft.collider != null || hitRight.collider != null) && DistanceCal() <= attackRange)
-        if(distance <= patrolLenght && yOffset <= yPlayer)
+        if (distance <= patrolLenght && yOffset <= yPlayer)
         {
             isAleart = true;
         }

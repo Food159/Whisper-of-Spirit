@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public float lifeTime = 2f;
     private float timer;
+    private int damage = 510;
     private void OnEnable()
     {
         timer = 0f;
@@ -25,11 +26,11 @@ public class Bullet : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            Debug.Log("Collided with: " + collision.gameObject.name);
+            //Debug.Log("Collided with: " + collision.gameObject.name);
             EnemyHealth enemyhealth = collision.GetComponent<EnemyHealth>();
             if (enemyhealth != null)
             {
-                enemyhealth.TakeDamage(20);
+                enemyhealth.TakeDamage(damage);
             }
             gameObject.SetActive(false);
         }

@@ -1296,10 +1296,10 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
-  attackRange: 10
+  attackRange: 7
   yPlayer: 2
   shadow: {fileID: 412153996}
-  patrolLenght: 10
+  patrolLenght: 7
   Area_negX: {fileID: 1228489200}
   Area_posX: {fileID: 1170586831}
   currentTargetPos: {x: 0, y: 0, z: 0}
@@ -1704,7 +1704,7 @@ Transform:
   m_GameObject: {fileID: 78962742}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.27, y: -2.2310002, z: 0}
+  m_LocalPosition: {x: -2.27, y: -6.5400004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2603,7 +2603,7 @@ GameObject:
   - component: {fileID: 135654193}
   - component: {fileID: 135654194}
   m_Layer: 0
-  m_Name: '@Data'
+  m_Name: \Data
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3767,7 +3767,7 @@ Transform:
   m_GameObject: {fileID: 249045793}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.4045658, y: -2.2310002, z: 0}
+  m_LocalPosition: {x: -2.4045658, y: -6.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6854,10 +6854,10 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
-  attackRange: 10
+  attackRange: 7
   yPlayer: 2
   shadow: {fileID: 817806256}
-  patrolLenght: 10
+  patrolLenght: 7
   Area_negX: {fileID: 972285601}
   Area_posX: {fileID: 919448509}
   currentTargetPos: {x: 0, y: 0, z: 0}
@@ -8813,7 +8813,7 @@ GameObject:
   - component: {fileID: 587122354}
   - component: {fileID: 587122353}
   m_Layer: 0
-  m_Name: '@GameManager_Dontdestroy'
+  m_Name: \GameManager_Dontdestroy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8846,7 +8846,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2141278675}
   - {fileID: 2098067166}
   - {fileID: 1044921442}
   m_Father: {fileID: 0}
@@ -15249,10 +15248,10 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
-  attackRange: 10
+  attackRange: 7
   yPlayer: 2
   shadow: {fileID: 502126506}
-  patrolLenght: 10
+  patrolLenght: 7
   Area_negX: {fileID: 211992930}
   Area_posX: {fileID: 1648734948}
   currentTargetPos: {x: 0, y: 0, z: 0}
@@ -17381,7 +17380,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1140603542
 Transform:
   m_ObjectHideFlags: 0
@@ -19552,10 +19551,10 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
-  attackRange: 10
+  attackRange: 7
   yPlayer: 2
   shadow: {fileID: 758669052}
-  patrolLenght: 10
+  patrolLenght: 7
   Area_negX: {fileID: 2005383123}
   Area_posX: {fileID: 723813056}
   currentTargetPos: {x: 0, y: 0, z: 0}
@@ -20487,10 +20486,10 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
-  attackRange: 10
+  attackRange: 7
   yPlayer: 2
   shadow: {fileID: 2073605418}
-  patrolLenght: 10
+  patrolLenght: 7
   Area_negX: {fileID: 1200562653}
   Area_posX: {fileID: 892789268}
   currentTargetPos: {x: 0, y: 0, z: 0}
@@ -22727,7 +22726,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 21300000, guid: decb9c61f6ae3b6408c5d09e9049290b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b8491afa9fe0b454c8b241398da1833c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -22747,7 +22746,7 @@ Transform:
   m_GameObject: {fileID: 1392558241}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.757566, y: 2.56, z: 0}
+  m_LocalPosition: {x: 3.757566, y: 6.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23030,7 +23029,7 @@ RectTransform:
   m_Father: {fileID: 1184750866}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -23671,7 +23670,8 @@ MonoBehaviour:
   kidBulletsPrefabs: {fileID: 6942593850677245434, guid: 391dca888f003b44ba254f663fa627b2, type: 3}
   kidPoolSize: 5
   kidcontroller: {fileID: 0}
-  teenBulletsPrefabs: {fileID: 0}
+  teenBulletsPrefabs:
+  - {fileID: 0}
   teenPoolSize: 3
   teencontroller: {fileID: 0}
 --- !u!4 &1455335311
@@ -28659,7 +28659,7 @@ Transform:
   m_GameObject: {fileID: 1832798892}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.26, y: -2.2310002, z: 0}
+  m_LocalPosition: {x: -2.26, y: -6.5400004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29278,7 +29278,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 21300000, guid: decb9c61f6ae3b6408c5d09e9049290b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b8491afa9fe0b454c8b241398da1833c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -33198,7 +33198,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 587122354}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2141278676
 MonoBehaviour:
@@ -33212,7 +33212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d720e26e0eca2314090896508fc572eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camAnim: {fileID: 1191489453}
+  camAnim: {fileID: 0}
 --- !u!1 &2142583077
 GameObject:
   m_ObjectHideFlags: 0
@@ -33271,7 +33271,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 21300000, guid: decb9c61f6ae3b6408c5d09e9049290b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b8491afa9fe0b454c8b241398da1833c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -33902,4 +33902,5 @@ SceneRoots:
   - {fileID: 2121457115}
   - {fileID: 101403934}
   - {fileID: 135654192}
+  - {fileID: 2141278675}
   - {fileID: 587122354}

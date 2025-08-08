@@ -17,7 +17,7 @@ public class TeenController : MonoBehaviour
     Animator anim;
     public Transform playerTarget;
     public LayerMask playerLayer;
-    private float distance;
+    public float distance;
     public float attackRange = 5f;
     public float yPlayer = 2f;
     [SerializeField] private Transform shootingPoint;
@@ -71,6 +71,7 @@ public class TeenController : MonoBehaviour
     }
     private void Update()
     {
+        distance = DistanceCal();
         LookForPlayer();
         SelectState();
         Check();
@@ -147,6 +148,9 @@ public class TeenController : MonoBehaviour
 
         Debug.DrawRay(transform.position, rayDirectionLeft * patrolLenght, Color.red);
         Debug.DrawRay(transform.position, rayDirectionRight * patrolLenght, Color.red);
+
+        Debug.DrawRay(transform.position, rayDirectionLeft * attackRange, Color.green);
+        Debug.DrawRay(transform.position, rayDirectionRight * attackRange, Color.green);
 
         //if ((hitLeft.collider != null || hitRight.collider != null) && DistanceCal() <= attackRange)
         if (distance <= patrolLenght && yOffset <= yPlayer)

@@ -6,6 +6,10 @@ public class CameraShake : MonoBehaviour
 {
     [Header("CameraShake")]
     public Animator camAnim;
+    private void Awake()
+    {
+        camAnim = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animator>();
+    }
     public void CamShaking()
     {
         int rand = Random.Range(0, 4);

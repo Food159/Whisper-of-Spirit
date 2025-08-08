@@ -23,11 +23,11 @@ public class ObjectPool : MonoBehaviour
     private List<GameObject> teenPool;
     [SerializeField] private TeenController teencontroller;
 
-    [Space]
-    [Header("Teen Colour")]
-    public GameObject[] teenColourPrefabs;
-    public int colourPoolSize = 1;
-    private List<GameObject> colourPool;
+    //[Space]
+    //[Header("Teen Colour")]
+    //public GameObject[] teenColourPrefabs;
+    //public int colourPoolSize = 1;
+    //private List<GameObject> colourPool;
     private void Awake()
     {
         kidcontroller = FindObjectOfType<KidController>();
@@ -64,16 +64,16 @@ public class ObjectPool : MonoBehaviour
                     teenPool.Add(teenBullet);
                 }
             }
-            colourPool = new List<GameObject>(); //if have teen
-            for (int p = 0; p < colourPoolSize; p++)
-            {
-                for (int r = 0; r < teenColourPrefabs.Length; r++)
-                {
-                    GameObject teenColour = Instantiate(teenColourPrefabs[r]);
-                    teenColour.SetActive(false);
-                    colourPool.Add(teenColour);
-                }
-            }
+            //colourPool = new List<GameObject>(); //if have teen
+            //for (int p = 0; p < colourPoolSize; p++)
+            //{
+            //    for (int r = 0; r < teenColourPrefabs.Length; r++)
+            //    {
+            //        GameObject teenColour = Instantiate(teenColourPrefabs[r]);
+            //        teenColour.SetActive(false);
+            //        colourPool.Add(teenColour);
+            //    }
+            //}
         }
     }
     public GameObject GetObject()
@@ -114,17 +114,17 @@ public class ObjectPool : MonoBehaviour
             }
         }
 
-        int randomColourIndex = Random.Range(0, teenColourPrefabs.Length);
-        GameObject prefabColourUse = teenColourPrefabs[randomColourIndex];
+        //int randomColourIndex = Random.Range(0, teenColourPrefabs.Length);
+        //GameObject prefabColourUse = teenColourPrefabs[randomColourIndex];
 
-        foreach (GameObject colourteen in colourPool)
-        {
-            if (!colourteen.activeInHierarchy && colourteen.name.Contains(prefabColourUse.name))
-            {
-                colourteen.SetActive(true);
-                return colourteen;
-            }
-        }
+        //foreach (GameObject colourteen in colourPool)
+        //{
+        //    if (!colourteen.activeInHierarchy && colourteen.name.Contains(prefabColourUse.name))
+        //    {
+        //        colourteen.SetActive(true);
+        //        return colourteen;
+        //    }
+        //}
         return null;
     }
 }

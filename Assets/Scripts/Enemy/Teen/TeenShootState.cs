@@ -23,14 +23,6 @@ public class TeenShootState : TeenState
     }
     public override void Enter()
     {
-        //if (playerstatus._isPlayerDead == false && teenInput.canShoot)
-        //{
-        //    Debug.Log("Shoot Enter");
-        //    teenInput.StartCoroutine(teenInput.WaitForTeenShoot());
-        //    _isAttacking = true;
-        //    anim.Play(animclip.name);
-        //}
-        //teenInput.StartCoroutine(teenInput.WaitForTeenShoot());
         if (playerstatus._isPlayerDead == false && teenInput.canShoot)
         {
             Debug.Log("Shoot Enter");

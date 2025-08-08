@@ -53,7 +53,7 @@ public class WinCheck : MonoBehaviour
     }
     public void Win()
     {
-        if(pointcheck.isSuccess == true && Track.instance.trackCompleted == true)
+        if(Track.instance.trackCompleted == true) // pointcheck.isSuccess == true && 
         {
             GameDataHandler.instance.SaveData();
             wintestCheck = true;

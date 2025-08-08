@@ -26,5 +26,6 @@ public class Button : MonoBehaviour
     {
         SceneController.instance.LoadSceneIndex(SceneManager.GetActiveScene().buildIndex + 1);
         GameDataHandler.instance.LoadData();
+        Debug.Log("Next");
     }
 }
