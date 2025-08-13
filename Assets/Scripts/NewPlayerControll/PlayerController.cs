@@ -25,7 +25,7 @@ public class PlayerController : Subject, IOserver, IPausable
     public float currentSpeed = 0;
     public Vector2 jump = new Vector2(0, 2);
     public float playerInputX { get; set; }
-    private int jumpForce = 8;
+    private float jumpForce = 8;
     public int jumpSpeed;
     bool _isRunning = false;
     private bool _isWalkSfxPlaying = false;
@@ -132,7 +132,15 @@ public class PlayerController : Subject, IOserver, IPausable
             isOnPlatform = false;
             platformExitTimer = platformExitDelay;
         }
+        if (collision.gameObject.CompareTag("Fall"))
+        {
+            if (status != null)
+            {
+                status.TakeDamage(5000);
+            }
+        }
     }
+    
 
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -176,34 +184,6 @@ public class PlayerController : Subject, IOserver, IPausable
         rb2d.velocity = new Vector2(targetHorizontalSpeed, currentVelocity.y);
         //SoundManager.instance.PlaySfx(SoundManager.instance.tawanWalkClip);
         _isWalking = Mathf.Abs(playerInputX) > 0.01f && _isGround;
-        //if (_isWalking)
-        //{
-        //    if (_isRunning)
-        //    {
-        //        if (!_isRunSfxPlaying)
-        //        {
-        //            SoundManager.instance.PlaySfx(SoundManager.instance.tawanRunClip);
-        //            _isRunSfxPlaying = true;
-        //            _isWalkSfxPlaying = false;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        if (!_isWalkSfxPlaying)
-        //        {
-        //            SoundManager.instance.PlaySfx(SoundManager.instance.tawanWalkClip);
-        //            _isWalkSfxPlaying = true;
-        //            _isRunSfxPlaying = false;
-        //        }
-        //    }
-        //}
-        //else
-        //{
-        //    audioSource.Stop();
-        //    _isRunSfxPlaying = false;
-        //    _isWalkSfxPlaying = false;
-        //}
-
         if (playerInputX > 0f)
         {
             Direction(1);
@@ -212,20 +192,6 @@ public class PlayerController : Subject, IOserver, IPausable
         {
             Direction(-1);
         }
-        
-        //if (_isWalking || Input.GetKey(KeyCode.LeftShift))
-        //{
-        //    _isWalkSfxPlaying = false;
-        //}
-
-        //if (playerInputX > 0f)
-        //{
-        //    Direction(1);
-        //}
-        //if (playerInputX < 0f)
-        //{
-        //    Direction(-1);
-        //}
     }
     public void JumpInput()
     {
@@ -251,21 +217,6 @@ public class PlayerController : Subject, IOserver, IPausable
                 jumpBufferCounter = 0f;
                 coyoteTimeCounter = 0f;
             }
-            //if (Input.GetButtonDown("Jump") && _isGround)
-            //{
-            //    SoundManager.instance.PlaySfx(SoundManager.instance.tawanJumpClip);
-            //    rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
-            //    float horizontalJumpForce = playerInputX * speed;
-
-            //    if (Input.GetKey(KeyCode.LeftShift))
-            //    {
-            //        horizontalJumpForce = playerInputX * sprintSpeed;
-            //    }
-            //    Vector2 finalJumpForce = new Vector2(horizontalJumpForce, jumpForce);
-            //    rb2d.AddForce(finalJumpForce, ForceMode2D.Impulse);
-
-            //    _isGround = false;
-            //}
         }
     }
     private void Sprint()
@@ -274,8 +225,7 @@ public class PlayerController : Subject, IOserver, IPausable
 
         if (!_isGround && _isRunning)
         {
-            //currentSpeed = 3.5f;
-            currentSpeed = sprintSpeed * 0.7f;
+            currentSpeed = sprintSpeed * 0.8f;
         }
         else
         {
@@ -288,26 +238,6 @@ public class PlayerController : Subject, IOserver, IPausable
                 currentSpeed = speed;
             }
         }
-
-        //bool _isRunning = Input.GetKey(KeyCode.LeftShift);
-
-        //if (!_isRunning)
-        //{
-        //    _isRunSfxPlaying = false;
-        //}
-        //if (_isRunning)
-        //{
-        //    currentSpeed = sprintSpeed;
-        //    //SoundManager.instance.PlaySfx(SoundManager.instance.tawanRunClip);
-        //}
-        //else
-        //{
-        //    currentSpeed = speed;
-        //}
-        //if (!_isGround && _isRunning)
-        //{
-        //    currentSpeed = 3.5f;
-        //}
     }
     private void Direction(int direction)
     {

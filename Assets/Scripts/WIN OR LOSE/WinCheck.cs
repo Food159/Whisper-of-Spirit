@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+public enum LevelWinType
+{
+    Menu, Tutorial, Gameplay
+}
 public class WinCheck : MonoBehaviour
 {
     public bool wintestCheck = false;
     [SerializeField] public GameObject winpanel;
     [SerializeField] public GameObject losepanel;
+
+    public LevelWinType levelwin;
 
     private PlayerController playercontroller;
     private PlayerShooting playershooting;
@@ -46,28 +51,36 @@ public class WinCheck : MonoBehaviour
     }
     void CheckWin()
     {
-        if(!wintestCheck && DeadEnemiesCount >= TotalEnemies)
+        if (levelwin == LevelWinType.Tutorial && !wintestCheck && DeadEnemiesCount >= TotalEnemies)
         {
             Win();
         }
     }
     public void Win()
     {
-        if(Track.instance.trackCompleted == true) // pointcheck.isSuccess == true && 
+        GameDataHandler.instance.SaveData();
+        wintestCheck = true;
+        SoundManager.instance.PlaySfx(SoundManager.instance.winClip);
+        if (winpanel != null)
         {
-            GameDataHandler.instance.SaveData();
-            wintestCheck = true;
-            SoundManager.instance.PlaySfx(SoundManager.instance.winClip);
-            //GameDataHandler.instance.SaveData();
-            //EnemyDataHandler.instance.SaveDataEnemy();
-            if (winpanel != null)
-            {
-                winpanel.SetActive(true);
-            }
-            wintestCheck = true;
-            DisablePlayercontrol();
-            playercontroller.CanMove();
+            winpanel.SetActive(true);
         }
+        wintestCheck = true;
+        DisablePlayercontrol();
+        playercontroller.CanMove();
+        //if(Track.instance.trackCompleted == true) // pointcheck.isSuccess == true && 
+        //{
+        //    GameDataHandler.instance.SaveData();
+        //    wintestCheck = true;
+        //    SoundManager.instance.PlaySfx(SoundManager.instance.winClip);
+        //    if (winpanel != null)
+        //    {
+        //        winpanel.SetActive(true);
+        //    }
+        //    wintestCheck = true;
+        //    DisablePlayercontrol();
+        //    playercontroller.CanMove();
+        //}
     }
     public void DisablePlayercontrol()
     {

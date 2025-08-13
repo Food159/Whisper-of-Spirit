@@ -3,16 +3,52 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+public enum LevelTrack
+{
+    Game1, Game2, Game3, Game4
+}
 public class Track : MonoBehaviour
 {
+    [Header("Scripts")]
     [SerializeField] WinCheck winCheck;
+    [SerializeField] WinPlate winPlate;
 
+    [Space]
+    [Header("Track 1")]
     [SerializeField] Image trackCheck;
     [SerializeField] Sprite trackComplete;
     [SerializeField] Sprite trackIncomplete;
     [SerializeField] TMP_Text trackText;
     public bool trackCompleted;
+
+    [Space]
+    [Header("Track 2")]
+    [SerializeField] Image trackCheck2;
+    [SerializeField] Sprite trackComplete2;
+    [SerializeField] Sprite trackIncomplete2;
+    [SerializeField] TMP_Text trackText2;
+    public bool trackCompleted2;
+
+    [Space]
+    [Header("Track 3")]
+    [SerializeField] Image trackCheck3;
+    [SerializeField] Sprite trackComplete3;
+    [SerializeField] Sprite trackIncomplete3;
+    [SerializeField] TMP_Text trackText3;
+    public bool trackCompleted3;
+
+    [Space]
+    [Header("Track 4")]
+    [SerializeField] Image trackCheck4;
+    [SerializeField] Sprite trackComplete4;
+    [SerializeField] Sprite trackIncomplete4;
+    [SerializeField] TMP_Text trackText4;
+    public bool trackCompleted4;
+
+    [Space]
+    [Header("Variable")]
+    public LevelTrack leveltrack;
+    
     public static Track instance;
     private void Awake()
     {
@@ -27,19 +63,139 @@ public class Track : MonoBehaviour
     }
     private void Update()
     {
-        if (winCheck == null) return;
-        int dead = winCheck.DeadEnemiesCount;
-        int total = winCheck.TotalEnemies;
-        trackText.text = $"Enemies Defeated: {dead}/{total}";
-        if(dead >= total)
+        if(leveltrack == LevelTrack.Game1) 
         {
-            trackCheck.sprite = trackComplete;
-            trackCompleted = true;
+            if (winCheck == null) return;
+
+            #region track1
+            int dead = winCheck.DeadEnemiesCount;
+            int total = winCheck.TotalEnemies;
+            trackText.text = $"Enemies Defeated: {dead}/{total}";
+            if (dead >= total)
+            {
+                trackCheck.sprite = trackComplete;
+                trackCompleted = true;
+            }
+            else
+            {
+                trackCheck.sprite = trackIncomplete;
+                trackCompleted = false;
+            }
+            #endregion track1
         }
-        else
+        else if(leveltrack == LevelTrack.Game2) 
         {
-            trackCheck.sprite = trackIncomplete;
-            trackCompleted = false;
+            if (winCheck == null && winPlate == null) 
+                return;
+
+            #region track1
+            trackText.text = "Tawan arrives the destinated area";
+            if(winPlate.plateWin)
+            {
+                trackCheck.sprite = trackComplete;
+                trackCompleted = true;
+            }
+            else
+            {
+                trackCheck.sprite = trackIncomplete;
+                trackCompleted = false;
+            }
+            #endregion track1
+
+            #region track2
+            int dead = winCheck.DeadEnemiesCount;
+            trackText2.text = $"Enemies Defeated: {dead}/{9}";
+            if(dead >= 9)
+            {
+                trackCheck2.sprite = trackComplete2;
+                trackCompleted2 = true;
+            }
+            else
+            {
+                trackCheck2.sprite = trackIncomplete2;
+                trackCompleted2 = false;
+            }
+            #endregion track2
+
+            #region track3
+            trackText3.text = "Yung Mai Sed";
+            #endregion track3
+        }
+        else if(leveltrack == LevelTrack.Game3)
+        {
+            if (winCheck == null && winPlate == null) 
+                return;
+
+            #region track1
+            trackText.text = "Tawan arrives the destinated area";
+            if (winPlate.plateWin)
+            {
+                trackCheck.sprite = trackComplete;
+                trackCompleted = true;
+            }
+            else
+            {
+                trackCheck.sprite = trackIncomplete;
+                trackCompleted = false;
+            }
+            #endregion track1
+
+            #region track2
+            int dead = winCheck.DeadEnemiesCount;
+            trackText2.text = $"Enemies Defeated: {dead}/{10}";
+            if (dead >= 10)
+            {
+                trackCheck2.sprite = trackComplete2;
+                trackCompleted2 = true;
+            }
+            else
+            {
+                trackCheck2.sprite = trackIncomplete2;
+                trackCompleted2 = false;
+            }
+            #endregion track2
+
+            #region track3
+            trackText3.text = "Yung Mai Sed";
+            #endregion track3
+        }
+        else if(leveltrack == LevelTrack.Game4)
+        {
+            if (winCheck == null && winPlate == null) 
+                return;
+
+            #region track1
+            trackText.text = "Tawan arrives the destinated area";
+            if (winPlate.plateWin)
+            {
+                trackCheck.sprite = trackComplete;
+                trackCompleted = true;
+            }
+            else
+            {
+                trackCheck.sprite = trackIncomplete;
+                trackCompleted = false;
+            }
+            #endregion track1
+
+            #region track2
+            int dead = winCheck.DeadEnemiesCount;
+            trackText2.text = $"Enemies Defeated: {dead}/{15}";
+            if (dead >= 15)
+            {
+                trackCheck2.sprite = trackComplete2;
+                trackCompleted2 = true;
+            }
+            else
+            {
+                trackCheck2.sprite = trackIncomplete2;
+                trackCompleted2 = false;
+            }
+            #endregion track2
+
+            #region track3
+            trackText3.text = "Yung Mai Sed";
+            #endregion track3
         }
     }
 }

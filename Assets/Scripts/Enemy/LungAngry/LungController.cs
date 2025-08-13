@@ -179,6 +179,13 @@ public class LungController : MonoBehaviour, IPausable
         {
             shadow.SetActive(true);
         }
+        if (collision.gameObject.CompareTag("Fall"))
+        {
+            if (status != null)
+            {
+                status.TakeDamage(5000);
+            }
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)

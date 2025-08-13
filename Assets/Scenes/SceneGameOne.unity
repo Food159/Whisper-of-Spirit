@@ -5391,6 +5391,7 @@ MonoBehaviour:
   wintestCheck: 0
   winpanel: {fileID: 826570767}
   losepanel: {fileID: 150527732}
+  levelwin: 1
   pointcheck: {fileID: 496701142}
 --- !u!1 &488133796
 GameObject:
@@ -9422,11 +9423,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winCheck: {fileID: 471241529}
+  winPlate: {fileID: 0}
   trackCheck: {fileID: 1254126934}
   trackComplete: {fileID: 21300000, guid: 2e71eec02734a2c45b2e20231288de8f, type: 3}
   trackIncomplete: {fileID: 21300000, guid: eee8154be9fd71d4fa17f33a8fb7f6f5, type: 3}
   trackText: {fileID: 22120607}
   trackCompleted: 0
+  trackCheck2: {fileID: 0}
+  trackComplete2: {fileID: 0}
+  trackIncomplete2: {fileID: 0}
+  trackText2: {fileID: 0}
+  trackCompleted2: 0
+  trackCheck3: {fileID: 0}
+  trackComplete3: {fileID: 0}
+  trackIncomplete3: {fileID: 0}
+  trackText3: {fileID: 0}
+  trackCompleted3: 0
+  trackCheck4: {fileID: 0}
+  trackComplete4: {fileID: 0}
+  trackIncomplete4: {fileID: 0}
+  trackText4: {fileID: 0}
+  trackCompleted4: 0
+  leveltrack: 0
 --- !u!114 &820010931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12821,6 +12839,83 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1099317641
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1099317643}
+  - component: {fileID: 1099317642}
+  m_Layer: 0
+  m_Name: Fall
+  m_TagString: Fall
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &1099317642
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099317641}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 84.00267, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 489.90665, y: 1}
+  m_EdgeRadius: 0
+--- !u!4 &1099317643
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099317641}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -10.35, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1529404149}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1100173806
 GameObject:
   m_ObjectHideFlags: 0
@@ -18552,11 +18647,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winCheck: {fileID: 471241529}
+  winPlate: {fileID: 0}
   trackCheck: {fileID: 2059914474}
   trackComplete: {fileID: 21300000, guid: 2e71eec02734a2c45b2e20231288de8f, type: 3}
   trackIncomplete: {fileID: 21300000, guid: eee8154be9fd71d4fa17f33a8fb7f6f5, type: 3}
   trackText: {fileID: 1768869556}
   trackCompleted: 0
+  trackCheck2: {fileID: 0}
+  trackComplete2: {fileID: 0}
+  trackIncomplete2: {fileID: 0}
+  trackText2: {fileID: 0}
+  trackCompleted2: 0
+  trackCheck3: {fileID: 0}
+  trackComplete3: {fileID: 0}
+  trackIncomplete3: {fileID: 0}
+  trackText3: {fileID: 0}
+  trackCompleted3: 0
+  trackCheck4: {fileID: 0}
+  trackComplete4: {fileID: 0}
+  trackIncomplete4: {fileID: 0}
+  trackText4: {fileID: 0}
+  trackCompleted4: 0
+  leveltrack: 0
 --- !u!1 &1408929399
 GameObject:
   m_ObjectHideFlags: 0
@@ -19928,6 +20040,7 @@ Transform:
   - {fileID: 2146366641}
   - {fileID: 1666159415}
   - {fileID: 494689131}
+  - {fileID: 1099317643}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1529929353
@@ -25000,7 +25113,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -861.1, y: 252.4}
+  m_AnchoredPosition: {x: -861.1, y: 250}
   m_SizeDelta: {x: 216, y: 216}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2059914474
