@@ -49,6 +49,7 @@ public class PlayerController : Subject, IOserver, IPausable
     public Animator anim;
     SoundManager soundmanager;
     PlayerHealth status;
+    [SerializeField] CameraFollow camfollow;
 
     [Header("KnockbackForce")]
     [SerializeField] float knockbackX;
@@ -71,6 +72,7 @@ public class PlayerController : Subject, IOserver, IPausable
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         status = GetComponent<PlayerHealth>();
+        camfollow = FindAnyObjectByType<CameraFollow>();
     }
     public void Update()
     {
@@ -140,7 +142,14 @@ public class PlayerController : Subject, IOserver, IPausable
             }
         }
     }
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ground"))
+        {
+            camfollow.onGround = true;
+        }
+    }
+
 
     private void OnCollisionExit2D(Collision2D collision)
     {

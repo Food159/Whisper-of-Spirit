@@ -3,22 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
-
+public enum LevelCam
+{
+    game, boss
+}
 public class CameraFollow : MonoBehaviour
 {
     [Header("Variable")]
     private float followSpeed = 1.5f;
-    private float yOffset = 0.3f; //0.3
+    private float yOffset = -0.5f; //0.3
     private float xOffset = 3f; //5
     private float initialY;
     private bool camLeft = false;
+    public bool onGround = false;
+    public LevelCam levelcam;
 
     public Transform target;
     public PlayerController player;
-
     
     private void Awake()
     {
+        if(levelcam == LevelCam.game)
+        {
+            followSpeed = 1.5f;
+        }
+        else if(levelcam == LevelCam.boss)
+        {
+            followSpeed = 0.1f;
+        }
         player = FindAnyObjectByType<PlayerController>();
         if (player != null)
         {
@@ -26,11 +38,11 @@ public class CameraFollow : MonoBehaviour
         }
         else
         {
-            Debug.Log("player not found");
+            Debug.Log("No player");
         }
         initialY = transform.position.y;
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if (target == null && player == null)
             return;
@@ -45,7 +57,11 @@ public class CameraFollow : MonoBehaviour
             camLeft = false;
         }
         float targetY = transform.position.y;
-        if (player.isOnPlatform)
+        if (onGround)
+        {
+            targetY = initialY;
+        }
+        else if (player.isOnPlatform)
         {
             targetY = target.position.y + yOffset;
         }
@@ -56,5 +72,13 @@ public class CameraFollow : MonoBehaviour
 
         Vector3 newPos = new Vector3(target.position.x + xOffset, targetY, -10f);
         transform.position = Vector3.Slerp(transform.position, newPos, followSpeed * Time.deltaTime);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ground"))
+        {
+            onGround = true;
+            Debug.Log("Y");
+        }
     }
 }

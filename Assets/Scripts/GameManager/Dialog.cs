@@ -4,7 +4,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-//using System.Diagnostics;
 
 public class Dialog : MonoBehaviour
 {

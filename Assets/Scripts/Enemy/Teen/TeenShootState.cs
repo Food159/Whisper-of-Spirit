@@ -25,7 +25,6 @@ public class TeenShootState : TeenState
     {
         if (playerstatus._isPlayerDead == false && teenInput.canShoot)
         {
-            Debug.Log("Shoot Enter");
             _isAttacking = true;
             anim.Play(animclip.name);
         }
@@ -50,7 +49,6 @@ public class TeenShootState : TeenState
                 rb2d.velocity = new Vector2(direction * bulletSpeed, 0f);
 
                 teenInput.canShoot = false;
-                Debug.Log("ShootFalse");
             }
         }
     }
@@ -64,10 +62,6 @@ public class TeenShootState : TeenState
         {
             teenInput.Flip();
         }
-    }
-    private void OnDrawGizmosSelected()
-    {
-        //Gizmos.color = Color.yellow;
     }
     public override void Exit()
     {

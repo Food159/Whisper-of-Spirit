@@ -38,14 +38,6 @@ public class Track : MonoBehaviour
     public bool trackCompleted3;
 
     [Space]
-    [Header("Track 4")]
-    [SerializeField] Image trackCheck4;
-    [SerializeField] Sprite trackComplete4;
-    [SerializeField] Sprite trackIncomplete4;
-    [SerializeField] TMP_Text trackText4;
-    public bool trackCompleted4;
-
-    [Space]
     [Header("Variable")]
     public LevelTrack leveltrack;
     
@@ -55,10 +47,6 @@ public class Track : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
         }
     }
     private void Update()

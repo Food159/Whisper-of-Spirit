@@ -939,7 +939,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: -700415009, guid: f122dc12ed844fd4593feb36f95f969c, type: 3}
+    m_PressedSprite: {fileID: 1387984723, guid: 52702e484f3a7a044ae6808bc532aa04, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -1009,7 +1009,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1000866883, guid: f122dc12ed844fd4593feb36f95f969c, type: 3}
+  m_Sprite: {fileID: 853877349, guid: 52702e484f3a7a044ae6808bc532aa04, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1613,7 +1613,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.47843137, g: 0.30588236, b: 0.3764706, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -3397,7 +3397,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 371502992, guid: f8b91a252d541494cbe795b784a1cfb9, type: 3}
     m_PressedSprite: {fileID: 371502992, guid: 9a4123bc3aec68d45afe166ff6f310ef, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -3444,7 +3444,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1671709192, guid: 9a4123bc3aec68d45afe166ff6f310ef, type: 3}
+  m_Sprite: {fileID: 1671709192, guid: f8b91a252d541494cbe795b784a1cfb9, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
