@@ -1,11 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 public enum LevelTrack
 {
-    Game1, Game2, Game3, Game4
+    Game1, Game2, Game3, Game4, GameBoss
 }
 public class Track : MonoBehaviour
 {
@@ -184,6 +184,24 @@ public class Track : MonoBehaviour
             #region track3
             trackText3.text = "Yung Mai Sed";
             #endregion track3
+        }
+        if (leveltrack == LevelTrack.GameBoss)
+        {
+            if (winCheck == null) return;
+
+            #region track1
+            trackText.text = "ไอแดงแตก";
+            //if (dead >= total)
+            //{
+            //    trackCheck.sprite = trackComplete;
+            //    trackCompleted = true;
+            //}
+            //else
+            //{
+            //    trackCheck.sprite = trackIncomplete;
+            //    trackCompleted = false;
+            //}
+            #endregion track1
         }
     }
 }

@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossFireState : MonoBehaviour
+public class BossFireState : BossState
 {
-    // Start is called before the first frame update
-    void Start()
+    public AnimationClip animclip;
+    public override void Enter()
     {
-        
+        anim.Play(animclip.name);
     }
-
-    // Update is called once per frame
-    void Update()
+    public override void Do()
     {
-        
+
+    }
+    public override void Exit()
+    {
+
     }
 }

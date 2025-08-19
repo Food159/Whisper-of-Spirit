@@ -6,6 +6,9 @@ public class BossController : MonoBehaviour
 {
     [Header("FSM")]
     public BossIdleState bossIdleState;
+    public BossFireState bossFireState;
+    public BossHappyState bossHappyState;
+    BossState state;
 
     [Space]
     [Header("Variable")]

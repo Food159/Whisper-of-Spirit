@@ -2,17 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossState : MonoBehaviour
+public abstract class BossState : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public bool isComplete { get; protected set; }
+    protected float startTime;
+    float time => Time.time - startTime;
+    protected Rigidbody2D rb2d;
+    protected Animator anim;
 
-    // Update is called once per frame
-    void Update()
+    public BossController bossInput;
+
+    public virtual void Enter()
     {
-        
+
+    }
+    public virtual void Do()
+    {
+
+    }
+    public virtual void Exit()
+    {
+
+    }
+    public void Setup(Rigidbody2D _rb2d, Animator _anim, BossController _bosscontroller)
+    {
+        rb2d = _rb2d;
+        anim = _anim;
+        bossInput = _bosscontroller;
+    }
+    public void initialise()
+    {
+        isComplete = false;
+        startTime = Time.time;
     }
 }
