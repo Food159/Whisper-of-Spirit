@@ -25,7 +25,6 @@ public class TeenHappyState : TeenState
     }
     public override void Do()
     {
-
         col2d.enabled = false;
         rb2d.constraints = RigidbodyConstraints2D.FreezePosition;
         StartCoroutine(WaitForHappy());

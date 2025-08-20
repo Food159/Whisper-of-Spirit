@@ -15,6 +15,7 @@ TagManager:
   - ScreenShake
   - Canvas
   - Fall
+  - Boss
   layers:
   - Default
   - TransparentFX

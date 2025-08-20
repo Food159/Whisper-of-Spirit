@@ -34,5 +34,13 @@ public class Bullet : MonoBehaviour
             }
             gameObject.SetActive(false);
         }
+        else if(collision.CompareTag("Boss"))
+        {
+            BossHealth bosshealth = collision.GetComponent<BossHealth>();
+            if (bosshealth != null)
+            {
+                bosshealth.TakeDamage(damage);
+            }
+        }
     }
 }

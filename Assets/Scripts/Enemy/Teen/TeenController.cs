@@ -41,6 +41,7 @@ public class TeenController : MonoBehaviour
     [SerializeField] bool isAleart;
     public float sentDirection = -1;
     public bool isOutofArea;
+
     EnemyHealth status;
     public void Awake()
     {

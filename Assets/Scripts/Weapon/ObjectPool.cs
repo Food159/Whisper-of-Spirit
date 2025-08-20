@@ -23,15 +23,21 @@ public class ObjectPool : MonoBehaviour
     private List<GameObject> teenPool;
     [SerializeField] private TeenController teencontroller;
 
-    //[Space]
-    //[Header("Teen Colour")]
-    //public GameObject[] teenColourPrefabs;
-    //public int colourPoolSize = 1;
-    //private List<GameObject> colourPool;
+    [Space]
+    [Header("Boss")]
+    public GameObject bossBulletsPrefabs;
+    public GameObject portalPrefabs;
+    public int portalPoolSize = 6;
+    public int bossPoolSize = 6;
+    private List<GameObject> bossPool;
+    private List<GameObject> portalPool;
+    [SerializeField] private BossController bossController;
+
     private void Awake()
     {
         kidcontroller = FindObjectOfType<KidController>();
         teencontroller = FindObjectOfType<TeenController>();
+        bossController = FindObjectOfType<BossController>();
     }
     private void Start()
     {
@@ -64,17 +70,28 @@ public class ObjectPool : MonoBehaviour
                     teenPool.Add(teenBullet);
                 }
             }
-            //colourPool = new List<GameObject>(); //if have teen
-            //for (int p = 0; p < colourPoolSize; p++)
-            //{
-            //    for (int r = 0; r < teenColourPrefabs.Length; r++)
-            //    {
-            //        GameObject teenColour = Instantiate(teenColourPrefabs[r]);
-            //        teenColour.SetActive(false);
-            //        colourPool.Add(teenColour);
-            //    }
-            //}
         }
+        if(bossController != null) 
+        {
+            bossPool = new List<GameObject>(); //if have boss
+            for(int h = 0; h < bossPoolSize; h++)
+            {
+                GameObject bossBullet = Instantiate(bossBulletsPrefabs);
+                bossBullet.SetActive(false);
+                bossPool.Add(bossBullet);
+            }
+            portalPool = new List<GameObject>();
+            for(int h = 0; h < portalPoolSize; h++)
+            {
+                GameObject portal = Instantiate(portalPrefabs);
+                portal.SetActive(false);
+                portalPool.Add(portal);
+            }
+        }
+    }
+    public void BossBullet()
+    {
+
     }
     public GameObject GetObject()
     {
@@ -113,18 +130,38 @@ public class ObjectPool : MonoBehaviour
                 return bulletteen;
             }
         }
-
-        //int randomColourIndex = Random.Range(0, teenColourPrefabs.Length);
-        //GameObject prefabColourUse = teenColourPrefabs[randomColourIndex];
-
-        //foreach (GameObject colourteen in colourPool)
+        return null;
+    }
+    public GameObject GetBossObject()
+    {
+        foreach (GameObject portal in portalPool)
+        {
+            if (!portal.activeInHierarchy)
+            {
+                portal.SetActive(true);
+                return portal;
+            }
+        }
+        //foreach (GameObject bulletBoss in bossPool)
         //{
-        //    if (!colourteen.activeInHierarchy && colourteen.name.Contains(prefabColourUse.name))
+        //    if (!bulletBoss.activeInHierarchy)
         //    {
-        //        colourteen.SetActive(true);
-        //        return colourteen;
+        //        bulletBoss.SetActive(true);
+        //        return bulletBoss;
         //    }
         //}
+        return null;
+    }
+    public GameObject GetBossBulletObject()
+    {
+        foreach (GameObject bulletBoss in bossPool)
+        {
+            if (!bulletBoss.activeInHierarchy)
+            {
+                bulletBoss.SetActive(true);
+                return bulletBoss;
+            }
+        }
         return null;
     }
 }

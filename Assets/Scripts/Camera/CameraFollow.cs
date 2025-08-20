@@ -29,7 +29,7 @@ public class CameraFollow : MonoBehaviour
         }
         else if(levelcam == LevelCam.boss)
         {
-            followSpeed = 0.1f;
+            followSpeed = 0f;
         }
         player = FindAnyObjectByType<PlayerController>();
         if (player != null)
