@@ -4114,7 +4114,7 @@ GameObject:
   - component: {fileID: 336005230}
   m_Layer: 0
   m_Name: LV00_Single_Umbrella
-  m_TagString: Platfrom
+  m_TagString: firstPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19584,6 +19584,13 @@ MonoBehaviour:
   - {fileID: 0}
   teenPoolSize: 3
   teencontroller: {fileID: 0}
+  bossBulletsPrefabs: {fileID: 0}
+  portalPrefabs: {fileID: 0}
+  portalPoolSize: 6
+  bossPoolSize: 6
+  bossRainPrefabs: {fileID: 0}
+  rainPoolSize: 20
+  bossController: {fileID: 0}
 --- !u!4 &1455335311
 Transform:
   m_ObjectHideFlags: 0

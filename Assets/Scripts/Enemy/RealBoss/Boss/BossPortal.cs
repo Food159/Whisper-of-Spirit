@@ -9,11 +9,13 @@ public class BossPortal : MonoBehaviour
     [SerializeField] float bulletSpeed = 5f;
     [SerializeField] private SpriteRenderer spriteRenderer;
     BossFireState bossFire;
+    BossController bossController;
     public bool isLeft;
     private void Awake()
     {
         objectpool = FindObjectOfType<ObjectPool>();
         bossFire = FindObjectOfType<BossFireState>();
+        bossController = FindObjectOfType<BossController>();
     }
     public void ClosePortal()
     {
@@ -44,6 +46,7 @@ public class BossPortal : MonoBehaviour
                 {
                     rb2d.velocity = Vector2.left * bulletSpeed;
                 }
+                bossController.currentAttackCount++;
             }
         }
     }

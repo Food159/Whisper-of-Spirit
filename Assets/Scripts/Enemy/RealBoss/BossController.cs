@@ -7,6 +7,7 @@ public class BossController : MonoBehaviour
     [Header("FSM")]
     public BossIdleState bossIdleState;
     public BossFireState bossFireState;
+    public BossRainState bossRainState;
     public BossHappyState bossHappyState;
     BossState state;
 
@@ -27,8 +28,12 @@ public class BossController : MonoBehaviour
     public bool canShoot = true;
     public float shootTimer;
     private float shootDuration = 3f;
-    private int attackCount;
-    private int currentAttackCount;
+    public int attackCount;
+    public int currentAttackCount;
+
+    [Space]
+    [Header("Phase")]
+    public BossPhase phase;
 
     BossHealth status;
     public void Awake()
@@ -49,10 +54,18 @@ public class BossController : MonoBehaviour
     }
     private void Start()
     {
-        attackCount = Random.Range(3, 4);
+        if(phase == BossPhase.phase1)
+        {
+            attackCount = Random.Range(3, 6);
+        }
+        else if(phase == BossPhase.phase2)
+        {
+            attackCount = Random.Range(6, 12);
+        }
 
         bossIdleState.Setup(rb2d, anim, this);
         bossFireState.Setup(rb2d, anim, this);
+        bossRainState.Setup(rb2d, anim, this);
         bossHappyState.Setup(rb2d, anim, this);
         state = bossIdleState;
     }
@@ -66,25 +79,50 @@ public class BossController : MonoBehaviour
     {
         if (status.isDead)
             return;
-        if(canShoot) 
+        if(canShoot && currentAttackCount < attackCount) 
         {
             shootTimer = 0f;
             state = bossFireState;
-
             state.Enter();
+
+            return;
         }
-        else if(!canShoot) 
+        else if(!canShoot && currentAttackCount < attackCount) 
         {
-            if(state != bossIdleState)
+            if (state != bossIdleState)
             {
                 state = bossIdleState;
                 state.Enter();
             }
             shootTimer += Time.deltaTime;
-            if(shootTimer >= shootDuration)
+            if (shootTimer >= shootDuration)
             {
                 canShoot = true;
             }
+
+        }
+        if(currentAttackCount >= attackCount && !bossRainState.raining)
+        {
+            if(state != bossIdleState) 
+            {
+                state = bossIdleState;
+                state.Enter();
+                shootTimer = 0f;
+            }
+            shootTimer += Time.deltaTime;
+            if(shootTimer >= 3f)
+            {
+                state = bossRainState;
+                state.Enter();
+                currentAttackCount = 0;
+                if (phase == BossPhase.phase1)
+                    attackCount = Random.Range(3, 6);
+                else if (phase == BossPhase.phase2)
+                    attackCount = Random.Range(6, 12);
+            }
+            
+            
+
         }
     }
     void Check()
@@ -104,5 +142,4 @@ public class BossController : MonoBehaviour
     {
         enabled = true;
     }
-    // && currentAttackCount < attackCount             currentAttackCount++;
 }

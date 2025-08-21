@@ -15,14 +15,8 @@ EditorBuildSettings:
     path: Assets/Scenes/SceneGameOne.unity
     guid: 6fd9fb0c40f207048917e7bc7adc6f72
   - enabled: 1
-    path: Assets/Scenes/SceneDialogueTwo.unity
-    guid: 7ce34a9cb13fba449aef1cd4c213063d
-  - enabled: 1
     path: Assets/Scenes/SceneGameTwo.unity
     guid: 2c1fd08f4062097459bdd24fec095f1c
-  - enabled: 1
-    path: Assets/Scenes/SceneDialogueThree.unity
-    guid: 8bb92989384da9b4ead96deb2c77dfaa
   - enabled: 1
     path: Assets/Scenes/SceneGameThree.unity
     guid: 99aef8e4ca161204bb7bdae88f633a49

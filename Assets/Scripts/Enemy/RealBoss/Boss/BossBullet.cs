@@ -8,9 +8,6 @@ public class BossBullet : MonoBehaviour
     public float lifeTime = 6f;
     private float timer;
 
-    [SerializeField] float bulletSpeed = 5f;
-    [SerializeField] Transform firePoint;
-
     private CameraShake camerashake;
     private void OnEnable()
     {
