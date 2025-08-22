@@ -15,6 +15,7 @@ public class WinCheck : MonoBehaviour
 
     private PlayerController playercontroller;
     private PlayerShooting playershooting;
+    private PlayerHealth playerhealth;
     PauseMenu pauseMenu;
 
     private EnemyHealth[] allEnemies;
@@ -26,6 +27,7 @@ public class WinCheck : MonoBehaviour
         pauseMenu = FindObjectOfType<PauseMenu>();
         playercontroller = FindObjectOfType<PlayerController>();
         playershooting = FindObjectOfType<PlayerShooting>();
+        playerhealth = FindObjectOfType<PlayerHealth>();
     }
     private void Start()
     {
@@ -68,6 +70,7 @@ public class WinCheck : MonoBehaviour
         wintestCheck = true;
         DisablePlayercontrol();
         playercontroller.CanMove();
+        if (playerhealth != null) playerhealth.enabled = false;
         //if(Track.instance.trackCompleted == true) // pointcheck.isSuccess == true && 
         //{
         //    GameDataHandler.instance.SaveData();

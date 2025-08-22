@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BossController : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class BossController : MonoBehaviour
     Animator anim;
     public bool _isFacingRight = false;
     public Transform playerTarget;
+    public Transform startBossPos; 
 
     [Space]
     [Header("GameObject")]
@@ -54,6 +56,8 @@ public class BossController : MonoBehaviour
     }
     private void Start()
     {
+        transform.position = startBossPos.position;
+
         if(phase == BossPhase.phase1)
         {
             attackCount = Random.Range(3, 6);
@@ -79,6 +83,8 @@ public class BossController : MonoBehaviour
     {
         if (status.isDead)
             return;
+        if (bossRainState.raining)
+            return;
         if(canShoot && currentAttackCount < attackCount) 
         {
             shootTimer = 0f;
@@ -103,26 +109,13 @@ public class BossController : MonoBehaviour
         }
         if(currentAttackCount >= attackCount && !bossRainState.raining)
         {
-            if(state != bossIdleState) 
-            {
-                state = bossIdleState;
-                state.Enter();
-                shootTimer = 0f;
-            }
-            shootTimer += Time.deltaTime;
-            if(shootTimer >= 3f)
+            if(!bossRainState.raining)
             {
                 state = bossRainState;
-                state.Enter();
                 currentAttackCount = 0;
-                if (phase == BossPhase.phase1)
-                    attackCount = Random.Range(3, 6);
-                else if (phase == BossPhase.phase2)
-                    attackCount = Random.Range(6, 12);
+                canShoot = false;
+                state.Enter();
             }
-            
-            
-
         }
     }
     void Check()
@@ -132,6 +125,22 @@ public class BossController : MonoBehaviour
             state = bossHappyState;
             state.Enter();
         }
+    }
+    public IEnumerator DelayBeforeFire()
+    {
+        state = bossIdleState;
+        state.Enter();
+        yield return new WaitForSeconds(3f);
+        currentAttackCount = 0;
+        if (phase == BossPhase.phase1)
+        {
+            attackCount = Random.Range(3, 6);
+        }
+        else if (phase == BossPhase.phase2)
+        {
+            attackCount = Random.Range(6, 12);
+        }
+        canShoot = true;
     }
     public void Pause()
     {
