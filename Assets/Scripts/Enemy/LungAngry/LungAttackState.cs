@@ -8,7 +8,7 @@ public class LungAttackState : LungState
     bool _canAttack = true;
     //float attackCooldown = 2f;
     bool _isAnimationFinished = false;
-    [SerializeField]  bool _isAttacking;
+    public bool _isAttacking;
     [SerializeField] private int damage = 20;
     [SerializeField] Transform attackpoint;
     [SerializeField] float attackrange;
@@ -26,6 +26,7 @@ public class LungAttackState : LungState
         if (_canAttack && playerstatus._isPlayerDead == false)
         {
             anim.Play(animclip.name);
+            _isAttacking = true;
         }
     }
     void attack()
@@ -62,6 +63,7 @@ public class LungAttackState : LungState
         if(stateinfo.normalizedTime >= 1f)
         {
             _isAnimationFinished = true;
+            _isAttacking = false;
         }
         if(linput.DistanceCal() > 1.9f && _isAnimationFinished)
         {

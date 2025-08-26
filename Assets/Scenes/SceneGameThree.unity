@@ -1486,7 +1486,7 @@ GameObject:
   - component: {fileID: 49083554}
   - component: {fileID: 49083553}
   - component: {fileID: 49083552}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LV02_platformGround01
   m_TagString: firstPlatform
   m_Icon: {fileID: 0}
@@ -5620,7 +5620,7 @@ GameObject:
   - component: {fileID: 238579906}
   - component: {fileID: 238579905}
   - component: {fileID: 238579904}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LV02_platformFloated03
   m_TagString: Platfrom
   m_Icon: {fileID: 0}
@@ -9880,7 +9880,7 @@ GameObject:
   - component: {fileID: 464472472}
   - component: {fileID: 464472471}
   - component: {fileID: 464472470}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LV02_platformFloated02
   m_TagString: Platfrom
   m_Icon: {fileID: 0}
@@ -10430,7 +10430,7 @@ GameObject:
   - component: {fileID: 484479347}
   - component: {fileID: 484479346}
   - component: {fileID: 484479345}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LV02_platformFloated01 (1)
   m_TagString: Platfrom
   m_Icon: {fileID: 0}
@@ -12137,10 +12137,15 @@ MonoBehaviour:
   _isWalking: 0
   coyoteTime: 0.2
   jumpBufferTime: 0.2
+  fallHoldingTime: 0
+  platform:
+    serializedVersion: 2
+    m_Bits: 256
   spriteRenderer: {fileID: 555515631}
   _CanMove: 1
   _isGround: 1
   isOnPlatform: 0
+  isOnFirstPlatform: 0
   _isFacingRight: 1
   playerAct: 0
   anim: {fileID: 555515633}
@@ -12821,7 +12826,7 @@ GameObject:
   - component: {fileID: 591645711}
   - component: {fileID: 591645710}
   - component: {fileID: 591645709}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LV02_platformFloated02 (3)
   m_TagString: Platfrom
   m_Icon: {fileID: 0}
@@ -20340,6 +20345,172 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &898552543
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 898552544}
+  - component: {fileID: 898552548}
+  - component: {fileID: 898552547}
+  - component: {fileID: 898552546}
+  - component: {fileID: 898552545}
+  m_Layer: 0
+  m_Name: Portal_Goal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &898552544
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898552543}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 172.35, y: -1.5511686, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1529404149}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &898552545
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898552543}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.3724785, y: 1.6473088}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.88, y: 3.36}
+    newSize: {x: 2.88, y: 3.36}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 9.8, y: 6.6546183}
+  m_EdgeRadius: 0
+--- !u!114 &898552546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898552543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81b84e19e7764e4a8520b0fbc282e7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 898552547}
+--- !u!95 &898552547
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898552543}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5ed29cc42f0253a418899210ea419732, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!212 &898552548
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898552543}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 4
+  m_Sprite: {fileID: 1102677323, guid: eb12f01f08796b447a2d2f131b9ccbda, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 2.88, y: 3.36}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &899831915
 GameObject:
   m_ObjectHideFlags: 0
@@ -21529,7 +21700,7 @@ GameObject:
   - component: {fileID: 940633711}
   - component: {fileID: 940633710}
   - component: {fileID: 940633709}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LV02_platformGround01 (4)
   m_TagString: firstPlatform
   m_Icon: {fileID: 0}
@@ -21762,7 +21933,7 @@ GameObject:
   - component: {fileID: 946541756}
   - component: {fileID: 946541755}
   - component: {fileID: 946541754}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LV02_platformFloated02 (1)
   m_TagString: Platfrom
   m_Icon: {fileID: 0}
@@ -23952,7 +24123,7 @@ GameObject:
   - component: {fileID: 1045545469}
   - component: {fileID: 1045545468}
   - component: {fileID: 1045545467}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LV02_platformFloated02 (2)
   m_TagString: Platfrom
   m_Icon: {fileID: 0}
@@ -25216,7 +25387,7 @@ GameObject:
   - component: {fileID: 1103768062}
   - component: {fileID: 1103768064}
   - component: {fileID: 1103768063}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LV01_awningPlatform03
   m_TagString: Platfrom
   m_Icon: {fileID: 0}
@@ -27041,6 +27212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7099c998dd1897a439037be91d1428e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossType: 0
   enemyhp: {fileID: 1140603549}
   pointcheck: {fileID: 1800805093}
   pointcheckScript: {fileID: 496701142}
@@ -30020,7 +30192,7 @@ GameObject:
   - component: {fileID: 1272313586}
   - component: {fileID: 1272313585}
   - component: {fileID: 1272313584}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LV02_platformGround01 (2)
   m_TagString: firstPlatform
   m_Icon: {fileID: 0}
@@ -34867,7 +35039,7 @@ GameObject:
   - component: {fileID: 1449093091}
   - component: {fileID: 1449093090}
   - component: {fileID: 1449093089}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LV02_platformFloated01
   m_TagString: Platfrom
   m_Icon: {fileID: 0}
@@ -35300,6 +35472,13 @@ MonoBehaviour:
   - {fileID: 8347709336143781888, guid: e13e41cb3cf12844b8c9a65fe1da30a3, type: 3}
   teenPoolSize: 1
   teencontroller: {fileID: 0}
+  bossBulletsPrefabs: {fileID: 0}
+  portalPrefabs: {fileID: 0}
+  portalPoolSize: 6
+  bossPoolSize: 6
+  bossRainPrefabs: {fileID: 0}
+  rainPoolSize: 20
+  bossController: {fileID: 0}
 --- !u!4 &1455335311
 Transform:
   m_ObjectHideFlags: 0
@@ -37319,6 +37498,7 @@ Transform:
   - {fileID: 677492242}
   - {fileID: 14313287}
   - {fileID: 984325213}
+  - {fileID: 898552544}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1529929353
@@ -37408,7 +37588,7 @@ GameObject:
   - component: {fileID: 1537074844}
   - component: {fileID: 1537074843}
   - component: {fileID: 1537074842}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LV02_platformGround02
   m_TagString: firstPlatform
   m_Icon: {fileID: 0}
@@ -40013,7 +40193,7 @@ GameObject:
   - component: {fileID: 1656943278}
   - component: {fileID: 1656943277}
   - component: {fileID: 1656943276}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LV02_platformGround01 (1)
   m_TagString: firstPlatform
   m_Icon: {fileID: 0}
@@ -47356,7 +47536,7 @@ GameObject:
   - component: {fileID: 2067508861}
   - component: {fileID: 2067508860}
   - component: {fileID: 2067508859}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LV02_platformGround01 (3)
   m_TagString: firstPlatform
   m_Icon: {fileID: 0}

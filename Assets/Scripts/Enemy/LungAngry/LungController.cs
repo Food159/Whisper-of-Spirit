@@ -86,7 +86,10 @@ public class LungController : MonoBehaviour, IPausable
         {
             if (!isOutofArea)  // if in area
             {
-                state = lwalkstate;
+                if(!lattackstate._isAttacking)
+                {
+                    state = lwalkstate;
+                }
                 if(transform.position.x <= Area_negX.position.x || transform.position.x >= Area_posX.position.x) // if enemy out of zone
                 {
                     isOutofArea = true;

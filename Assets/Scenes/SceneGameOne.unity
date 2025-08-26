@@ -4112,7 +4112,7 @@ GameObject:
   - component: {fileID: 336005228}
   - component: {fileID: 336005229}
   - component: {fileID: 336005230}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LV00_Single_Umbrella
   m_TagString: firstPlatform
   m_Icon: {fileID: 0}
@@ -6549,10 +6549,15 @@ MonoBehaviour:
   _isWalking: 0
   coyoteTime: 0.2
   jumpBufferTime: 0.2
+  fallHoldingTime: 0
+  platform:
+    serializedVersion: 2
+    m_Bits: 256
   spriteRenderer: {fileID: 555515631}
   _CanMove: 1
   _isGround: 1
   isOnPlatform: 0
+  isOnFirstPlatform: 0
   _isFacingRight: 1
   playerAct: 0
   anim: {fileID: 555515633}

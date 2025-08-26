@@ -2,21 +2,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum BossType
+{
+    Lung, Kid, Teen
+}
 public class BossCheck : MonoBehaviour
 {
+    public BossType bossType;
     [SerializeField] private EnemyHealth enemyhp;
+    [Space]
+    [Header("Lung")]
     [SerializeField] private GameObject pointcheck;
     [SerializeField] private PointCheck pointcheckScript;
+    [Space]
+    [Header("Kid")]
+    [Space]
+    [Header("Teen")]
+    [Space]
     public bool _isBossDie = false;
     private bool hasStarted = false;
     private void Update()
     {
-        if (enemyhp.currentHealth <= 0 && hasStarted == false)
+        if(bossType == BossType.Lung)
         {
-            hasStarted = true;
-            _isBossDie = true;
-            pointcheck.SetActive(true);
-            pointcheckScript.StartCheck();
+            if (enemyhp.currentHealth <= 0 && hasStarted == false)
+            {
+                hasStarted = true;
+                _isBossDie = true;
+                pointcheck.SetActive(true);
+                pointcheckScript.StartCheck();
+            }
+        }
+        else if(bossType == BossType.Kid) 
+        {
+            if (enemyhp.currentHealth <= 0 && hasStarted == false)
+            {
+                hasStarted = true;
+                _isBossDie = true;
+            }
+        }
+        else if(bossType == BossType.Teen) 
+        {
+            if (enemyhp.currentHealth <= 0 && hasStarted == false)
+            {
+                hasStarted = true;
+                _isBossDie = true;
+            }
         }
     }
 }

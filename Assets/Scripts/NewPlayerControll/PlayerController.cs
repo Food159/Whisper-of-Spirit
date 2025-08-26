@@ -36,15 +36,19 @@ public class PlayerController : Subject, IOserver, IPausable
     [SerializeField] private float jumpBufferTime = 0.2f;
     private float coyoteTimeCounter;
     private float jumpBufferCounter;
+    public float fallHoldingTime;
+    [SerializeField] LayerMask platform;
 
     [SerializeField] SpriteRenderer spriteRenderer;
     public bool _CanMove = true;
     public bool _isGround = true;
     public bool isOnPlatform = false;
+    public bool isOnFirstPlatform = false;
     private float platformExitDelay = 0.5f;
     private float platformExitTimer = 0f;
     public bool _isFacingRight = true;
     Rigidbody2D rb2d;
+    Collider2D col2d;
     public int playerAct;
     public Animator anim;
     SoundManager soundmanager;
@@ -71,6 +75,7 @@ public class PlayerController : Subject, IOserver, IPausable
     {
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        col2d = GetComponent<Collider2D>();
         status = GetComponent<PlayerHealth>();
         camfollow = FindAnyObjectByType<CameraFollow>();
     }
@@ -78,12 +83,22 @@ public class PlayerController : Subject, IOserver, IPausable
     {
         if (!_CanMove)
             return;
-        if(status._isPlayerDead)
+        if (status._isPlayerDead)
         {
             ChangeToFaint();
             return;
         }
-
+        if (Input.GetKey(KeyCode.S))
+        {
+            if (isOnFirstPlatform || isOnPlatform)
+            {
+                fallHoldingTime += Time.deltaTime;
+                if (fallHoldingTime > 0.2f)
+                {
+                    StartCoroutine(FallFormPlatform());
+                }
+            }
+        }
         if(_isGround)
         {
             coyoteTimeCounter = coyoteTime;
@@ -124,6 +139,14 @@ public class PlayerController : Subject, IOserver, IPausable
             _isGround = true;
             shadow.SetActive(true);
         }
+        if(collision.gameObject.CompareTag("firstPlatform"))
+        {
+            isOnFirstPlatform = true;
+        }    
+        else
+        {
+            isOnFirstPlatform = false;
+        }
         if(collision.gameObject.CompareTag("Platfrom"))
         {
             isOnPlatform = true;
@@ -162,10 +185,6 @@ public class PlayerController : Subject, IOserver, IPausable
                 shadow.SetActive(false);
             }
         }
-        //if (collision.gameObject.CompareTag("Platfrom"))
-        //{
-        //    platformExitTimer = platformExitDelay;
-        //}
     }
     public void CanMove()
     {
@@ -310,6 +329,26 @@ public class PlayerController : Subject, IOserver, IPausable
         {
             case (PlayerAction.Pause):
                 return;
+        }
+    }
+    private IEnumerator FallFormPlatform()
+    {
+        Collider2D platformCol2d = null;
+        ContactFilter2D filter = new ContactFilter2D();
+        filter.SetLayerMask(platform);
+        List<Collider2D> results = new List<Collider2D>();
+
+        int count = col2d.OverlapCollider(filter, results);
+        if(count > 0)
+        {
+            platformCol2d = results[0];
+        }
+        if(platformCol2d != null && platformCol2d.GetComponent<PlatformEffector2D>() != null) 
+        {
+            Physics2D.IgnoreCollision(col2d, platformCol2d, true);
+            yield return new WaitForSeconds(0.5f);
+            Physics2D.IgnoreCollision(col2d, platformCol2d, false);
+            fallHoldingTime = 0;
         }
     }
     public void Pause()

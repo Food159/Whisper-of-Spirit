@@ -9,6 +9,16 @@ public class BossRainState : BossState
     public bool raining;
     public Transform bossRainPos;
     public float timeCount;
+    [SerializeField] Transform[] RainPoint;
+    private ObjectPool objectpool;
+
+    [Header("Rain Settings")]
+    [SerializeField] private float rainInterval = 0.5f;
+    [SerializeField] private int rainAmount = 5;
+    private void Awake()
+    {
+        objectpool = FindObjectOfType<ObjectPool>();
+    }
     public override void Enter()
     {
         anim.Play(animclip.name);
@@ -31,12 +41,38 @@ public class BossRainState : BossState
         transform.position = bossInput.startBossPos.position;
         col2d.enabled = true;
     }
+    public void BossRain()
+    {
+        for (int i = 0; i < rainAmount; i++)
+        {
+            Transform rainpos = RainPoint[Random.Range(0, RainPoint.Length)];
+            GameObject rainspawn = objectpool.GetBossRainObject();
+            rainspawn.transform.position = rainpos.position;
+            rainspawn.SetActive(true);
+        }
+
+    }
     IEnumerator Rain()
     {
-        yield return new WaitForSeconds(15f);
+        float rainDuration = 15f;
+        float timer = 0f;
+        while(timer < rainDuration) 
+        {
+            BossRain();
+            yield return new WaitForSeconds(rainInterval);
+            timer += rainInterval;
+        }
         raining = false;
         Exit();
         bossInput.canShoot = false;
         yield return StartCoroutine(bossInput.DelayBeforeFire());
     }
+    //IEnumerator Rain()
+    //{
+    //    yield return new WaitForSeconds(15f);
+    //    raining = false;
+    //    Exit();
+    //    bossInput.canShoot = false;
+    //    yield return StartCoroutine(bossInput.DelayBeforeFire());
+    //}
 }
