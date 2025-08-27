@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PointCheck : MonoBehaviour
 {
@@ -10,12 +11,18 @@ public class PointCheck : MonoBehaviour
     private RectTransform currentGreenZone;
     [SerializeField] GameObject checkPanel;
     [SerializeField] GameObject menu;
+    [SerializeField] TMP_Text successCountText;
+    [SerializeField] TMP_Text failCountText;
 
     [Header("Config")]
     public float moveSpeed = 100f; // ความเร็ว pointer
     private float minAngle = 90f; // องศาสูงสุดที่ pointer ไปได้ทางด้านซ้าย
     private float maxAngle = -90f; // องศาสูงสุดที่ pointer ไปได้ทางด้านขวา
     public KeyCode keyInput = KeyCode.Space;
+    private int successCount = 0;
+    private int successRequired = 5;
+    private int failCount = 0;
+    private int maxFail = 3;
 
     private bool rotating = false; 
     public float currentAngle; // องศาปัจจุบันที่ pointer ชึ้
@@ -51,6 +58,9 @@ public class PointCheck : MonoBehaviour
 
         currentAngle += direction * moveSpeed * Time.unscaledDeltaTime; // คำนวณมุม โดยการใช้ direction * speed เช่น direction = -1f * 100 = -100(คือไปตามเข็มนาฬิกา) แล้วเอาไปคูณกับ Time.deltatime
 
+        successCountText.text = $"Success : {successCount}/{successRequired}";
+        failCountText.text = $"Fail {failCount}/{maxFail}";
+
         if (currentAngle >= minAngle) // ถ้า pointer ไปถึง minangle ให้หมุนไปที่ maxangle
         {
             currentAngle = minAngle;
@@ -68,7 +78,7 @@ public class PointCheck : MonoBehaviour
             CheckResult();
         }
     }
-    public void StartCheck()
+    public void StartCheck(bool resetPointer = false)
     {
         if (pauseGame)
         {
@@ -78,9 +88,15 @@ public class PointCheck : MonoBehaviour
 
         checkPanel.SetActive(true);
         rotating = true; // ให้ bool rotating ทำงาน
-        currentAngle = minAngle; // ให้ pointer เริ่มที่ minAngle
-        direction = 1f; // เริ่มหมุนตามเข็มนาฬิกา
-        pointer.transform.eulerAngles = new Vector3(0, 0, maxAngle);
+        if(resetPointer)
+        {
+            currentAngle = minAngle; // ให้ pointer เริ่มที่ minAngle
+            direction = 1f; // เริ่มหมุนตามเข็มนาฬิกา
+            pointer.transform.eulerAngles = new Vector3(0, 0, currentAngle);
+        }
+        //currentAngle = minAngle; // ให้ pointer เริ่มที่ minAngle
+        //direction = 1f; // เริ่มหมุนตามเข็มนาฬิกา
+        //pointer.transform.eulerAngles = new Vector3(0, 0, maxAngle);
 
         foreach (var zone in greenZonesInScene) // ปิด greenzone ทุกอัน
         {
@@ -130,16 +146,40 @@ public class PointCheck : MonoBehaviour
 
         if (success)
         {
-            isSuccess = true;
-            Debug.Log("Success!");
+            successCount++;
+            Debug.Log($"Success {successCount}/{successRequired}");
+            if(successCount >= successRequired)
+            {
+                isSuccess = true;
+                EndCheck();
+            }
+            else
+            {
+                StartCheck(false);
+            }
         }
         else
         {
-            isSuccess = false;
-            Debug.Log("Fail!");
+            failCount++;
+            Debug.Log($"Fail {failCount}/{maxFail}");
+            if (failCount >= maxFail)
+            {
+                successCount = 0;
+                isSuccess = false;
+                Debug.Log("Fail!");
+                EndCheck();
+            }
+            else
+            {
+                StartCheck(false);
+            }
         }
+
+    }
+    private void EndCheck()
+    {
         gameObject.SetActive(false);
-        foreach(var p in pauseable) 
+        foreach (var p in pauseable)
         {
             p.Resume();
         }
