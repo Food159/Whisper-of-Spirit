@@ -10,14 +10,20 @@ public class BossCheck : MonoBehaviour
 {
     public BossType bossType;
     [SerializeField] private EnemyHealth enemyhp;
+
     [Space]
     [Header("Lung")]
     [SerializeField] private GameObject pointcheck;
     [SerializeField] private PointCheck pointcheckScript;
+
     [Space]
     [Header("Kid")]
+    [SerializeField] private GameObject iceGame;
+    [SerializeField] private Ice_Water icewaterScript;
+
     [Space]
     [Header("Teen")]
+
     [Space]
     public bool _isBossDie = false;
     private bool hasStarted = false;
@@ -39,6 +45,8 @@ public class BossCheck : MonoBehaviour
             {
                 hasStarted = true;
                 _isBossDie = true;
+                iceGame.SetActive(true);
+                icewaterScript.StartIceGame();
             }
         }
         else if(bossType == BossType.Teen) 

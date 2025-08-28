@@ -19,11 +19,15 @@ public class InfiniteParalax : MonoBehaviour
 
         transform.position = new Vector3(startpos + dist, transform.position.y, transform.position.z);
 
-        if (temp > startpos + lenght)
+        //if (temp > startpos + lenght)
+        //{
+        //    startpos += lenght;
+        //}
+        if (temp > transform.position.x + lenght)
         {
             startpos += lenght;
         }
-        else if (temp < startpos - lenght)
+        else if (temp < transform.position.x - lenght)
         {
             startpos -= lenght;
         }

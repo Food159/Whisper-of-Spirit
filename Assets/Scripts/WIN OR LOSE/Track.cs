@@ -41,6 +41,7 @@ public class Track : MonoBehaviour
     [Header("Variable")]
     public LevelTrack leveltrack;
     [SerializeField] PointCheck minigame1;
+    [SerializeField] Ice_Water minigame2;
     
     public static Track instance;
     private void Awake()
@@ -155,7 +156,17 @@ public class Track : MonoBehaviour
             #endregion track2
 
             #region track3
-            trackText3.text = "Yung Mai Sed";
+            trackText3.text = "Minigame Success";
+            if(minigame2.success)
+            {
+                trackCheck3.sprite = trackComplete3;
+                trackCompleted3 = true;
+            }
+            else
+            {
+                trackCheck3.sprite = trackIncomplete3;
+                trackCompleted3 = false;
+            }
             #endregion track3
         }
         else if(leveltrack == LevelTrack.Game4)

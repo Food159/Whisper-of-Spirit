@@ -14,6 +14,7 @@ public class PointCheck : MonoBehaviour
     [SerializeField] TMP_Text successCountText;
     [SerializeField] TMP_Text failCountText;
 
+    [Space]
     [Header("Config")]
     public float moveSpeed = 100f; // ความเร็ว pointer
     private float minAngle = 90f; // องศาสูงสุดที่ pointer ไปได้ทางด้านซ้าย

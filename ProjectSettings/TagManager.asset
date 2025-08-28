@@ -16,6 +16,8 @@ TagManager:
   - Canvas
   - Fall
   - Boss
+  - Ice
+  - Water
   layers:
   - Default
   - TransparentFX
