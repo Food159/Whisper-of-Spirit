@@ -10,6 +10,7 @@ public class LungHappyState : LungState
     public GameObject enemy;
     public GameObject hpbar;
     public GameObject guman;
+    public GameObject aura;
 
     public GameObject purifyPrefab;
     public bool _isPurify = false;
@@ -26,12 +27,15 @@ public class LungHappyState : LungState
     }
     public override void Do()
     {
-        
         col2d.enabled = false;
         rb2d.constraints = RigidbodyConstraints2D.FreezePosition;
         StartCoroutine(WaitForHappy());
         hpbar.SetActive(false);
         guman.SetActive(false);
+        if(aura != null)
+        {
+            aura.SetActive(false);
+        }
     }
     public override void Exit()
     {

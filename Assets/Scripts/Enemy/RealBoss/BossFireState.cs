@@ -44,7 +44,10 @@ public class BossFireState : BossState
     {
         if(bossphase == BossPhase.phase1) 
         {
-            Transform allPoint = portalPoint[Random.Range(0, 6)];
+            //int[] indexes = { 0, 2, 4 };
+            //int randomindex = indexes[Random.Range(0, indexes.Length)];
+            //Transform allPoint = portalPoint[randomindex];
+            Transform allPoint = portalPoint[Random.Range(0, 2)];
             GameObject portal = objectpool.GetBossObject();
             if (portal != null)
             {
@@ -53,7 +56,7 @@ public class BossFireState : BossState
                 BossPortal bossportal = portal.GetComponent<BossPortal>();
                 if (bossportal != null)
                 {
-                    if (allPoint == portalPoint[0] || allPoint == portalPoint[1] || allPoint == portalPoint[2])
+                    if (allPoint == portalPoint[0] || allPoint == portalPoint[2] || allPoint == portalPoint[4])
                     {
                         bossportal.SetDirection(true);
                     }
@@ -67,8 +70,11 @@ public class BossFireState : BossState
         }
         else if (bossphase == BossPhase.phase2)
         {
-            Transform leftPoint = portalPoint[Random.Range(0, 3)];
-            Transform rightPoint = portalPoint[Random.Range(3, 6)];
+            int[] leftindex = { 0, 2, 4 };
+            int leftrandom = leftindex[Random.Range(0, leftindex.Length)];
+            Transform leftPoint = portalPoint[leftrandom];
+            //Transform leftPoint = portalPoint[Random.Range(0, 3)];
+            //Transform rightPoint = portalPoint[Random.Range(3, 6)];
             GameObject leftPortal = objectpool.GetBossObject();
             if (leftPortal != null)
             {
@@ -80,6 +86,9 @@ public class BossFireState : BossState
                     bossportal.SetDirection(true);
                 }
             }
+            int[] rightindex = {1, 3, 5};
+            int rightrandom = rightindex[Random.Range(0, rightindex.Length)];
+            Transform rightPoint = portalPoint[rightrandom];
             GameObject rightPortal = objectpool.GetBossObject();
             if (rightPortal != null)
             {

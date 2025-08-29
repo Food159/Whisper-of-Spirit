@@ -9,6 +9,7 @@ public class BossRainState : BossState
     public bool raining;
     public Transform bossRainPos;
     public float timeCount;
+    [SerializeField] GameObject shadow;
     [SerializeField] Transform[] RainPoint;
     private ObjectPool objectpool;
     public BossPhase phase;
@@ -35,6 +36,7 @@ public class BossRainState : BossState
         transform.position = bossRainPos.position;
         raining = true;
         timeCount = 0;
+        shadow.SetActive(false);
         
         StartCoroutine(Rain());
     }
@@ -91,6 +93,7 @@ public class BossRainState : BossState
         raining = false;
         Exit();
         bossInput.canShoot = false;
+        shadow.SetActive(true);
         yield return StartCoroutine(bossInput.DelayBeforeFire());
     }
 }

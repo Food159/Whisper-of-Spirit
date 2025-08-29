@@ -2599,6 +2599,7 @@ MonoBehaviour:
   enemy: {fileID: 854761289}
   hpbar: {fileID: 2043624354}
   guman: {fileID: 1736316916}
+  aura: {fileID: 0}
   purifyPrefab: {fileID: 8664462331607313595, guid: c5bd7817dcc02b64ca19740d1a52a704, type: 3}
   _isPurify: 0
 --- !u!1 &191633964
@@ -4843,6 +4844,7 @@ MonoBehaviour:
   enemy: {fileID: 158964183}
   hpbar: {fileID: 1102451599}
   guman: {fileID: 1060123379}
+  aura: {fileID: 0}
   purifyPrefab: {fileID: 8664462331607313595, guid: c5bd7817dcc02b64ca19740d1a52a704, type: 3}
   _isPurify: 0
 --- !u!1 &423700798
@@ -7404,7 +7406,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 7
   m_Sprite: {fileID: 487781808, guid: d36fae797eee8d5479b4c5e5ecdf7fdb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -9259,6 +9261,7 @@ MonoBehaviour:
   enemy: {fileID: 1118786992}
   hpbar: {fileID: 1819899206}
   guman: {fileID: 125168079}
+  aura: {fileID: 0}
   purifyPrefab: {fileID: 8664462331607313595, guid: c5bd7817dcc02b64ca19740d1a52a704, type: 3}
   _isPurify: 0
 --- !u!1 &789474068
@@ -9654,6 +9657,7 @@ MonoBehaviour:
   trackCompleted3: 0
   leveltrack: 0
   minigame1: {fileID: 0}
+  minigame2: {fileID: 0}
 --- !u!114 &820010931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11470,6 +11474,7 @@ MonoBehaviour:
   enemy: {fileID: 317612360}
   hpbar: {fileID: 316724100}
   guman: {fileID: 1440439122}
+  aura: {fileID: 0}
   purifyPrefab: {fileID: 8664462331607313595, guid: c5bd7817dcc02b64ca19740d1a52a704, type: 3}
   _isPurify: 0
 --- !u!1 &944799077
@@ -11522,6 +11527,7 @@ MonoBehaviour:
   enemy: {fileID: 1100173806}
   hpbar: {fileID: 1866201323}
   guman: {fileID: 1086026811}
+  aura: {fileID: 0}
   purifyPrefab: {fileID: 8664462331607313595, guid: c5bd7817dcc02b64ca19740d1a52a704, type: 3}
   _isPurify: 0
 --- !u!1 &944935284
@@ -15034,6 +15040,8 @@ MonoBehaviour:
   enemyhp: {fileID: 1140603549}
   pointcheck: {fileID: 1800805093}
   pointcheckScript: {fileID: 496701142}
+  iceGame: {fileID: 0}
+  icewaterScript: {fileID: 0}
   _isBossDie: 0
 --- !u!1 &1146080019
 GameObject:
@@ -19174,6 +19182,7 @@ MonoBehaviour:
   trackCompleted3: 0
   leveltrack: 0
   minigame1: {fileID: 0}
+  minigame2: {fileID: 0}
 --- !u!1 &1408929399
 GameObject:
   m_ObjectHideFlags: 0
@@ -26028,6 +26037,7 @@ MonoBehaviour:
   enemy: {fileID: 1140603541}
   hpbar: {fileID: 1184750863}
   guman: {fileID: 1325820847}
+  aura: {fileID: 0}
   purifyPrefab: {fileID: 8664462331607313595, guid: c5bd7817dcc02b64ca19740d1a52a704, type: 3}
   _isPurify: 0
 --- !u!1 &2086628650

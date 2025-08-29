@@ -346,7 +346,7 @@ public class PlayerController : Subject, IOserver, IPausable
         if(platformCol2d != null && platformCol2d.GetComponent<PlatformEffector2D>() != null) 
         {
             Physics2D.IgnoreCollision(col2d, platformCol2d, true);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1.5f);
             Physics2D.IgnoreCollision(col2d, platformCol2d, false);
             fallHoldingTime = 0;
         }

@@ -9,6 +9,7 @@ public class TeenHappyState : TeenState
     public GameObject enemy;
     public GameObject hpbar;
     public GameObject guman;
+    public GameObject aura;
 
     public GameObject purifyPrefab;
     public bool _isPurify = false;
@@ -30,6 +31,10 @@ public class TeenHappyState : TeenState
         StartCoroutine(WaitForHappy());
         hpbar.SetActive(false);
         guman.SetActive(false);
+        if (aura != null)
+        {
+            aura.SetActive(false);
+        }
     }
     public override void Exit()
     {

@@ -1973,6 +1973,7 @@ MonoBehaviour:
   enemy: {fileID: 54374232}
   hpbar: {fileID: 892127289}
   guman: {fileID: 868430261}
+  aura: {fileID: 0}
   purifyPrefab: {fileID: 8664462331607313595, guid: c5bd7817dcc02b64ca19740d1a52a704, type: 3}
   _isPurify: 0
 --- !u!1 &53934201
@@ -6665,6 +6666,7 @@ MonoBehaviour:
   enemy: {fileID: 1465044841}
   hpbar: {fileID: 1831159763}
   guman: {fileID: 1323315771}
+  aura: {fileID: 0}
   purifyPrefab: {fileID: 8664462331607313595, guid: c5bd7817dcc02b64ca19740d1a52a704, type: 3}
   _isPurify: 0
 --- !u!1 &240499983
@@ -7105,6 +7107,7 @@ MonoBehaviour:
   enemy: {fileID: 1851992559}
   hpbar: {fileID: 687527218}
   guman: {fileID: 1156846484}
+  aura: {fileID: 0}
   purifyPrefab: {fileID: 8664462331607313595, guid: c5bd7817dcc02b64ca19740d1a52a704, type: 3}
   _isPurify: 0
 --- !u!1 &267277995
@@ -10499,6 +10502,7 @@ MonoBehaviour:
   enemy: {fileID: 1497123761}
   hpbar: {fileID: 1908950800}
   guman: {fileID: 22316287}
+  aura: {fileID: 0}
   purifyPrefab: {fileID: 8664462331607313595, guid: c5bd7817dcc02b64ca19740d1a52a704, type: 3}
   _isPurify: 0
 --- !u!1 &409638192
@@ -10854,6 +10858,7 @@ MonoBehaviour:
   enemy: {fileID: 87820664}
   hpbar: {fileID: 222189195}
   guman: {fileID: 1660977171}
+  aura: {fileID: 0}
   purifyPrefab: {fileID: 8664462331607313595, guid: c5bd7817dcc02b64ca19740d1a52a704, type: 3}
   _isPurify: 0
 --- !u!1 &430914955
@@ -13600,6 +13605,7 @@ MonoBehaviour:
   enemy: {fileID: 653674825}
   hpbar: {fileID: 1587629}
   guman: {fileID: 280606998}
+  aura: {fileID: 0}
   purifyPrefab: {fileID: 8664462331607313595, guid: c5bd7817dcc02b64ca19740d1a52a704, type: 3}
   _isPurify: 0
 --- !u!1 &555515628
@@ -15218,7 +15224,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 7
   m_Sprite: {fileID: 487781808, guid: d36fae797eee8d5479b4c5e5ecdf7fdb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -17638,6 +17644,7 @@ MonoBehaviour:
   enemy: {fileID: 2136650679}
   hpbar: {fileID: 329258309}
   guman: {fileID: 570735408}
+  aura: {fileID: 0}
   purifyPrefab: {fileID: 8664462331607313595, guid: c5bd7817dcc02b64ca19740d1a52a704, type: 3}
   _isPurify: 0
 --- !u!1 &707075261
@@ -23782,6 +23789,7 @@ MonoBehaviour:
   enemy: {fileID: 317612360}
   hpbar: {fileID: 316724100}
   guman: {fileID: 1440439122}
+  aura: {fileID: 0}
   purifyPrefab: {fileID: 8664462331607313595, guid: c5bd7817dcc02b64ca19740d1a52a704, type: 3}
   _isPurify: 0
 --- !u!1 &948415347
@@ -29544,6 +29552,7 @@ MonoBehaviour:
   enemy: {fileID: 1391394851}
   hpbar: {fileID: 426952508}
   guman: {fileID: 173129808}
+  aura: {fileID: 0}
   purifyPrefab: {fileID: 8664462331607313595, guid: c5bd7817dcc02b64ca19740d1a52a704, type: 3}
   _isPurify: 0
 --- !u!1 &1184750863
@@ -34255,6 +34264,7 @@ MonoBehaviour:
   enemy: {fileID: 1487831415}
   hpbar: {fileID: 98290829}
   guman: {fileID: 191935819}
+  aura: {fileID: 0}
   purifyPrefab: {fileID: 8664462331607313595, guid: c5bd7817dcc02b64ca19740d1a52a704, type: 3}
   _isPurify: 0
 --- !u!1 &1325820847
@@ -34820,6 +34830,7 @@ MonoBehaviour:
   enemy: {fileID: 1445530853}
   hpbar: {fileID: 1656467374}
   guman: {fileID: 1324285343}
+  aura: {fileID: 0}
   purifyPrefab: {fileID: 8664462331607313595, guid: c5bd7817dcc02b64ca19740d1a52a704, type: 3}
   _isPurify: 0
 --- !u!1 &1339271863
@@ -38648,6 +38659,7 @@ MonoBehaviour:
   enemy: {fileID: 1969801271}
   hpbar: {fileID: 2040839828}
   guman: {fileID: 1486483099}
+  aura: {fileID: 0}
   purifyPrefab: {fileID: 8664462331607313595, guid: c5bd7817dcc02b64ca19740d1a52a704, type: 3}
   _isPurify: 0
 --- !u!1 &1452212185
@@ -42772,6 +42784,7 @@ MonoBehaviour:
   enemy: {fileID: 1324449792}
   hpbar: {fileID: 7370236}
   guman: {fileID: 1801699584}
+  aura: {fileID: 0}
   purifyPrefab: {fileID: 8664462331607313595, guid: c5bd7817dcc02b64ca19740d1a52a704, type: 3}
   _isPurify: 0
 --- !u!1 &1571902743
@@ -50566,6 +50579,7 @@ MonoBehaviour:
   enemy: {fileID: 1780948717}
   hpbar: {fileID: 1276029670}
   guman: {fileID: 101558919}
+  aura: {fileID: 0}
   purifyPrefab: {fileID: 8664462331607313595, guid: c5bd7817dcc02b64ca19740d1a52a704, type: 3}
   _isPurify: 0
 --- !u!1 &1953889187
@@ -51611,6 +51625,7 @@ MonoBehaviour:
   enemy: {fileID: 780781670}
   hpbar: {fileID: 11693146}
   guman: {fileID: 1045193421}
+  aura: {fileID: 0}
   purifyPrefab: {fileID: 8664462331607313595, guid: c5bd7817dcc02b64ca19740d1a52a704, type: 3}
   _isPurify: 0
 --- !u!1 &1998384211
@@ -52168,6 +52183,7 @@ MonoBehaviour:
   enemy: {fileID: 14979541}
   hpbar: {fileID: 59327032}
   guman: {fileID: 1694418248}
+  aura: {fileID: 0}
   purifyPrefab: {fileID: 8664462331607313595, guid: c5bd7817dcc02b64ca19740d1a52a704, type: 3}
   _isPurify: 0
 --- !u!1 &2015868361
@@ -53863,6 +53879,7 @@ MonoBehaviour:
   enemy: {fileID: 1140603541}
   hpbar: {fileID: 1184750863}
   guman: {fileID: 1325820847}
+  aura: {fileID: 0}
   purifyPrefab: {fileID: 8664462331607313595, guid: c5bd7817dcc02b64ca19740d1a52a704, type: 3}
   _isPurify: 0
 --- !u!1 &2091541132
