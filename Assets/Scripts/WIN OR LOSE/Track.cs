@@ -108,7 +108,7 @@ public class Track : MonoBehaviour
             #endregion track2
 
             #region track3
-            trackText3.text = "Minigame Success";
+            trackText3.text = "Complete \"Special\" Mission";
             if(minigame1.isSuccess)
             {
                 trackCheck3.sprite = trackComplete3;
@@ -156,8 +156,8 @@ public class Track : MonoBehaviour
             #endregion track2
 
             #region track3
-            trackText3.text = "Minigame Success";
-            if(minigame2.success)
+            trackText3.text = "Complete \"Special\" Mission";
+            if (minigame2.success)
             {
                 trackCheck3.sprite = trackComplete3;
                 trackCompleted3 = true;
@@ -204,7 +204,7 @@ public class Track : MonoBehaviour
             #endregion track2
 
             #region track3
-            trackText3.text = "Yung Mai Sed";
+            trackText3.text = "Complete \"Special\" Mission";
             #endregion track3
         }
         if (leveltrack == LevelTrack.GameBoss)
