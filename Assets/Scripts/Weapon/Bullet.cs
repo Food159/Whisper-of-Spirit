@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public float lifeTime = 2f;
     private float timer;
-    private int damage = 220;
+    private int damage = 20;
     private void OnEnable()
     {
         timer = 0f;

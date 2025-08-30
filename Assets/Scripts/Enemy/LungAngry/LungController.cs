@@ -151,7 +151,7 @@ public class LungController : MonoBehaviour, IPausable
         Debug.DrawRay(transform.position, rayDirectionLeft * patrolLenght, Color.green);
         Debug.DrawRay(transform.position, rayDirectionRight * patrolLenght, Color.green);
 
-        if(distance <= patrolLenght && yOffset <= yPlayer)
+        if (distance <= patrolLenght && yOffset < 0.3f)
         {
             isAleart = true;
         }
