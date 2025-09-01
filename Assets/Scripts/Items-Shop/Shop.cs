@@ -98,7 +98,7 @@ public class Shop : MonoBehaviour
         {
             scoremanager.score -= 9;
             Debug.Log("BuyMango");
-            inventory.AddItems(mangoSprite);
+            inventory.AddItems(mangoSprite, ItemsType.mango);
             confirm1.SetActive(false);
         }
         else
@@ -115,7 +115,7 @@ public class Shop : MonoBehaviour
         {
             scoremanager.score -= 3;
             Debug.Log("BuyRice");
-            inventory.AddItems(riceSprite);
+            inventory.AddItems(riceSprite, ItemsType.rice);
             confirm2.SetActive(false);
         }
         else
@@ -132,7 +132,7 @@ public class Shop : MonoBehaviour
         {
             scoremanager.score -= 5;
             Debug.Log("BuyGreen");
-            inventory.AddItems(greenSprite);
+            inventory.AddItems(greenSprite, ItemsType.green);
             confirm3.SetActive(false);
         }
         else

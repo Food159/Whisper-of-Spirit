@@ -1,48 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+public enum ItemsType
+{
+    none, mango, rice, green
+}
+[System.Serializable]
+public class InventorySlot
+{
+    public Image image;
+    public ItemsType type = ItemsType.none;
+    //public TMP_Text timerText;
+}
 public class InventoryUI : MonoBehaviour
 {
-    [SerializeField] List<Image> slots;
+    [SerializeField] List<InventorySlot> slots;
     [SerializeField] Sprite emptySprite;
-    private void Update()
+
+    public bool AddItems(Sprite itemSprite, ItemsType type)
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        foreach(InventorySlot slot in slots) 
         {
-            Debug.Log("Item 1");
-
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            Debug.Log("Item 2");
-
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            Debug.Log("Item 3");
-
-        }
-    }
-    public bool AddItems(Sprite itemSprite)
-    {
-        foreach(Image slot in slots) 
-        {
-            if(slot.sprite == null)
+            if(slot.type == ItemsType.none)
             {
-                slot.sprite = itemSprite;
+                slot.image.sprite = itemSprite;
+                slot.type = type;
                 return true;
             }
         }
         Debug.Log("Items Full");
         return false;
     }
-    public void RemoveItems(int index) 
+    public ItemsType GetItemType(int index)
     {
-        if(index >= 0 && index < slots.Count) 
+        if (index >= 0 && index < slots.Count)
+            return slots[index].type;
+        return ItemsType.none;
+    }
+    public void RemoveItem(int index)
+    {
+        if (index >= 0 && index < slots.Count)
         {
-            slots[index].sprite = emptySprite;
+            slots[index].image.sprite = emptySprite;
+            slots[index].type = ItemsType.none;
         }
     }
 }
