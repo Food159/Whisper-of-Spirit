@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+public enum LevelShop
+{
+    Normal, Shop
+}
 public class PauseMenu : MonoBehaviour
 {
     public GameObject panel;
     public bool _isPanel;
+    public LevelShop _levelShop;
 
     private PlayerController playercontroller;
     private PlayerShooting playershooting;
@@ -17,24 +21,27 @@ public class PauseMenu : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape)) 
+        if(_levelShop == LevelShop.Normal)
         {
-            if(_isPanel)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                closePanel();
+                if (_isPanel)
+                {
+                    closePanel();
+                }
+                else
+                {
+                    togglePanel();
+                }
             }
-            else 
+            if (_isPanel)
             {
-                togglePanel();
+                DisablePlayercontrol();
             }
-        }
-        if(_isPanel)
-        {
-            DisablePlayercontrol();
-        }
-        else
-        {
-            EnablePlayercontrol();
+            else
+            {
+                EnablePlayercontrol();
+            }
         }
     }
     public void togglePanel()

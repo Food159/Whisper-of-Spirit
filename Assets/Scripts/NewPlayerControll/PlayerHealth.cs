@@ -39,6 +39,12 @@ public class PlayerHealth : Subject
     }
     private void Update()
     {
+        if(currentHealth >= 100)
+        {
+            currentHealth = 100;
+        }
+        UpdateSprite();
+        healthbar.SetHealth(currentHealth);
         if (_isPlayerDead && !_hasLoseStart)
         {
             StartCoroutine(LoseAfterDelay());

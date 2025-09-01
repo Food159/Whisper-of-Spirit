@@ -1092,6 +1092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 1261769123}
   _isPanel: 0
+  _levelShop: 0
 --- !u!224 &116516386
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1534,6 +1535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playercontroller: {fileID: 555515634}
   playerhealth: {fileID: 555515637}
+  scoreManager: {fileID: 0}
 --- !u!114 &135654194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2251,7 +2253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457c260986ab2ed43967e08426754906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 160
+  maxHealth: 60
   currentHealth: 0
   _isDead: 0
   healthbar: {fileID: 1102451601}
@@ -4075,7 +4077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457c260986ab2ed43967e08426754906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 160
+  maxHealth: 60
   currentHealth: 0
   _isDead: 0
   healthbar: {fileID: 316724103}
@@ -4113,7 +4115,7 @@ GameObject:
   - component: {fileID: 336005228}
   - component: {fileID: 336005229}
   - component: {fileID: 336005230}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: LV00_Single_Umbrella
   m_TagString: firstPlatform
   m_Icon: {fileID: 0}
@@ -4240,7 +4242,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 336005225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -4285,7 +4287,7 @@ PlatformEffector2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 336005225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
@@ -10272,7 +10274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457c260986ab2ed43967e08426754906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 160
+  maxHealth: 60
   currentHealth: 0
   _isDead: 0
   healthbar: {fileID: 2043624356}
@@ -13573,7 +13575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457c260986ab2ed43967e08426754906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 160
+  maxHealth: 60
   currentHealth: 0
   _isDead: 0
   healthbar: {fileID: 1866201325}
@@ -14197,7 +14199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457c260986ab2ed43967e08426754906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 160
+  maxHealth: 60
   currentHealth: 0
   _isDead: 0
   healthbar: {fileID: 1819899208}

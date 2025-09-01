@@ -8,6 +8,7 @@ public class GameDataHandler : MonoBehaviour
 {
     [SerializeField] PlayerController playercontroller;
     [SerializeField] PlayerHealth playerhealth;
+    [SerializeField] ScoreManager scoreManager;
 
     public static GameDataHandler instance;
     private void Awake()
@@ -20,6 +21,9 @@ public class GameDataHandler : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        playercontroller = FindAnyObjectByType<PlayerController>();
+        playerhealth = FindAnyObjectByType<PlayerHealth>();
+        scoreManager= FindAnyObjectByType<ScoreManager>();
     }
     private void Start()
     {
@@ -28,6 +32,7 @@ public class GameDataHandler : MonoBehaviour
         if(gamedata != null)
         {
             playerhealth.currentHealth = gamedata.playerHp;
+            scoreManager.score = gamedata.playerScore;
         }
     }
     private void Update()
@@ -50,6 +55,7 @@ public class GameDataHandler : MonoBehaviour
         PlayerGameData gamedata = new PlayerGameData();
         //gamedata.playerPos = playercontroller.transform.position;
         gamedata.playerHp = playerhealth.currentHealth;
+        gamedata.playerScore = scoreManager.score;
         
         //gamedata.playerDied = playerhealth._isPlayerDead;
 

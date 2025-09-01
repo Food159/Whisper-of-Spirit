@@ -60,7 +60,7 @@ public class WinCheck : MonoBehaviour
     }
     public void Win()
     {
-        GameDataHandler.instance.SaveData();
+        //GameDataHandler.instance.SaveData();
         wintestCheck = true;
         SoundManager.instance.PlaySfx(SoundManager.instance.winClip);
         if (winpanel != null)

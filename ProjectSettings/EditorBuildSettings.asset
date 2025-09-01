@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SceneGameFour.unity
     guid: 1588df16fffce4a4e923536c43796dac
   - enabled: 1
+    path: Assets/Scenes/SceneGameShop.unity
+    guid: cb525ebc1a9b8af4a8a1a41152dbce99
+  - enabled: 1
     path: Assets/Scenes/SceneGameBoss.unity
     guid: 6f0a69d972ef88e4fad636039be652eb
   m_configObjects: {}

@@ -7,5 +7,6 @@ public class PlayerGameData
 {
     public Vector2 playerPos;
     public int playerHp;
+    public int playerScore;
     public bool playerDied;
 }
