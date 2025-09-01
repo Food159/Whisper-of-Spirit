@@ -10,8 +10,9 @@ public class PlayerShooting : Subject, IPausable
 
     public Transform shootingPoint;
     //public GameObject bulletPrefab;
-    private float bulletSpeed = 10f;
+    public float bulletSpeed = 10f;
     public int waterammo;
+    public float waterReload = 1.25f;
 
     private bool _isFacingRight = true;
     SoundManager soundmanager;
@@ -62,7 +63,7 @@ public class PlayerShooting : Subject, IPausable
                 playerwater.currentWater++;
                 playerwater.waterbar.SetWater(playerwater.currentWater);
             }
-            yield return new WaitForSeconds(1.25f);
+            yield return new WaitForSeconds(waterReload);
         }
     }
     private void shooting()

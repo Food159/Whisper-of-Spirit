@@ -18,6 +18,9 @@ TagManager:
   - Boss
   - Ice
   - Water
+  - Mango
+  - Rice
+  - Green
   layers:
   - Default
   - TransparentFX

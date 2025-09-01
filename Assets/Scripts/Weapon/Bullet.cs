@@ -6,13 +6,26 @@ public class Bullet : MonoBehaviour
 {
     public float lifeTime = 2f;
     private float timer;
-    private int damage = 520;
+    private int damage = 20;
+    [SerializeField] Items items;
+    private void Awake()
+    {
+        items = FindAnyObjectByType<Items>();
+    }
     private void OnEnable()
     {
         timer = 0f;
     }
     private void Update()
     {
+        if(items.damageIncrese)
+        {
+            damage = 30;
+        }
+        else if(!items.damageIncrese) 
+        {
+            damage = 20;
+        }
         Vector2 bulletWorldToViewportPos = Camera.main.WorldToViewportPoint(transform.position);
         bool _isOutOfScreen = bulletWorldToViewportPos.x < 0 || bulletWorldToViewportPos.x > 1 || bulletWorldToViewportPos.y < 0 || bulletWorldToViewportPos.y > 1;
 
