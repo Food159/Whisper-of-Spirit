@@ -10,6 +10,7 @@ public class Items : MonoBehaviour
     [SerializeField] InventoryUI inventory;
     [SerializeField] InventorySlot inventoryslot;
     //public TMP_Text timerText;
+    public bool changeSprite = false;
     public bool damageIncrese = false;
     private void Awake()
     {
@@ -61,11 +62,13 @@ public class Items : MonoBehaviour
         playerShooting.bulletSpeed = 10 / 0.5f; //10 / 0.5f = 20
         playerShooting.waterReload = 1.25f * 0.5f; // 1.25 * 0.5 = 0.625
         damageIncrese = true;
+        changeSprite = true;
         Debug.Log("UseMango");
         //yield return new WaitForSeconds(10f);
         yield return StartCoroutine(StartTimer(index, 10f));
         playerShooting.bulletSpeed = 10f;
         playerShooting.waterReload = 1.25f;
+        changeSprite = false;
         damageIncrese = false;
     }
     IEnumerator UseRice(int index)
@@ -80,10 +83,12 @@ public class Items : MonoBehaviour
     }
     IEnumerator UseGreen(int index)
     {
+        changeSprite = true;
         damageIncrese = true;
         Debug.Log("UseGreen");
         //yield return new WaitForSeconds(5f);
         yield return StartCoroutine(StartTimer(index, 5f));
+        changeSprite = false;
         damageIncrese = false;
     }
     IEnumerator StartTimer(int index, float duration)

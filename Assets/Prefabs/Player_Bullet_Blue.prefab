@@ -162,4 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 2
-  damage: 520
+  items: {fileID: 0}
+  bulletNewSprite: {fileID: 21300000, guid: bde346c311dc6fa419d77d5a2b3235e9, type: 3}
+  bulletDefaultSprite: {fileID: 21300000, guid: db9b002f1b1ce7149a6f5686b6f6aca2, type: 3}
+  spriterenderer: {fileID: 0}

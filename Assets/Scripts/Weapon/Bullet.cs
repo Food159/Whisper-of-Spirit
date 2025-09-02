@@ -7,9 +7,13 @@ public class Bullet : MonoBehaviour
     private float timer;
     private int damage = 20;
     [SerializeField] Items items;
+    [SerializeField] Sprite bulletNewSprite;
+    [SerializeField] Sprite bulletDefaultSprite;
+    [SerializeField] SpriteRenderer spriterenderer;
     private void Awake()
     {
         items = FindAnyObjectByType<Items>();
+        spriterenderer = GetComponent<SpriteRenderer>();
     }
     private void OnEnable()
     {
@@ -26,6 +30,14 @@ public class Bullet : MonoBehaviour
             else if (!items.damageIncrese)
             {
                 damage = 20;
+            }
+            if(items.changeSprite)
+            {
+                spriterenderer.sprite = bulletNewSprite;
+            }
+            else if(!items.changeSprite)
+            {
+                spriterenderer.sprite = bulletDefaultSprite;
             }
         }
         Vector2 bulletWorldToViewportPos = Camera.main.WorldToViewportPoint(transform.position);
@@ -56,6 +68,7 @@ public class Bullet : MonoBehaviour
             {
                 bosshealth.TakeDamage(damage);
             }
+            gameObject.SetActive(false);
         }
     }
 }
