@@ -9,4 +9,5 @@ public class PlayerGameData
     public int playerHp;
     public int playerScore;
     public bool playerDied;
+    public List<ItemsType> inventoryItems = new List<ItemsType>();
 }

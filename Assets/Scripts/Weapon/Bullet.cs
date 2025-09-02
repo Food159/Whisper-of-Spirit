@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Bullet : MonoBehaviour
 {
     public float lifeTime = 2f;
@@ -18,13 +17,16 @@ public class Bullet : MonoBehaviour
     }
     private void Update()
     {
-        if(items.damageIncrese)
+        if(items != null) 
         {
-            damage = 30;
-        }
-        else if(!items.damageIncrese) 
-        {
-            damage = 20;
+            if (items.damageIncrese)
+            {
+                damage = 30;
+            }
+            else if (!items.damageIncrese)
+            {
+                damage = 20;
+            }
         }
         Vector2 bulletWorldToViewportPos = Camera.main.WorldToViewportPoint(transform.position);
         bool _isOutOfScreen = bulletWorldToViewportPos.x < 0 || bulletWorldToViewportPos.x > 1 || bulletWorldToViewportPos.y < 0 || bulletWorldToViewportPos.y > 1;

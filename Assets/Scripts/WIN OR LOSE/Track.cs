@@ -42,7 +42,8 @@ public class Track : MonoBehaviour
     public LevelTrack leveltrack;
     [SerializeField] PointCheck minigame1;
     [SerializeField] Ice_Water minigame2;
-    
+    [SerializeField] IpadTeen minigame3;
+
     public static Track instance;
     private void Awake()
     {
@@ -205,6 +206,16 @@ public class Track : MonoBehaviour
 
             #region track3
             trackText3.text = "Complete \"Special\" Mission";
+            if (minigame3.success)
+            {
+                trackCheck3.sprite = trackComplete3;
+                trackCompleted3 = true;
+            }
+            else
+            {
+                trackCheck3.sprite = trackIncomplete3;
+                trackCompleted3 = false;
+            }
             #endregion track3
         }
         if (leveltrack == LevelTrack.GameBoss)

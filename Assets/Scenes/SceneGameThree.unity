@@ -930,6 +930,7 @@ MonoBehaviour:
   leveltrack: 2
   minigame1: {fileID: 0}
   minigame2: {fileID: 496701145}
+  minigame3: {fileID: 0}
 --- !u!114 &41242064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3371,6 +3372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 1261769123}
   _isPanel: 0
+  _levelShop: 0
 --- !u!224 &116516386
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4106,6 +4108,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playercontroller: {fileID: 555515634}
   playerhealth: {fileID: 555515637}
+  scoreManager: {fileID: 0}
+  inventory: {fileID: 0}
+  itemsSpritePairs: []
 --- !u!114 &135654194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4287,7 +4292,7 @@ RectTransform:
   m_GameObject: {fileID: 155456151}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1084018092}
@@ -4295,7 +4300,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -226, y: -121}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 165, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &155456153
 MonoBehaviour:
@@ -4317,7 +4322,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a6fc30c0953bdec4b93b6db533b600cb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 171988a55d5fce04d85c2509d5605b37, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11294,8 +11299,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb97ba26c8b469a41b3915a9970a0df2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waterPrefabs: {fileID: 4255383577134672541, guid: 153d70c8fdb59e240870511650f4837a, type: 3}
-  icePrefabs: {fileID: 1414559591863128060, guid: b4fa2053da493a04ca3e683f6b71fef4, type: 3}
+  waterPrefabs: {fileID: 6697155058629610123, guid: c069951416c57d64aaa53e7f24100490, type: 3}
+  icePrefabs: {fileID: 4150998508657355210, guid: 2811a2adc06fa534a8987314f3ccf77e, type: 3}
   timeCountText: {fileID: 442483805}
   scoreText: {fileID: 280583540}
   icePanel: {fileID: 496701140}
@@ -12767,7 +12772,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletpool: {fileID: 1455335310}
   shootingPoint: {fileID: 155112627}
+  bulletSpeed: 10
   waterammo: 1
+  waterReload: 1.25
 --- !u!114 &555515637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14314,7 +14321,7 @@ RectTransform:
   m_GameObject: {fileID: 626615945}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1084018092}
@@ -14322,7 +14329,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 216, y: -126.99999}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 132, y: 189}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &626615947
 MonoBehaviour:
@@ -14344,7 +14351,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e584a50ecfc76a247942cf85638e9e9b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0fddac6bc3a0016489eeb0df27bf0979, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16923,6 +16930,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   track: {fileID: 0}
   scoreText: {fileID: 2087730951}
+  score: 0
 --- !u!114 &726235047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19106,6 +19114,7 @@ MonoBehaviour:
   leveltrack: 2
   minigame1: {fileID: 0}
   minigame2: {fileID: 496701145}
+  minigame3: {fileID: 0}
 --- !u!114 &820010931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23388,6 +23397,7 @@ MonoBehaviour:
   leveltrack: 2
   minigame1: {fileID: 0}
   minigame2: {fileID: 496701145}
+  minigame3: {fileID: 0}
 --- !u!114 &955359818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28753,6 +28763,8 @@ MonoBehaviour:
   pointcheckScript: {fileID: 0}
   iceGame: {fileID: 0}
   icewaterScript: {fileID: 0}
+  ipadGame: {fileID: 0}
+  ipadScript: {fileID: 0}
   _isBossDie: 0
 --- !u!1 &1146348729
 GameObject:
@@ -51236,6 +51248,8 @@ MonoBehaviour:
   pointcheckScript: {fileID: 0}
   iceGame: {fileID: 496701140}
   icewaterScript: {fileID: 496701145}
+  ipadGame: {fileID: 0}
+  ipadScript: {fileID: 0}
   _isBossDie: 0
 --- !u!95 &2097603210
 Animator:

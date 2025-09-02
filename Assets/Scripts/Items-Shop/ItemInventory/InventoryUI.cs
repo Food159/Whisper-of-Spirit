@@ -12,12 +12,13 @@ public class InventorySlot
 {
     public Image image;
     public ItemsType type = ItemsType.none;
-    //public TMP_Text timerText;
+    public TMP_Text timerText;
 }
 public class InventoryUI : MonoBehaviour
 {
     [SerializeField] List<InventorySlot> slots;
     [SerializeField] Sprite emptySprite;
+    public int SlotCount => slots.Count;
 
     public bool AddItems(Sprite itemSprite, ItemsType type)
     {
@@ -46,5 +47,11 @@ public class InventoryUI : MonoBehaviour
             slots[index].image.sprite = emptySprite;
             slots[index].type = ItemsType.none;
         }
+    }
+    public InventorySlot GetSlot(int index)
+    {
+        if(index >= 0 && index < slots.Count)
+            return slots[index];
+        return null;
     }
 }

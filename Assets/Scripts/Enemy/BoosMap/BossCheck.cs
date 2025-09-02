@@ -23,6 +23,8 @@ public class BossCheck : MonoBehaviour
 
     [Space]
     [Header("Teen")]
+    [SerializeField] private GameObject ipadGame;
+    [SerializeField] private IpadTeen ipadScript;
 
     [Space]
     public bool _isBossDie = false;
@@ -55,6 +57,8 @@ public class BossCheck : MonoBehaviour
             {
                 hasStarted = true;
                 _isBossDie = true;
+                ipadGame.SetActive(true);
+                ipadScript.StartRound();
             }
         }
     }

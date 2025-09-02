@@ -2269,6 +2269,14 @@ MonoBehaviour:
   playercontroller: {fileID: 555515634}
   playerhealth: {fileID: 555515637}
   scoreManager: {fileID: 0}
+  inventory: {fileID: 0}
+  itemsSpritePairs:
+  - type: 1
+    sprite: {fileID: 21300000, guid: bf9d6b1477daa0a40a76a55607d1fab6, type: 3}
+  - type: 2
+    sprite: {fileID: 21300000, guid: fcbc0ea62b80fae48a04ce3b422e51f3, type: 3}
+  - type: 3
+    sprite: {fileID: 21300000, guid: fa3e3c40eb803fd47a6faccb78bbebce, type: 3}
 --- !u!114 &135654194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8517,7 +8525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   track: {fileID: 0}
   scoreText: {fileID: 378220038}
-  score: 90
+  score: 0
 --- !u!114 &495481077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9818,7 +9826,7 @@ Transform:
   m_GameObject: {fileID: 569221188}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 236.88, y: -2.51, z: 0}
+  m_LocalPosition: {x: -12.2, y: -2.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16116,7 +16124,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -145, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 92.535, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &848790021
@@ -16878,7 +16886,7 @@ Transform:
   m_GameObject: {fileID: 885687131}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 236.6, y: -1.5511686, z: 0}
+  m_LocalPosition: {x: -12.479999, y: -1.5511686, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26337,10 +26345,13 @@ MonoBehaviour:
   slots:
   - image: {fileID: 522608403}
     type: 0
+    timerText: {fileID: 1829744988}
   - image: {fileID: 517361390}
     type: 0
+    timerText: {fileID: 848790021}
   - image: {fileID: 1606630069}
     type: 0
+    timerText: {fileID: 1997503900}
   emptySprite: {fileID: 0}
 --- !u!114 &1399152560
 MonoBehaviour:
@@ -26360,6 +26371,7 @@ MonoBehaviour:
   inventoryslot:
     image: {fileID: 0}
     type: 0
+    timerText: {fileID: 0}
   damageIncrese: 0
 --- !u!1 &1410590533
 GameObject:
@@ -35204,7 +35216,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -290, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 92.535, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1997503900

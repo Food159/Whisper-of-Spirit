@@ -4,11 +4,21 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.SceneManagement;
 
+[System.Serializable]
+public class ItemSpritePair
+{
+    public ItemsType type;
+    public Sprite sprite;
+}
 public class GameDataHandler : MonoBehaviour
 {
     [SerializeField] PlayerController playercontroller;
     [SerializeField] PlayerHealth playerhealth;
     [SerializeField] ScoreManager scoreManager;
+    [SerializeField] InventoryUI inventory;
+
+    [SerializeField] List<ItemSpritePair> itemsSpritePairs;
+    Dictionary<ItemsType, Sprite> spriteLookup;
 
     public static GameDataHandler instance;
     private void Awake()
@@ -21,9 +31,18 @@ public class GameDataHandler : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        spriteLookup = new Dictionary<ItemsType, Sprite>();
+        foreach(var pair in itemsSpritePairs)
+        {
+            if(!spriteLookup.ContainsKey(pair.type))
+            {
+                spriteLookup.Add(pair.type, pair.sprite);
+            }
+        }
         playercontroller = FindAnyObjectByType<PlayerController>();
         playerhealth = FindAnyObjectByType<PlayerHealth>();
         scoreManager= FindAnyObjectByType<ScoreManager>();
+        inventory = FindAnyObjectByType<InventoryUI>();
     }
     private void Start()
     {
@@ -32,7 +51,18 @@ public class GameDataHandler : MonoBehaviour
         if(gamedata != null)
         {
             playerhealth.currentHealth = gamedata.playerHp;
-            scoreManager.score = gamedata.playerScore;
+            if(scoreManager != null)
+            {
+                scoreManager.score = gamedata.playerScore;
+            }
+            foreach(ItemsType type in gamedata.inventoryItems)
+            {
+                if(type != ItemsType.none && inventory != null)
+                {
+                    Sprite itemSprite = GetSpriteFromType(type);
+                    inventory.AddItems(itemSprite, type);
+                }
+            }
         }
     }
     private void Update()
@@ -55,7 +85,18 @@ public class GameDataHandler : MonoBehaviour
         PlayerGameData gamedata = new PlayerGameData();
         //gamedata.playerPos = playercontroller.transform.position;
         gamedata.playerHp = playerhealth.currentHealth;
-        gamedata.playerScore = scoreManager.score;
+        if(scoreManager != null)
+        {
+            gamedata.playerScore = scoreManager.score;
+        }
+        if(inventory != null)
+        {
+            gamedata.inventoryItems.Clear();
+            for (int i = 0; i < inventory.SlotCount; i++)
+            {
+                gamedata.inventoryItems.Add(inventory.GetItemType(i));
+            }
+        }
         
         //gamedata.playerDied = playerhealth._isPlayerDead;
 
@@ -86,6 +127,12 @@ public class GameDataHandler : MonoBehaviour
         {
             Debug.Log("No data to delete");
         }
+    }
+    private Sprite GetSpriteFromType(ItemsType type)
+    {
+        if (spriteLookup.TryGetValue(type, out Sprite sprite))
+            return sprite;
+        return null;
     }
     //public void OnApplicationQuit()
     //{

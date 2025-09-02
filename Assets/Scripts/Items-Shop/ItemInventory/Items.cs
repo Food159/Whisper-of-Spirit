@@ -40,15 +40,15 @@ public class Items : MonoBehaviour
         switch (type) 
         {
             case ItemsType.mango:
-                StartCoroutine(UseMango(10f));
+                StartCoroutine(UseMango(index));
                 inventory.RemoveItem(index);
                 break;
             case ItemsType.rice:
-                StartCoroutine(UseRice(5f));
+                StartCoroutine(UseRice(index));
                 inventory.RemoveItem(index);
                 break;
             case ItemsType.green:
-                StartCoroutine(UseGreen(5f));
+                StartCoroutine(UseGreen(index));
                 inventory.RemoveItem(index);
                 break;
             default:
@@ -56,45 +56,51 @@ public class Items : MonoBehaviour
                 break;
         }
     }
-    IEnumerator UseMango(float duration)
+    IEnumerator UseMango(int index)
     {
         playerShooting.bulletSpeed = 10 / 0.5f; //10 / 0.5f = 20
         playerShooting.waterReload = 1.25f * 0.5f; // 1.25 * 0.5 = 0.625
         damageIncrese = true;
         Debug.Log("UseMango");
-        yield return new WaitForSeconds(10f);
-        //yield return StartCoroutine(StartTimer(duration));
+        //yield return new WaitForSeconds(10f);
+        yield return StartCoroutine(StartTimer(index, 10f));
         playerShooting.bulletSpeed = 10f;
         playerShooting.waterReload = 1.25f;
         damageIncrese = false;
     }
-    IEnumerator UseRice(float duration)
+    IEnumerator UseRice(int index)
     {
         playerShooting.bulletSpeed = 10 / 0.5f;
         playerShooting.waterReload = 1.25f * 0.5f;
         Debug.Log("UseRice");
-        yield return new WaitForSeconds(5f);
-        //yield return StartCoroutine(StartTimer(duration));
+        //yield return new WaitForSeconds(5f);
+        yield return StartCoroutine(StartTimer(index, 5f));
         playerShooting.bulletSpeed = 10f;
         playerShooting.waterReload = 1.25f;
     }
-    IEnumerator UseGreen(float duration)
+    IEnumerator UseGreen(int index)
     {
         damageIncrese = true;
         Debug.Log("UseGreen");
-        yield return new WaitForSeconds(5f);
-        //yield return StartCoroutine(StartTimer(duration));
+        //yield return new WaitForSeconds(5f);
+        yield return StartCoroutine(StartTimer(index, 5f));
         damageIncrese = false;
     }
-    //IEnumerator StartTimer(float duration)
-    //{
-    //    float timeLeft = duration;
-    //    while (timeLeft > 0)
-    //    {
-    //        inventoryslot.timerText.text = timeLeft.ToString("F1");
-    //        timeLeft -= Time.deltaTime;
-    //        yield return null;
-    //    }
-    //    inventoryslot.timerText.text = "0.0";
-    //}
+    IEnumerator StartTimer(int index, float duration)
+    {
+        InventorySlot slot = inventory.GetSlot(index);
+        if(slot == null || slot.timerText== null) 
+        {
+            yield break;
+        }
+        slot.timerText.gameObject.SetActive(true);
+        float timeLeft = duration;
+        while (timeLeft> 0)
+        {
+            slot.timerText.text = Mathf.Ceil(timeLeft).ToString();
+            yield return new WaitForSeconds(1f);
+            timeLeft -= 1f;
+        }
+        slot.timerText.gameObject.SetActive(false);
+    }
 }
