@@ -5,6 +5,7 @@ using UnityEngine;
 public class BossRainState : BossState
 {
     public AnimationClip animclip;
+    public AnimationClip animEnterClip;
     public CapsuleCollider2D col2d;
     public bool raining;
     public Transform bossRainPos;
@@ -12,6 +13,7 @@ public class BossRainState : BossState
     [SerializeField] GameObject shadow;
     [SerializeField] Transform[] RainPoint;
     private ObjectPool objectpool;
+    public bool enterFinish = false;
     public BossPhase phase;
 
     [Header("Rain Settings")]
@@ -23,22 +25,13 @@ public class BossRainState : BossState
     }
     public override void Enter()
     {
-        if(phase == BossPhase.phase1)
-        {
-            rainInterval = 0.2f;
-        }
-        else if( phase == BossPhase.phase2)
-        {
-            rainInterval = 0.1f;
-        }    
-        anim.Play(animclip.name);
-        col2d.enabled = false;
         transform.position = bossRainPos.position;
-        raining = true;
-        timeCount = 0;
+        col2d.enabled = false;
         shadow.SetActive(false);
-        
-        StartCoroutine(Rain());
+        raining = true;
+        anim.Play(animEnterClip.name);
+
+        StartCoroutine(RainEnter());
     }
     public override void Do()
     {
@@ -52,19 +45,19 @@ public class BossRainState : BossState
         transform.position = bossInput.startBossPos.position;
         col2d.enabled = true;
     }
-    public void BossRain()
-    {
-        for (int i = 0; i < rainAmount; i++)
-        {
-            float randomP = Random.Range(-14f, 12f);
-            Vector2 spawnPos = new Vector2(randomP, 11.28f);
-            //Transform rainpos = RainPoint[Random.Range(0, RainPoint.Length)];
-            GameObject rainspawn = objectpool.GetBossRainObject();
-            rainspawn.transform.position = spawnPos;
-            rainspawn.SetActive(true);
-        }
+    //public void BossRain()
+    //{
+    //    for (int i = 0; i < rainAmount; i++)
+    //    {
+    //        float randomP = Random.Range(-14f, 12f);
+    //        Vector2 spawnPos = new Vector2(randomP, 11.28f);
+    //        //Transform rainpos = RainPoint[Random.Range(0, RainPoint.Length)];
+    //        GameObject rainspawn = objectpool.GetBossRainObject();
+    //        rainspawn.transform.position = spawnPos;
+    //        rainspawn.SetActive(true);
+    //    }
 
-    }
+    //}
     IEnumerator Rain()
     {
         float rainDuration = Random.Range(9f, 20f); // เวลาฝนตกสุ่ม 9-20 วิ
@@ -77,8 +70,11 @@ public class BossRainState : BossState
                 float randomP = Random.Range(-14f, 12f);
                 Vector2 spawnPos = new Vector2(randomP, 11.28f);
                 GameObject rainspawn = objectpool.GetBossRainObject();
-                rainspawn.transform.position = spawnPos;
-                rainspawn.SetActive(true);
+                if (rainspawn != null)
+                {
+                    rainspawn.transform.position = spawnPos;
+                    rainspawn.SetActive(true);
+                }
             }
 
             float intervalTimer = 0f;
@@ -95,5 +91,22 @@ public class BossRainState : BossState
         bossInput.canShoot = false;
         shadow.SetActive(true);
         yield return StartCoroutine(bossInput.DelayBeforeFire());
+    }
+    IEnumerator RainEnter()
+    {
+        yield return new WaitForSeconds(animEnterClip.length);
+        timeCount = 0;
+        //enterFinish = true;
+
+        if (phase == BossPhase.phase1)
+        {
+            rainInterval = 0.2f;
+        }
+        else if (phase == BossPhase.phase2)
+        {
+            rainInterval = 0.1f;
+        }
+        anim.Play(animclip.name);
+        StartCoroutine(Rain());
     }
 }

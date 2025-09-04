@@ -10,10 +10,12 @@ public enum BossPhase
 public class BossFireState : BossState
 {
     public AnimationClip animclip;
+    public AnimationClip animExitClip;
     PlayerHealth playerStatus;
     public BossPhase bossphase;
     private ObjectPool objectpool;
     private BossController bossController;
+    public bool exitToRain = false;
 
     [Space]
     [Header("Variable")]
@@ -30,6 +32,7 @@ public class BossFireState : BossState
     }
     public override void Enter()
     {
+        //exitToRain = false;
         if (playerStatus._isPlayerDead == false)
         {
             anim.Play(animclip.name);
@@ -105,10 +108,19 @@ public class BossFireState : BossState
     }
     public override void Do()
     {
-
+        if(bossController.currentAttackCount >= bossController.attackCount && !exitToRain)
+        {
+            Exit();
+        }
     }
     public override void Exit()
     {
-
+        anim.Play(animExitClip.name);
+        bossController.StartCoroutine(ExitToRain());
+    }
+    IEnumerator ExitToRain()
+    {
+        yield return new WaitForSeconds(animExitClip.length);
+        exitToRain = true;
     }
 }

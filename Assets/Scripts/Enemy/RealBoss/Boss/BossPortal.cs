@@ -10,6 +10,7 @@ public class BossPortal : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     BossFireState bossFire;
     BossController bossController;
+    [SerializeField] Transform firePoint;
     public bool isLeft;
     private void Awake()
     {
@@ -28,13 +29,23 @@ public class BossPortal : MonoBehaviour
         {
             spriteRenderer.flipX = isLeft;
         }
+        Vector2 pos = firePoint.localPosition;
+        if (isLeft)
+        {
+            pos.x = 0.5f; /*Mathf.Abs(pos.x);*/
+        }
+        else
+        {
+            pos.x = -0.5f; /*-Mathf.Abs(pos.x);*/
+        }
+        firePoint.localPosition = pos;
     }
     public void BossShoot()
     {
         GameObject bossBullet = objectpool.GetBossBulletObject();
         if (bossBullet != null)
         {
-            bossBullet.transform.position = transform.position;
+            bossBullet.transform.position = firePoint.position;
             Rigidbody2D rb2d = bossBullet.GetComponent<Rigidbody2D>();
             if (rb2d != null)
             {

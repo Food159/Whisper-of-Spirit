@@ -5697,12 +5697,12 @@ GameObject:
   m_Component:
   - component: {fileID: 374977384}
   - component: {fileID: 374977389}
+  - component: {fileID: 374977390}
   - component: {fileID: 374977391}
   - component: {fileID: 374977383}
   - component: {fileID: 374977382}
   - component: {fileID: 374977387}
   - component: {fileID: 374977388}
-  - component: {fileID: 374977390}
   m_Layer: 0
   m_Name: Boss_Deang
   m_TagString: Boss
@@ -5866,6 +5866,7 @@ MonoBehaviour:
   bossFireState: {fileID: 374977390}
   bossRainState: {fileID: 374977391}
   bossHappyState: {fileID: 1283373882}
+  state: {fileID: 0}
   _isFacingRight: 0
   playerTarget: {fileID: 0}
   startBossPos: {fileID: 498244396}
@@ -5890,7 +5891,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossInput: {fileID: 374977389}
   animclip: {fileID: 7400000, guid: e81853bbc270f1e4eb7bf1a381b02569, type: 2}
+  animExitClip: {fileID: 7400000, guid: 5c87e542339d5104793ca86433c8bf34, type: 2}
   bossphase: 0
+  exitToRain: 0
   _isAttacking: 0
   portalPoint:
   - {fileID: 1106385656}
@@ -5913,6 +5916,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossInput: {fileID: 374977389}
   animclip: {fileID: 7400000, guid: 9c93a4624ef97c64b808f1b90c5973aa, type: 2}
+  animEnterClip: {fileID: 7400000, guid: 2527004c535f8e143a99dc96068a9309, type: 2}
   col2d: {fileID: 374977387}
   raining: 0
   bossRainPos: {fileID: 1999468479}
@@ -5929,6 +5933,7 @@ MonoBehaviour:
   - {fileID: 1044485521}
   - {fileID: 380059372}
   - {fileID: 1235829203}
+  enterFinish: 0
   phase: 0
   rainInterval: 0
   rainAmount: 1

@@ -10,7 +10,7 @@ public class BossController : MonoBehaviour
     public BossFireState bossFireState;
     public BossRainState bossRainState;
     public BossHappyState bossHappyState;
-    BossState state;
+    public BossState state;
 
     [Space]
     [Header("Variable")]
@@ -18,7 +18,7 @@ public class BossController : MonoBehaviour
     Animator anim;
     public bool _isFacingRight = false;
     public Transform playerTarget;
-    public Transform startBossPos; 
+    public Transform startBossPos;
 
     [Space]
     [Header("GameObject")]
@@ -88,6 +88,7 @@ public class BossController : MonoBehaviour
         if(canShoot && currentAttackCount < attackCount) 
         {
             shootTimer = 0f;
+            if(state != bossFireState)
             state = bossFireState;
             state.Enter();
 
@@ -107,13 +108,14 @@ public class BossController : MonoBehaviour
             }
 
         }
-        if(currentAttackCount >= attackCount && !bossRainState.raining)
+        if (currentAttackCount >= attackCount && !bossRainState.raining)
         {
-            if(!bossRainState.raining)
+            if (bossFireState.exitToRain)
             {
                 state = bossRainState;
                 currentAttackCount = 0;
                 canShoot = false;
+                bossFireState.exitToRain = false;
                 state.Enter();
             }
         }
