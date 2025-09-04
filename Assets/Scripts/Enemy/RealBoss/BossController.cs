@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -19,6 +20,7 @@ public class BossController : MonoBehaviour
     public bool _isFacingRight = false;
     public Transform playerTarget;
     public Transform startBossPos;
+    public AnimationClip animExitRainClip;
 
     [Space]
     [Header("GameObject")]
@@ -128,8 +130,12 @@ public class BossController : MonoBehaviour
             state.Enter();
         }
     }
-    public IEnumerator DelayBeforeFire()
+    public IEnumerator DelayRainBeforeFire()
     {
+        anim.Play(bossRainState.animExitRainClip.name);
+        yield return new WaitForSeconds(bossRainState.animExitRainClip.length);
+        bossRainState.raining = false;
+
         state = bossIdleState;
         state.Enter();
         yield return new WaitForSeconds(3f);

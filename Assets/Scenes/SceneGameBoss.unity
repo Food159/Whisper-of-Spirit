@@ -5703,6 +5703,7 @@ GameObject:
   - component: {fileID: 374977382}
   - component: {fileID: 374977387}
   - component: {fileID: 374977388}
+  - component: {fileID: 374977392}
   m_Layer: 0
   m_Name: Boss_Deang
   m_TagString: Boss
@@ -5870,6 +5871,7 @@ MonoBehaviour:
   _isFacingRight: 0
   playerTarget: {fileID: 0}
   startBossPos: {fileID: 498244396}
+  animExitRainClip: {fileID: 0}
   shadow: {fileID: 147426032}
   isAleart: 0
   canShoot: 0
@@ -5917,6 +5919,9 @@ MonoBehaviour:
   bossInput: {fileID: 374977389}
   animclip: {fileID: 7400000, guid: 9c93a4624ef97c64b808f1b90c5973aa, type: 2}
   animEnterClip: {fileID: 7400000, guid: 2527004c535f8e143a99dc96068a9309, type: 2}
+  animExitClip: {fileID: 7400000, guid: 039267a464a381147acb8e96666cd117, type: 2}
+  animExitRainClip: {fileID: 7400000, guid: f57cd265f1eaa2944aca04e2b169901f, type: 2}
+  animIdleClip: {fileID: 7400000, guid: ed64c761c38f3cc4baa72cd92625bf8b, type: 2}
   col2d: {fileID: 374977387}
   raining: 0
   bossRainPos: {fileID: 1999468479}
@@ -5933,10 +5938,35 @@ MonoBehaviour:
   - {fileID: 1044485521}
   - {fileID: 380059372}
   - {fileID: 1235829203}
-  enterFinish: 0
+  toIdle: 0
+  toExit: 0
   phase: 0
   rainInterval: 0
   rainAmount: 1
+  rainDuration: 0
+--- !u!111 &374977392
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374977381}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 6d5e00f3563ea284584053459ffccf4f, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: e81853bbc270f1e4eb7bf1a381b02569, type: 2}
+  - {fileID: 7400000, guid: 9c93a4624ef97c64b808f1b90c5973aa, type: 2}
+  - {fileID: 7400000, guid: ed64c761c38f3cc4baa72cd92625bf8b, type: 2}
+  - {fileID: 7400000, guid: 039267a464a381147acb8e96666cd117, type: 2}
+  - {fileID: 7400000, guid: 6d5e00f3563ea284584053459ffccf4f, type: 2}
+  - {fileID: 7400000, guid: 2527004c535f8e143a99dc96068a9309, type: 2}
+  - {fileID: 7400000, guid: 5c87e542339d5104793ca86433c8bf34, type: 2}
+  - {fileID: 7400000, guid: f57cd265f1eaa2944aca04e2b169901f, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &380059371
 GameObject:
   m_ObjectHideFlags: 0
@@ -9746,7 +9776,7 @@ Transform:
   m_GameObject: {fileID: 571116692}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.615, y: 0, z: 0}
+  m_LocalPosition: {x: -14.09, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 129.63, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10529,7 +10559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -15162,7 +15192,7 @@ Transform:
   m_GameObject: {fileID: 866249083}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.615, y: 0, z: 0}
+  m_LocalPosition: {x: 6.08, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 129.63, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16992,7 +17022,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -17464,7 +17494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.45098042, g: 0.015686275, b: 0.08627451, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -33090,7 +33120,7 @@ Transform:
   m_GameObject: {fileID: 1999468478}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 8, z: 0}
+  m_LocalPosition: {x: 0, y: 6.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

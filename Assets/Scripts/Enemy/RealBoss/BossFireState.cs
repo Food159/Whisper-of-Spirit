@@ -36,7 +36,7 @@ public class BossFireState : BossState
         if (playerStatus._isPlayerDead == false)
         {
             anim.Play(animclip.name);
-            
+
         }
     }
     public void CantShoot()

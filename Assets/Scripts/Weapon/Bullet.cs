@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Bullet : MonoBehaviour
 {
-    public float lifeTime = 2f;
+    private float lifeTime = 4f;
     private float timer;
     private int damage = 20;
     [SerializeField] Items items;
