@@ -29,4 +29,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SceneGameBoss.unity
     guid: 6f0a69d972ef88e4fad636039be652eb
+  - enabled: 1
+    path: Assets/Scenes/Hello.unity
+    guid: 661cae7996a88964c990a7d33b5939c8
+  - enabled: 1
+    path: Assets/Scenes/SceneGameBossPhase2.unity
+    guid: af523c18c52e4704cbbc46b3f33f7a58
   m_configObjects: {}

@@ -20,7 +20,6 @@ public class BossController : MonoBehaviour
     public bool _isFacingRight = false;
     public Transform playerTarget;
     public Transform startBossPos;
-    public AnimationClip animExitRainClip;
 
     [Space]
     [Header("GameObject")]
@@ -68,7 +67,6 @@ public class BossController : MonoBehaviour
         {
             attackCount = Random.Range(6, 12);
         }
-
         bossIdleState.Setup(rb2d, anim, this);
         bossFireState.Setup(rb2d, anim, this);
         bossRainState.Setup(rb2d, anim, this);
@@ -77,7 +75,10 @@ public class BossController : MonoBehaviour
     }
     private void Update()
     {
-        //Check();
+        if(phase == BossPhase.phase2)
+        {
+            Check();
+        }
         SelectState();
         state.Do();
     }
@@ -124,7 +125,7 @@ public class BossController : MonoBehaviour
     }
     void Check()
     {
-        if(status.isDead)
+        if(status.isDead && state != bossHappyState)
         {
             state = bossHappyState;
             state.Enter();

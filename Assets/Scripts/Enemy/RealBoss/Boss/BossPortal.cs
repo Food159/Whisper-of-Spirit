@@ -6,7 +6,7 @@ using UnityEngine.Pool;
 public class BossPortal : MonoBehaviour
 {
     private ObjectPool objectpool;
-    [SerializeField] float bulletSpeed = 5f;
+    [SerializeField] float bulletSpeed;
     [SerializeField] private SpriteRenderer spriteRenderer;
     BossFireState bossFire;
     BossController bossController;
@@ -17,6 +17,20 @@ public class BossPortal : MonoBehaviour
         objectpool = FindObjectOfType<ObjectPool>();
         bossFire = FindObjectOfType<BossFireState>();
         bossController = FindObjectOfType<BossController>();
+    }
+    private void Update()
+    {
+        if(bossFire != null) 
+        {
+            if(!bossFire.phase2)
+            {
+                bulletSpeed = 10f;
+            }
+            else if(bossFire.phase2)
+            {
+                bulletSpeed = 12f;
+            }
+        }
     }
     public void ClosePortal()
     {

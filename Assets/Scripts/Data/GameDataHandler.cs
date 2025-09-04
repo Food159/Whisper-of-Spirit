@@ -19,6 +19,7 @@ public class GameDataHandler : MonoBehaviour
 
     [SerializeField] List<ItemSpritePair> itemsSpritePairs;
     Dictionary<ItemsType, Sprite> spriteLookup;
+    public BossPhase phase;
 
     public static GameDataHandler instance;
     private void Awake()
@@ -78,6 +79,8 @@ public class GameDataHandler : MonoBehaviour
     }
     public void SaveData()
     {
+        if (phase == BossPhase.phase2)
+            return;
         if(Directory.Exists(Application.dataPath) == false)
         {
             Directory.CreateDirectory(Application.dataPath);

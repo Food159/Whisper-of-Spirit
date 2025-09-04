@@ -2603,7 +2603,7 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: fcbc0ea62b80fae48a04ce3b422e51f3, type: 3}
   - type: 3
     sprite: {fileID: 21300000, guid: fa3e3c40eb803fd47a6faccb78bbebce, type: 3}
-  phase: 0
+  phase: 1
 --- !u!114 &135654194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2618,7 +2618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scene: 
   level: 1
-  phase: 0
+  phase: 1
   buttonContinue: {fileID: 0}
 --- !u!1 &142894321
 GameObject:
@@ -5019,51 +5019,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &286750375
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 286750377}
-  - component: {fileID: 286750376}
-  m_Layer: 0
-  m_Name: CameraShake
-  m_TagString: ScreenShake
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &286750376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 286750375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d720e26e0eca2314090896508fc572eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camAnim: {fileID: 0}
---- !u!4 &286750377
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 286750375}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &303320689 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5533376647079158633, guid: 0720c13dc61e3e84d89d58fd745d4d61, type: 3}
@@ -5899,7 +5854,7 @@ MonoBehaviour:
   isDead: 0
   healthBar: {fileID: 445861742}
   hpRegenPrefabs: {fileID: 6217976107345131854, guid: 7b0368f152c616b40a458d8ad0d4deaa, type: 3}
-  phase: 0
+  phase: 1
 --- !u!114 &374977389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5926,7 +5881,7 @@ MonoBehaviour:
   shootTimer: 0
   attackCount: 0
   currentAttackCount: 0
-  phase: 0
+  phase: 1
 --- !u!114 &374977390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5942,7 +5897,7 @@ MonoBehaviour:
   bossInput: {fileID: 374977389}
   animclip: {fileID: 7400000, guid: e81853bbc270f1e4eb7bf1a381b02569, type: 2}
   animExitClip: {fileID: 7400000, guid: 5c87e542339d5104793ca86433c8bf34, type: 2}
-  bossphase: 0
+  bossphase: 1
   exitToRain: 0
   phase2: 0
   _isAttacking: 0
@@ -5989,7 +5944,7 @@ MonoBehaviour:
   - {fileID: 1235829203}
   toIdle: 0
   toExit: 0
-  phase: 0
+  phase: 1
   rainInterval: 0
   rainAmount: 1
   rainDuration: 0
@@ -10031,6 +9986,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2141278675}
   - {fileID: 2098067166}
   - {fileID: 1044921442}
   m_Father: {fileID: 0}
@@ -19781,6 +19737,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1185698272
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1185698274}
+  - component: {fileID: 1185698273}
+  m_Layer: 0
+  m_Name: CameraShake
+  m_TagString: ScreenShake
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1185698273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185698272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d720e26e0eca2314090896508fc572eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camAnim: {fileID: 0}
+--- !u!4 &1185698274
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185698272}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1186902386
 GameObject:
   m_ObjectHideFlags: 0
@@ -21964,9 +21965,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossInput: {fileID: 374977389}
-  animclip: {fileID: 0}
+  animclip: {fileID: 7400000, guid: acf210a236570334aaaf1aaa3f551ce9, type: 2}
   col2d: {fileID: 374977387}
-  boss: {fileID: 0}
+  boss: {fileID: 374977381}
   win: {fileID: 0}
 --- !u!1 &1284009634
 GameObject:
@@ -28511,8 +28512,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2136750244}
-        m_TargetAssemblyTypeName: Button, Assembly-CSharp
-        m_MethodName: OnButtonRestart
+        m_TargetAssemblyTypeName: Buttonn, Assembly-CSharp
+        m_MethodName: OnButtonRestartBoss
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -35232,7 +35233,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 587122354}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2141278676
 MonoBehaviour:
@@ -35809,9 +35810,8 @@ SceneRoots:
   - {fileID: 1601650914}
   - {fileID: 2121457115}
   - {fileID: 135654192}
-  - {fileID: 2141278675}
+  - {fileID: 1185698274}
   - {fileID: 587122354}
-  - {fileID: 286750377}
   - {fileID: 1395944479}
   - {fileID: 1485697149}
   - {fileID: 374977384}

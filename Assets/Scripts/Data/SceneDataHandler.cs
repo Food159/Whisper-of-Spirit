@@ -13,6 +13,7 @@ public class SceneDataHandler : MonoBehaviour
 {
     public string scene;
     public LevelType level;
+    public BossPhase phase;
     public static SceneDataHandler instance;
     [SerializeField] UnityEngine.UI.Button buttonContinue;
     private void Awake()
@@ -68,6 +69,8 @@ public class SceneDataHandler : MonoBehaviour
     }
     public void SaveSceneData()
     {
+        if (phase == BossPhase.phase2)
+            return;
         scene = SceneManager.GetActiveScene().name;
 
         if (Directory.Exists(Application.dataPath) == false)

@@ -223,7 +223,7 @@ public class Track : MonoBehaviour
             if (winCheck == null) return;
 
             #region track1
-            trackText.text = "ไอแดงแตก";
+            trackText.text = "Defeat Crimson Queen";
             //if (dead >= total)
             //{
             //    trackCheck.sprite = trackComplete;

@@ -25,11 +25,11 @@ public class Bullet : MonoBehaviour
         {
             if (items.damageIncrese)
             {
-                damage = 30;
+                damage = 1130;
             }
             else if (!items.damageIncrese)
             {
-                damage = 20;
+                damage = 1120;
             }
             if(items.changeSprite)
             {

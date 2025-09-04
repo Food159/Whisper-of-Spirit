@@ -10,6 +10,12 @@ public class Buttonn : MonoBehaviour
     {
         wincheck = GetComponent<WinCheck>();
     }
+    public void OnButtonRestartBoss()
+    {
+        Time.timeScale = 1;
+        SceneController.instance.LoadSceneName("SceneGameBoss");
+        GameDataHandler.instance.LoadData();
+    }
     public void OnButtonRestart()
     {
         Time.timeScale = 1;

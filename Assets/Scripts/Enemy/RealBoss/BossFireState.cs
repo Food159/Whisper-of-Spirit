@@ -16,6 +16,7 @@ public class BossFireState : BossState
     private ObjectPool objectpool;
     private BossController bossController;
     public bool exitToRain = false;
+    public bool phase2 = false;
 
     [Space]
     [Header("Variable")]
@@ -47,6 +48,7 @@ public class BossFireState : BossState
     {
         if(bossphase == BossPhase.phase1) 
         {
+            phase2 = false;
             //int[] indexes = { 0, 2, 4 };
             //int randomindex = indexes[Random.Range(0, indexes.Length)];
             //Transform allPoint = portalPoint[randomindex];
@@ -73,6 +75,7 @@ public class BossFireState : BossState
         }
         else if (bossphase == BossPhase.phase2)
         {
+            phase2 = true;
             int[] leftindex = { 0, 2, 4 };
             int leftrandom = leftindex[Random.Range(0, leftindex.Length)];
             Transform leftPoint = portalPoint[leftrandom];
